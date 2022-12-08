@@ -1,13 +1,8 @@
 <?php
 /**
 *
-
 * This file is part of the phpBB Forum Software package.
 *
-
-
-
-
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
@@ -23,6 +18,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -42,16 +38,14 @@ if (empty($lang) || !is_array($lang))
 
 // Custom profile fields
 $lang = array_merge($lang, array(
-  'DISPLAY_ON_VT'   =>  'Prikaži na ekranu sa temama',
-  'DISPLAY_ON_VT_EXPLAIN' =>  'Ukoliko je uključeno, ovo polje će biti prikazano u mini profilu na ekranu sa temama.',
 	'ADDED_PROFILE_FIELD'	=> 'Uspešno ste dodali proizvoljno polje profila.',
 	'ALPHA_DOTS'			=> 'Alfanumerički i tačke',
 	'ALPHA_ONLY'			=> 'Samo alfanumerički',
-	'ALPHA_PUNCTUATION'		=> 'Alfanumerički sa zarezom, točkom donjom crtom i crticama i da počinje slovom',
 	'ALPHA_SPACERS'			=> 'Alfanumerički i razmaci',
-	'ALWAYS_TODAY'			=> 'Uvek trenutni datum',
 	'ALPHA_UNDERSCORE'		=> 'Alfanumerički i donje crte',
-
+	'ALPHA_PUNCTUATION'		=> 'Alfanumerički sa zarezom, točkom donjom crtom i crticama i da počinje slovom',
+	'ALWAYS_TODAY'			=> 'Uvek trenutni datum',
+	
 	'BOOL_ENTRIES_EXPLAIN'	=> 'Unesite vaše opcije',
 	'BOOL_TYPE_EXPLAIN'		=> 'Definišite tip, bilo checkbox ili radio dugme',
 
@@ -66,7 +60,7 @@ $lang = array_merge($lang, array(
 	'CP_LANG_OPTIONS'			=> 'Opcije',
 	'CREATE_NEW_FIELD'			=> 'Kreiraj novo polje',
 	'CUSTOM_FIELDS_NOT_TRANSLATED'	=> 'Najmanje jedno proizvoljno polje nije prevedeno. Molimo vas da unesete obavezne informacije tako što ćete kliknuti na &quot;Prevedi&quot; link.',
-
+	
 	'DEFAULT_ISO_LANGUAGE'			=> 'Podrazumevani jezik [%s]',
 	'DEFAULT_LANGUAGE_NOT_FILLED'	=> 'Jezički unosi za podrazumevani jezik nisu popunjeni za ovo polje profila.',
 	'DEFAULT_VALUE'					=> 'Podrazumevana vrednost',
@@ -80,6 +74,8 @@ $lang = array_merge($lang, array(
 	'DISPLAY_ON_MEMBERLIST_EXPLAIN'	=> 'Ukoliko je ova opcija uključena, polje će biti prikazano u redu sa korisnicima na ekranu sa listom članova.',
 	'DISPLAY_ON_PM'					=> 'Prikaži da ekranu sa privatnim porukama',
 	'DISPLAY_ON_PM_EXPLAIN'			=> 'Ukoliko je ova opcija uključena, polje će biti prikazano u mini profilu na ekranu sa privatnim porukama.',
+	'DISPLAY_ON_VT'					=>  'Prikaži na ekranu sa temama',
+	'DISPLAY_ON_VT_EXPLAIN'			=>  'Ukoliko je uključeno, ovo polje će biti prikazano u mini profilu na ekranu sa temama.',
 	'DISPLAY_PROFILE_FIELD'			=> 'Prikaži polje profila',
 	'DISPLAY_PROFILE_FIELD_EXPLAIN'	=> 'Polje profila će biti prikazano u pregledu teme/pregledu profila/listi članova/itd.',
 	'DROPDOWN_ENTRIES_EXPLAIN'		=> 'Unesite vaše opcije, svaka opcija u novoj liniji',
@@ -97,7 +93,6 @@ $lang = array_merge($lang, array(
 	'FIELD_DESCRIPTION'			=> 'Opis polja',
 	'FIELD_DESCRIPTION_EXPLAIN'	=> 'Objašnjenje polja koje se prikazuje korisniku',
 	'FIELD_DROPDOWN'			=> 'Padajuća lista',
-	'FIELD_GOOGLEPLUS'			=> 'Google+',
 	'FIELD_IDENT'				=> 'Identifikacija polja',
 	'FIELD_IDENT_ALREADY_EXIST'	=> 'Izabrana identifikacija polja već postoji. Izaberite drugo ime.',
 	'FIELD_IDENT_EXPLAIN'		=> 'Identifikacija polja je naziv koji služi za identifikaciju polja van baze i šablona.',
@@ -122,6 +117,7 @@ $lang = array_merge($lang, array(
 	'ISO_LANGUAGE'				=> 'Jezik [%s]',
 
 	'LANG_SPECIFIC_OPTIONS'		=> 'Specifične opcije jezika [<strong>%s</strong>]',
+
 	'LETTER_NUM_DOTS'			=> 'Slova, brojevi i tačke',
 	'LETTER_NUM_ONLY'			=> 'Slova i brojevi',
 	'LETTER_NUM_PUNCTUATION'	=> 'Slova, brojevi, zarez, tačka, donja crta i crtice i da počinje sa slovom',
@@ -174,7 +170,6 @@ $lang = array_merge($lang, array(
 	'TRANSLATE'						=> 'Prevedi',
 
 	'USER_FIELD_NAME'	=> 'Ime polja prezentovano korisniku',
-
 
 	'VISIBILITY_OPTION'				=> 'Opcija vidljivosti',
 ));

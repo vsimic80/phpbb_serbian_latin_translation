@@ -49,9 +49,8 @@ $lang = array_merge($lang, array(
 	'BAN_REASON'			=> 'Razlog zabrane',
 	'BAN_GIVE_REASON'		=> 'Prikaži zabranjenom korisniku razlog',
 	'BAN_UPDATE_SUCCESSFUL'	=> 'Lista zabrana je uspešno ažurirana.',
-	
 	'BANNED_UNTIL_DATE'    =>  'do %s',
-  'BANNED_UNTIL_DURATION' =>  '%1$s (do %2$s)',
+  	'BANNED_UNTIL_DURATION' =>  '%1$s (do %2$s)',
 
 	'EMAIL_BAN'					=> 'Zabrani jednu ili više email adresa',
 	'EMAIL_BAN_EXCLUDE_EXPLAIN'	=> 'Uključite ovu opciju da bi izuzeli unesene email adrese od svih trenutnih zabrana.',

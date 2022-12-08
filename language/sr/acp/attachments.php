@@ -1,13 +1,9 @@
 <?php
 /**
 *
-
 * This file is part of the phpBB Forum Software package.
 *
-
-
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
-
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * For full copyright and license information, please see
@@ -22,6 +18,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -40,16 +37,12 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
-
-
 	'ACP_ATTACHMENT_SETTINGS_EXPLAIN'	=> 'Ovde možete podešavati glavne opcije prikačenih fajlova i dodatne specijalne kategorije.',
 	'ACP_EXTENSION_GROUPS_EXPLAIN'		=> 'Ovde možete dodavati, brisati, menjati i onemogućiti proširene grupe. Dalje opcije uključuju dodeljivanje specijalnih kategorija grupama, menjanje moda za download i definisanje ikonica za upload koja će biti prikazana ispred prikačenog fajla koji pripada toj grupi.',
 	'ACP_MANAGE_EXTENSIONS_EXPLAIN'		=> 'Ovde možete menjati vaše dozvoljene ekstenzije. Da bi aktivirali svoju ekstenziju, molimo vas da idete na panel Menadžment grupa ekstenzija. Strogo preporučujemo da ne dozvolite ekstenzije sa skriptama (kao što su <code>php</code>, <code>php3</code>, <code>php4</code>, <code>phtml</code>, <code>pl</code>, <code>cgi</code>, <code>py</code>, <code>rb</code>, <code>asp</code>, <code>aspx</code>, i tako dalje)',
-	
 	'ACP_ORPHAN_ATTACHMENTS_EXPLAIN'	=> 'Ovde možete videti fajlove u direktorijumu za upload prikačenih fajlova ali ne i fajlove prikačene za postove. Ovo se uglavnom dešava ako korisnik prikači fajl ali ne pošalje post. U mogućnosti ste da brišete fajlove ili ih prikačite na postojeće postove. Da bi prikačili fajl na post, morate imati validan ID posta, koji morate sami da utvrdite, mada je ova opcija uglavnom za one ljude koji žele da pošalju fajlove nekim drugim programom i da dodele (uglavnom velike) fajlove na postojeći post.',
 	'ADD_EXTENSION'						=> 'Dodaj ekstenziju',
 	'ADD_EXTENSION_GROUP'				=> 'Dodaj grupu ekstenzija',
-	
 	'ADMIN_UPLOAD_ERROR'				=> 'Greške u toku pokušaja da se prikači fajl: %s',
 	'ALLOWED_FORUMS'					=> 'Dozvoljeni forumi',
 	'ALLOWED_FORUMS_EXPLAIN'			=> 'Omogućuje da postavite dodeljene ekstenzije na izabran (ili na sve ako su izabrani) forume',
@@ -75,11 +68,7 @@ $lang = array_merge($lang, array(
 	'ATTACH_QUOTA_EXPLAIN'				=> 'Maksimano prostora na hard disku za sve prikačene fajlove, 0 je neograničeno.',
 	'ATTACH_TO_POST'					=> 'Prikači fajl za post',
 
-	'CAT_FLASH_FILES'			=> 'Flash fajlovi',
 	'CAT_IMAGES'				=> 'Slike',
-	'CAT_QUICKTIME_FILES'		=> 'Quicktime fajlovi',
-	'CAT_RM_FILES'				=> 'Real Media strimovi',
-	'CAT_WM_FILES'				=> 'Windows Media strimovi',
 	'CHECK_CONTENT'				=> 'Provera prikačenih fajlova',
 	'CHECK_CONTENT_EXPLAIN'		=> 'Neki bowseri mmogu biti prevareni i da pretpostave pogrešan tip fajla koji je poslat. Ovom opcijom osiguravate da takvi fajlovi budu odbijeni.',
 	'CREATE_GROUP'				=> 'Napravi novu grupu',
@@ -109,24 +98,21 @@ $lang = array_merge($lang, array(
 	'EXT_GROUP_ARCHIVES'			=> 'Arhive',
 	'EXT_GROUP_DOCUMENTS'			=> 'Dokumenti',
 	'EXT_GROUP_DOWNLOADABLE_FILES'	=> 'Fajlovi za download',
-	'EXT_GROUP_FLASH_FILES'			=> 'Flash fajlovi',
 	'EXT_GROUP_IMAGES'				=> 'Slike',
 	'EXT_GROUP_PLAIN_TEXT'			=> 'Običan tekst',
-	'EXT_GROUP_QUICKTIME_MEDIA'		=> 'Quicktime Medij',
-	'EXT_GROUP_REAL_MEDIA'			=> 'Real Medij',
-	'EXT_GROUP_WINDOWS_MEDIA'		=> 'Windows Medij',
-	
+
 	'FILES_GONE'			=> 'Neki od prikačenih fajlova koje ste izabrali za brisanje ne postoji. Oni us verovatno već obrisani. Prikačeni fajlovi koji su postojali su obrisani.',
 	'FILES_STATS_WRONG'		=> 'Statistika faših fajlova je verovatno netačna i trebalo bi je sinhronizovati. Trenutne vrednosti: broj prikačenih fajlova = %1$d, ukupna veličina prikaženih fajlova = %2$s.<br />Kliknite %3$sovde%4$s za ponovnu sinhronizaciju.',
-
 	'GO_TO_EXTENSIONS'		=> 'Idi na panel za menadžment ekstenzija',
 	'GROUP_NAME'			=> 'Ime grupe',
-
+	
 	'IMAGE_LINK_SIZE'			=> 'Dimenzije linka slike',
 	'IMAGE_LINK_SIZE_EXPLAIN'	=> 'Prikazuje prikačeni fajl slike kao link ako je slika veća od ove vrednosti, postavite na 0px puta 0px da isključite ovu opciju.',
-	'IMAGICK_PATH'				=> 'Imagemagick putanja',
-	'IMAGICK_PATH_EXPLAIN'		=> 'Puna putanja do imagemagick aplikacije za konvertovanje, na primer <samp>/usr/bin/</samp>',
-
+	'IMAGE_QUALITY'				=> 'Kvalitet poslatih slika (važi samo za JPEG)',
+	'IMAGE_QUALITY_EXPLAIN'		=> 'Izaberite vrednost između 50% (manja veličina fajla) i 90% (bolji kvalitet). Kvalitet preko 90% povećava veličinu fajl i zato je onemogućen. Podešavanja važe samo ukoliko su maksimalne dimenzije slike veće od vrednosti 0px puta 0px.',
+	'IMAGE_STRIP_METADATA'		=> 'Ukloni meta podatke iz slika (važi samo za JPEG)',
+	'IMAGE_STRIP_METADATA_EXPLAIN'	=> 'Uklanja Exif meta podatke, na primer, ime autora, GPS koordinate i detalje kamere. Podešavanje se primenjuje samo ukoliko su maksimalne dimenzije slike veće od 0px puta 0px.',
+	
 	'MAX_ATTACHMENTS'				=> 'Maksimalno prikačenih fajlova po postu',
 	'MAX_ATTACHMENTS_PM'			=> 'Maksimalno prikačenih fajlova po privatnoj poruci',
 	'MAX_EXTGROUP_FILESIZE'			=> 'Maksimalna veličina fajla',
@@ -144,14 +130,15 @@ $lang = array_merge($lang, array(
 	'NOT_ASSIGNED'				=> 'Nije dodeljeno',
 	'NO_ATTACHMENTS'			=> 'Nema nađenih prikačenih fajlova za ovaj period.',
 	'NO_EXT_GROUP'				=> 'Nijedna',
+	'NO_EXT_GROUP_ALLOWED_PM'	=> 'Nema <a href="%s">dozvoljenih proširenih grupa</a> za privatne poruke.',
+	'NO_EXT_GROUP_ALLOWED_POST'	=> 'Nema <a href="%s">dozvoljenih proširenih grupa</a> za postove.',
 	'NO_EXT_GROUP_NAME'			=> 'Nije uneto ime grupe',
 	'NO_EXT_GROUP_SPECIFIED'	=> 'Nije izabrana ekstenziona grupa.',
 	'NO_FILE_CAT'				=> 'Nijedna',
 	'NO_IMAGE'					=> 'Bez slike',
-	'NO_THUMBNAIL_SUPPORT'		=> 'Podrška za generisane sličice je isključena jer nema podržane GD biblioteke i izvršni fajl imagemagick-a ne može biti pronađen.',
 	'NO_UPLOAD_DIR'				=> 'Upload direktorijum koji ste odredili ne postoji.',
 	'NO_WRITE_UPLOAD'			=> 'Upisivanje u upload direktorijum koji ste odredili nije moguć. Izmenite dozvole da bi dopustili serveru da upisuje.',
-
+	
 	'ONLY_ALLOWED_IN_PM'	=> 'Dozvoljeno samo u privatnim porukama',
 	'ORDER_ALLOW_DENY'		=> 'Dozvoli',
 	'ORDER_DENY_ALLOW'		=> 'Zabrani',
@@ -160,7 +147,6 @@ $lang = array_merge($lang, array(
 	'REMOVE_DISALLOWED_IPS'		=> 'Ukloni ili ponovo uključi zabranjene IP adese/hostove',
 	'RESYNC_FILES_STATS_CONFIRM'	=> 'Da li ste sigurni da želite da resihronizujete statistiku fajlova?',
 
-	'SEARCH_IMAGICK'				=> 'Potraži Imagemagick',
 	'SECURE_ALLOW_DENY'				=> 'Lista Dozvola/Zabrana',
 	'SECURE_ALLOW_DENY_EXPLAIN'		=> 'Dozvoli ili zabrani listu adresa, ovo podešavanje se odnosi samo na fajlove za download',
 	'SECURE_DOWNLOADS'				=> 'Omogući bezbedne download-e',
@@ -176,7 +162,6 @@ $lang = array_merge($lang, array(
 	'SUCCESS_EXTENSION_GROUP_ADD'	=> 'Grupa ekstenzija je uspešno dodata',
 	'SUCCESS_EXTENSION_GROUP_EDIT'	=> 'Grupa ekstenzija je uspešno ažurirana',
 
-
 	'UPLOADING_FILES'				=> 'Upload fajlova',
 	'UPLOADING_FILE_TO'				=> 'Upload fajla %1$s na post broj %2$d',
 	'UPLOAD_DENIED_FORUM'			=> 'Nemate dozvolu da upload-ujete fajlove na forum %s',
@@ -184,4 +169,5 @@ $lang = array_merge($lang, array(
 	'UPLOAD_DIR_EXPLAIN'			=> 'Putanja za smeštanje prikačenih fajlova.',
 	'UPLOAD_ICON'					=> 'Upload ikonica',
 	'UPLOAD_NOT_DIR'				=> 'Lokacija za upload koju ste odredili nije direktorijum.',
+	'UPLOAD_POST_NOT_EXIST'			=> 'Fajl “%1$s” ne može da se upload-uje za post broj %2$d jer taj post ne postoji.',
 ));

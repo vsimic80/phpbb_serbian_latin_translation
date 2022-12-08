@@ -1,8 +1,8 @@
-Subject: “{SITENAME}” — Email prijatelju
+Subject: "{SITENAME}" — Email prijatelju
 
 Zdravo {TO_USERNAME},
 
-Ovaj email je poslat sa foruma “{SITENAME}” od {FROM_USERNAME} jer je pomislio(la) da ćete biti zaiteresovani za temu:
+Ovaj email je poslat sa foruma "{SITENAME}" od {FROM_USERNAME} jer je pomislio(la) da ćete biti zaiteresovani za temu:
 
 {TOPIC_NAME}
 

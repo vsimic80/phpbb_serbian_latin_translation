@@ -1,0 +1,13 @@
+Subject: Prijava privatne poruke zatvorena - "{SUBJECT}"
+
+Zdravo {USERNAME},
+
+Prijava koju ste popunili za privatnu poruku "{SUBJECT}" od "{AUTHOR_NAME}" na "{SITENAME}" je obrađena od urednika ili administratora. Prijava je na kraju zatvorena. Ukoliko imate još pitanja kontaktirajte {CLOSER_NAME} privatnom porukom.
+
+Možete pogledati vašu prijavu klikom na link ispod:
+
+{U_VIEW_MESSAGE}
+
+Tražili ste da Vas obevestimo o ovom događaju, ali znajte da to možete uvek promeniti izborom odgovorajuće opciju u vašem profilu.
+
+{EMAIL_SIG}

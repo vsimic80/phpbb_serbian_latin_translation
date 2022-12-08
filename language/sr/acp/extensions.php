@@ -43,6 +43,7 @@ $lang = array_merge($lang, array(
 	'EXTENSION_NOT_AVAILABLE'	=> 'Izabrana ekstenzija nije dostupna za ovaj board. Proverite koje verzije phpBB-a i PHP-a su dozvoljene (pogledajte stranu sa detaljima).',
 	'EXTENSION_DIR_INVALID'		=> 'Izabrana ekstenzija ima neispravnu strukturu direktorijuma i ne može biti omogućena.',
 	'EXTENSION_NOT_ENABLEABLE'	=> 'Izabrana ekstenzija ne može biti omogućena, proverite zahteve ekstenzije.',
+	'EXTENSION_NOT_INSTALLED'	=> 'Ekstenzija %s nije dostupna. Proverite da li ste je ispravno instalirali.',
 
 	'DETAILS'				=> 'Detalji',
 
@@ -115,7 +116,6 @@ $lang = array_merge($lang, array(
 	'AUTHOR_HOMEPAGE'		=> 'Sajt',
 	'AUTHOR_ROLE'			=> 'Uloga',
 
-
 	'NOT_UP_TO_DATE'		=> '%s nije poslednja verzija',
 	'UP_TO_DATE'			=> '%s poslednja verzija',
 	'ANNOUNCEMENT_TOPIC'	=> 'Obaveštenje prilikom izdavanja',
@@ -127,7 +127,6 @@ $lang = array_merge($lang, array(
 	'EXTENSIONS_VERSION_CHECK_SETTINGS'	=> 'Podešavanje provere verzija',
 	
 	'BROWSE_EXTENSIONS_DATABASE'		=> 'Pogledajte bazu ekstenzija',
-
 
 	'META_FIELD_NOT_SET'	=> 'Obavezno meta polje %s nije podešeno.',
 	'META_FIELD_INVALID'	=> 'Meta polje %s nije ispravno.',

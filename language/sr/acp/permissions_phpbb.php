@@ -1,13 +1,9 @@
 <?php
 /**
-
 *
-
-
 * This file is part of the phpBB Forum Software package.
 *
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
-
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * For full copyright and license information, please see
@@ -22,6 +18,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -40,37 +37,16 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 /**
-*	MODDERS PLEASE NOTE
-*	
-*	You are able to put your permission sets into a seperate file too by
-*	prefixing the new file with permissions_ and putting it into the acp 
-*	language folder.
+*	EXTENSION-DEVELOPERS PLEASE NOTE
 *
-*	An example of how the file could look like:
-*
-*	<code>
-*
-*	if (empty($lang) || !is_array($lang))
-*	{
-*		$lang = array();
-*	}
-*
-*	// Adding new category
-*	$lang['permission_cat']['bugs'] = 'Bugs';
-*
-*	// Adding new permission set
-*	$lang['permission_type']['bug_'] = 'Bug Permissions';
-*
-*	// Adding the permissions
-*	$lang = array_merge($lang, array(
-*		'acl_bug_view'		=> 'Can view bug reports', 'cat' => 'bugs'),
-*		'acl_bug_post'		=> 'Can post bugs', // Using a phpBB category here
-*	));
-*
-*	</code>
+*	You are able to put your permission sets into your extension.
+*	The permissions logic should be added via the 'core.permissions' event.
+*	You can easily add new permission categories, types and permissions, by
+*	simply merging them into the respective arrays.
+*	The respective language strings should be added into a language file, that
+*	start with 'permissions_', so they are automatically loaded within the ACP.
 */
 
-// Define categories and permission types
 $lang = array_merge($lang, array(
 		'ACL_CAT_ACTIONS'		=> 'Akcije',
 		'ACL_CAT_CONTENT'		=> 'Sadržaj',
@@ -88,8 +64,6 @@ $lang = array_merge($lang, array(
 		'ACL_CAT_USER_GROUP'	=> 'Korisnici &amp; Grupe',
 	));
 
-
-
 // User Permissions
 $lang = array_merge($lang, array(
 	'ACL_U_VIEWPROFILE'	=> 'Može gledati profile, listučlanova i online listu',
@@ -105,6 +79,7 @@ $lang = array_merge($lang, array(
 	'ACL_U_SAVEDRAFTS'	=> 'Može snimiti beleške',
 	'ACL_U_CHGCENSORS'	=> 'Može isključiti cenzurisane reči',
 	'ACL_U_SIG'			=> 'Može koristiti potpise',
+	'ACL_U_EMOJI'		=> 'Može koristiti emotikone i bogati tekst u naslovu teme',
 
 	'ACL_U_SENDPM'		=> 'Može slati privatne poruke',
 	'ACL_U_MASSPM'		=> 'Može slati privatne poruke za više korisnika ili grupa',
@@ -133,39 +108,40 @@ $lang = array_merge($lang, array(
 // Forum Permissions
 $lang = array_merge($lang, array(
 	'ACL_F_LIST'		=> 'Može da vidi forum',
+	'ACL_F_LIST_TOPICS' => 'Može da vidi teme',
 	'ACL_F_READ'		=> 'Može da čita forum',
-	'ACL_F_POST'		=> 'Može da šalje postove u forum',
-	'ACL_F_ANNOUNCE'	=> 'Može da šalje obaveštenja',
-	'ACL_F_STICKY'		=> 'Može da šalje lepljive poruke',
-	'ACL_F_REPLY'		=> 'Može da odgovara na postove',
-	'ACL_F_ICONS'		=> 'Može da koristi konice za postove',
-
-	'ACL_F_POLL'		=> 'Može da pravi glasanja',
-	'ACL_F_VOTE'		=> 'Može da glasa',
-	'ACL_F_VOTECHG'		=> 'Može da izmeni postojeće glasanje',
-
-	'ACL_F_ATTACH'		=> 'Može da prikači fajlove',
-	'ACL_F_DOWNLOAD'	=> 'Može da preuzima fajlove',
-	'ACL_F_SIGS'		=> 'Može da koristi potpise',
-	'ACL_F_BBCODE'		=> 'Može da šalje BBKOd',
-	'ACL_F_SMILIES'		=> 'Može da koristi smajlije',
-	'ACL_F_IMG'			=> 'Može da šalje slike',
-	'ACL_F_FLASH'		=> 'Može da šalje Flash fajlove',
-
-	'ACL_F_EDIT'		=> 'Može da menja sopstvene postove',
-	'ACL_F_DELETE'		=> 'Može da briše sopstvene postove',
-	'ACL_F_USER_LOCK'	=> 'Može da zaključa sopstvene teme',
-	'ACL_F_BUMP'		=> 'Može da sklanja teme',
-	'ACL_F_REPORT'		=> 'Može da prijavi postove',
+	'ACL_F_SEARCH'		=> 'Može da pretražuje forum',
 	'ACL_F_SUBSCRIBE'	=> 'Može da prati forum',
 	'ACL_F_PRINT'		=> 'Može da štampa teme',
 	'ACL_F_EMAIL'		=> 'Može da šalje teme na email',
-
-	'ACL_F_SEARCH'		=> 'Može da pretražuje forum',
+	'ACL_F_BUMP'		=> 'Može da sklanja teme',
+	'ACL_F_USER_LOCK'	=> 'Može da zaključa sopstvene teme',
+	'ACL_F_DOWNLOAD'	=> 'Može da preuzima fajlove',
+	'ACL_F_REPORT'		=> 'Može da prijavi postove',
+	
+	'ACL_F_POST'		=> 'Može da šalje postove u forum',
+	'ACL_F_STICKY'		=> 'Može da šalje lepljive poruke',
+	'ACL_F_ANNOUNCE'	=> 'Može da šalje obaveštenja',
+	'ACL_F_ANNOUNCE_GLOBAL'	=> 'Može da šalje javna obaveštenja',
+	'ACL_F_REPLY'		=> 'Može da odgovara na postove',
+	'ACL_F_EDIT'		=> 'Može da menja sopstvene postove',
+	'ACL_F_DELETE'		=> 'Može da briše sopstvene postove',
 	'ACL_F_SOFTDELETE'	=> 'Može da blago obriše svoje postove<br /><em>Moderatori, koji imaju dozvolu za odobravanje postova mogu da povrate blago obrisane postove.</em>',
 	'ACL_F_IGNOREFLOOD' => 'Može da ignoriše ograničenje flodovanja',
 	'ACL_F_POSTCOUNT'	=> 'Poveća brojač posta',
 	'ACL_F_NOAPPROVE'	=> 'Može da postuje bez dozvole',
+	
+	'ACL_F_ATTACH'		=> 'Može da prikači fajlove',
+	'ACL_F_ICONS'		=> 'Može da koristi konice za postove',
+	'ACL_F_BBCODE'		=> 'Može da šalje BBKOd',
+	'ACL_F_FLASH'		=> 'Može da šalje Flash fajlove',
+	'ACL_F_IMG'			=> 'Može da šalje slike',
+	'ACL_F_SIGS'		=> 'Može da koristi potpise',
+	'ACL_F_SMILIES'		=> 'Može da koristi smajlije',
+
+	'ACL_F_POLL'		=> 'Može da pravi glasanja',
+	'ACL_F_VOTE'		=> 'Može da glasa',
+	'ACL_F_VOTECHG'		=> 'Može da izmeni postojeće glasanje',
 ));
 
 // Moderator Permissions
@@ -216,12 +192,12 @@ $lang = array_merge($lang, array(
 	'ACL_A_BAN'			=> 'Može da upravlja zabranama',
 
 	'ACL_A_VIEWAUTH'	=> 'Može da vidi maske dozvola',
+	'ACL_A_AUTHGROUPS'	=> 'Može da izmeni dozvole za grupe',
+	'ACL_A_AUTHUSERS'	=> 'Može da izmeni dozvole za korisnike',
 	'ACL_A_FAUTH'		=> 'Može da izmeni dozvole foruma',
 	'ACL_A_MAUTH'		=> 'Može da izmeni dozvole moderatora',
 	'ACL_A_AAUTH'		=> 'Može da izmeni dozvole administratora',
 	'ACL_A_UAUTH'		=> 'Može da izmeni dozvole korisnika',
-	'ACL_A_AUTHGROUPS'	=> 'Može da izmeni dozvole za grupe',
-	'ACL_A_AUTHUSERS'	=> 'Može da izmeni dozvole za korisnike',
 	'ACL_A_ROLES'		=> 'Može da upravlja pravilima',
 	'ACL_A_SWITCHPERM'	=> 'Može da koristi druge dozvole',
 

@@ -1,13 +1,9 @@
 <?php
 /**
 *
-
 * This file is part of the phpBB Forum Software package.
 *
-
-
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
-
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * For full copyright and license information, please see
@@ -22,6 +18,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -58,6 +55,7 @@ $lang = array_merge($lang, array(
 	'DEST_LANG_EXPLAIN'		=> 'Izaberite odgovarajući jezik (ako postoji) za primaoca ove poruke.',
 	
 	'EDIT_PROFILE' 			=> 'Izmena profila',
+
 	'EMAIL_BODY_EXPLAIN'	=> 'Ova poruka će biti poslata kao običan tekst, nemojte ubacivati bilo kakav HTML ili BBKod. Povratna adresa za ovu poruku će biti podešena kao i vaša email adresa.',
 	'EMAIL_DISABLED'		=> 'Žao nam je, ali sve funkcije vezane za email su isključene.',
 	'EMAIL_SENT'			=> 'Email je poslat.',
@@ -77,7 +75,6 @@ $lang = array_merge($lang, array(
 	'GROUP_LEADER'			=> 'Vođa grupe',
 
 	'HIDE_MEMBER_SEARCH'	=> 'Sakrij pretragu članova',
-
 
 	'IM_ADD_CONTACT'		=> 'Dodaj kontakt',
 	'IM_DOWNLOAD_APP'		=> 'Preuzmi aplikaciju',
@@ -104,7 +101,6 @@ $lang = array_merge($lang, array(
 	'LOGIN_EXPLAIN_VIEWPROFILE'	=> 'Administrator zahteva da budete registrovani i prijavljeni da bi videli profile.',
 	'LOGIN_EXPLAIN_TEAM' => 'Administrator zahteva da budete registrovani i prijavljeni da bi pristupili timu',
 
-
 	'MANAGE_GROUP'			=> 'Uređivanje grupe',
 	'MORE_THAN'				=> 'Više od',
 
@@ -125,13 +121,13 @@ $lang = array_merge($lang, array(
 
 	'SELECT_MARKED'			=> 'Izaberi obeležene',
 	'SELECT_SORT_METHOD'	=> 'Izaberi metod sortiranja',
+	'SENDER_EMAIL_ADDRESS'		=> 'Email adresa pošaljioca',
+	'SENDER_NAME'				=> 'Ime pošaljioca',
 	'SEND_ICQ_MESSAGE'		=> 'Pošalji ICQ poruku',
 	'SEND_IM'				=> 'Instant poruke',
 	'SEND_JABBER_MESSAGE'	=> 'Pošalji Jabber poruku',
 	'SEND_MESSAGE'			=> 'Poruka',
 	'SEND_YIM_MESSAGE'		=> 'Pošalji YIM poruku',
-	'SENDER_EMAIL_ADDRESS'		=> 'Email adresa pošaljioca',
-	'SENDER_NAME'				=> 'Ime pošaljioca',
 	'SORT_EMAIL'			=> 'Email',
 	'SORT_LAST_ACTIVE'		=> 'Poslednje aktivanim',
 	'SORT_POST_COUNT'		=> 'Broju postova',
@@ -140,13 +136,13 @@ $lang = array_merge($lang, array(
 	'USER_ADMIN'			=> 'Administriraj korisnika',
 	'USER_BAN'				=> 'Zabrani korisnika',
 	'USER_FORUM'			=> 'Statistika korisnika',
-	'USER_ONLINE'			=> 'OnLine',
-	'USER_PRESENCE'			=> 'Prisustvo na forumu',
-	
-  'USER_LAST_REMINDED'	=> array(
+	'USER_LAST_REMINDED'	=> array(
 		0		=> 'Do sada nije poslata opomena',
 		1		=> '%1$d opomena poslata<br />» %2$s',
+		2		=> '%1$d opomena poslata<br />» %2$s',
 	),
+	'USER_ONLINE'			=> 'OnLine',
+	'USER_PRESENCE'			=> 'Prisustvo na forumu',
 	'USERS_PER_PAGE'		=> 'Korisnika po stranici',
 
 	'VIEWING_PROFILE'		=> 'Pregled profila - %s',
@@ -154,7 +150,4 @@ $lang = array_merge($lang, array(
     'VIEW_SKYPE_PROFILE'	=> 'Pogledaj Skype profil',
     'VIEW_TWITTER_PROFILE'	=> 'Pogledaj Twitter profil',
     'VIEW_YOUTUBE_CHANNEL'	=> 'Pogledaj YouTube kanal',
-    'VIEW_GOOGLEPLUS_PROFILE'	=> 'Pogleda Google+ profil',
-
-
 ));

@@ -1,13 +1,9 @@
 <?php
 /**
 *
-
 * This file is part of the phpBB Forum Software package.
 *
-
-
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
-
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * For full copyright and license information, please see
@@ -22,6 +18,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -82,8 +79,8 @@ $lang = array_merge($lang, array(
 	'ADD_FRIENDS_EXPLAIN'			=> 'Možete uneti više korisničkih imena svako u novu liniju',
 	'ADD_NEW_RULE'					=> 'Dodaj novo pravilo',
 	'ADD_RULE'						=> 'Dodaj pravilo',
-	'ADD_USERS_UCP_EXPLAIN'  => 'Ovde možete dodati nove korisnike u grupu. Možete izabrati da li će ova grupa postati nova podrazumevana grupa za izabrane korisnike. Molimo Vas da unesete svako korisničko ime u novi red.',
 	'ADD_TO'						=> 'Dodaj [Za]',
+	'ADD_USERS_UCP_EXPLAIN'  => 'Ovde možete dodati nove korisnike u grupu. Možete izabrati da li će ova grupa postati nova podrazumevana grupa za izabrane korisnike. Molimo Vas da unesete svako korisničko ime u novi red.',
 	'ADMIN_EMAIL'					=> 'Administratori mi mogu slati email-ove sa informacijama',
 	'AGREE'							=> 'Prihvatam ove uslove',
 	'ALLOW_PM'						=> 'Dozvoli korisnicima da mi pošalju privatne poruke',
@@ -92,9 +89,9 @@ $lang = array_merge($lang, array(
 	'ATTACHMENTS_EXPLAIN'			=> 'Ovo je lista prikačenih fajlova koje ste poslali u postovima u ovom forumu.',
 	'ATTACHMENTS_DELETED'			=> 'Prikačeni fajlovi su uspešno obrisani.',
 	'ATTACHMENT_DELETED'			=> 'Prikačeni fajl je uspešno obrisan.',
+	'ATTACHMENT_LOCKED'				=> 'Ova tema je zaključana, ne možete obrisati prikačeni fajl.',
 	'AUTOLOGIN_SESSION_KEYS_DELETED'=> 'Izabrani "Upamti me" ključevi za prijavu su uspešno obrisani.',
 	'AVATAR_CATEGORY'				=> 'Kategorija',
-	
 	'AVATAR_DRIVER_GRAVATAR_TITLE'	=> 'Gravatar',
 	'AVATAR_DRIVER_GRAVATAR_EXPLAIN'=> 'Gravatar je servis koji Vam omogućava da zadržite isti avatar na više različitih sajtova. Posetite <a href="http://www.gravatar.com/">Gravatar</a> za više informacija.',
 	'AVATAR_DRIVER_LOCAL_TITLE'		=> 'Galerija avatara',
@@ -104,14 +101,15 @@ $lang = array_merge($lang, array(
 	'AVATAR_DRIVER_UPLOAD_TITLE'	=> 'Pošalji avatar',
 	'AVATAR_DRIVER_UPLOAD_EXPLAIN'	=> 'Pošaljite svoj sopstveni avatar.',
 	'AVATAR_EXPLAIN'				=> 'Maksimalne dimenzije; širina: %1$s, visina: %2$s, veličina fajla: %3$.2f KiB.',
+	'AVATAR_EXPLAIN_NO_FILESIZE'	=> 'Maksimalne dimenzije; širina: %1$s, visina: %2$s.',
 	'AVATAR_FEATURES_DISABLED'		=> 'Funkcija avatara je trenutno onemogućena.',
 	'AVATAR_GALLERY'				=> 'Lokalna galerija',
 	'AVATAR_GENERAL_UPLOAD_ERROR'	=> 'Ne mogu da pošaljem avatar za %s',
 	'AVATAR_NOT_ALLOWED'   =>  'Vaš avatar ne može da bude prikazan jer su avatari zabranjeni.',
-  'AVATAR_TYPE_NOT_ALLOWED' =>  'Vaš trenutni avatar ne može da bude prikazan jer je njegov tip zabranjen.',
 	'AVATAR_PAGE'					=> 'Stranica',
 	'AVATAR_SELECT'					=> 'Izaberite avatar',
 	'AVATAR_TYPE'					=> 'Tip avatara',
+  	'AVATAR_TYPE_NOT_ALLOWED' =>  'Vaš trenutni avatar ne može da bude prikazan jer je njegov tip zabranjen.',
 
 	'BACK_TO_DRAFTS'			=> 'Povratak na sačuvane nacrte',
 	'BACK_TO_LOGIN'				=> 'Povratak na prijavu',
@@ -134,23 +132,26 @@ $lang = array_merge($lang, array(
 	'CANNOT_REMOVE_FOLDER'		=> 'Ovaj folder se ne može ukloniti.',
 	'CHANGE_DEFAULT_GROUP'		=> 'Promeni podrazumevanu grupu',
 	'CHANGE_PASSWORD'			=> 'Promeni šifru',
-	'CLICK_RETURN_FOLDER'		=> '%1$sPovratak u vaš “%3$s” folder%2$s',
 	'CLICK_GOTO_FOLDER'			=> '%1$sPovratak u vaš “%3$s” folder%2$s',
+	'CLICK_RETURN_FOLDER'		=> '%1$sPovratak u vaš “%3$s” folder%2$s',
 	'CONFIRMATION'				=> 'Potvrda registracije',
 	'CONFIRM_CHANGES'			=> 'Potvrdi izmene',	
 	'CONFIRM_EXPLAIN'			=> 'Da bi sprečili automatske registracije administrator zahteva da unesete kod za potvrdu. Kod je prikazan u slici ispod. Ako ste vizuelno oštećeni ili na bilo koji drugi način ne možete da pročitate ovaj kod, molimo vas da kontaktirate %sAdministratora%s.',
+	'VC_REFRESH'				=> 'Osveži kod za portvrdu',
+	'VC_REFRESH_EXPLAIN'		=> 'Ukoliko ne možete da pročitate kod možete zatražiti novi klikom na dugme.',
+
 	'CONFIRM_PASSWORD'			=> 'Potvrdite novu šifru',
 	'CONFIRM_PASSWORD_EXPLAIN'	=> 'Morate potvrditi vašu šifru samo ukoliko ste je promenili iznad',
 	'COPPA_BIRTHDAY'			=> 'Da bi nastavili sa procesom registracije recite nam gde ste rođeni.',
 	'COPPA_COMPLIANCE'			=> 'COPPA žalba',
 	'COPPA_EXPLAIN'				=> 'Znajte da klikom na Pošalji dume kreirate vaš nalog. Međutim, nalog ne može biti aktiviran dok roditelj ili staratelj ne odobri vašu registraciju. Biće vam poslat email u kome se nalazi neophodni formular sa detaljima gde da ga pošaljete.',
 	'CREATE_FOLDER'				=> 'Dodaj folder…',
-	'CURRENT_CHANGE_PASSWORD_EXPLAIN'	=> 'Da bi promenili šifru, email adresu ili korisničko ime, morate uneti svoju trenutnu šifru.',
 	'CURRENT_IMAGE'				=> 'Trenutna slika',
 	'CURRENT_PASSWORD'			=> 'Trenutna šifra',
 	'CURRENT_PASSWORD_EXPLAIN'	=> 'Morate potvrditi trenutnu šifru ako želite da je promenite, promenite vašu email adresu ili korisničko ime.',
-	'CUR_PASSWORD_ERROR'		=> 'Trenutna šifra koju ste uneli je netačna.',
+	'CURRENT_CHANGE_PASSWORD_EXPLAIN'	=> 'Da bi promenili šifru, email adresu ili korisničko ime, morate uneti svoju trenutnu šifru.',
 	'CUR_PASSWORD_EMPTY'		=> 'Niste uneli vašu trenutnu šifru.',
+	'CUR_PASSWORD_ERROR'		=> 'Trenutna šifra koju ste uneli je netačna.',
 	'CUSTOM_DATEFORMAT'			=> 'Proizvoljan…',
 
 	'DEFAULT_ACTION'			=> 'Podrazumevana akcija',
@@ -178,7 +179,6 @@ $lang = array_merge($lang, array(
 	'DEMOTE_SELECTED'			=> 'Premesti izabrane',
 	'DISABLE_CENSORS'			=> 'Omogući cenzuru reči',
 	'DISPLAY_GALLERY'			=> 'Prikaži galeriju',
-	'DOMAIN_NO_MX_RECORD_EMAIL'	=> 'Uneti email domen nema ispravan MX zapis.',
 	'DOWNLOADS'					=> 'Preuzimanja',
 	'DRAFTS_DELETED'			=> 'Svi izabrani nacrti su uspešno izbrisani.',
 	'DRAFTS_EXPLAIN'			=> 'Ovde možete pogledati, izmeniti i obrisati vaše snimljene nacrte.',
@@ -208,10 +208,6 @@ $lang = array_merge($lang, array(
 	),
 	'FIELD_TOO_SMALL'					=> 'Vrednost “%1$s” je premala, minimalna vrednost od %2$d je obavezna.',
 	'FIELD_TOO_LARGE'					=> 'Vrednost “%1$s” je prevelika, maksimalna vrednost od %2$d je dozvoljena.',
-	'FIELD_INVALID_CHARS_NUMBERS_ONLY'	=> 'Polje “%s” ima nepravilne karaktere, samo brojevi su dozvoljeni.',
-	'FIELD_INVALID_CHARS_ALPHA_ONLY'	=> 'Polje “%s” ima nepravilne karaktere, samo alfanumerički karakteri su dozvoljeni.',
-	'FIELD_INVALID_DATE'				=> 'Polje “%s” ima nepravilan datum.',
-	'FIELD_INVALID_VALUE'				=> 'Polje “%s” ima nepravilan sadržaj.',
 	'FIELD_INVALID_CHARS_INVALID'		=> 'Polje “%s” ima nepravilne karaktere.',
 	'FIELD_INVALID_CHARS_NUMBERS_ONLY'	=> 'Polje “%s” ima nepravilne karaktere, samo brojevi su dozvoljeni.',
 	'FIELD_INVALID_CHARS_ALPHA_DOTS'	=> 'Polje “%s” ima nepravilne karaktere, samo alfanumerički karakteri ili . su dozvoljeni.',
@@ -224,7 +220,9 @@ $lang = array_merge($lang, array(
 	'FIELD_INVALID_CHARS_LETTER_NUM_PUNCTUATION'	=> 'Polje “%s” ima nepravilne karaktere, samo slova, brojevi ili _,-. karakteri su dozvoljeni i prvi karakter mora biti slovo.',
 	'FIELD_INVALID_CHARS_LETTER_NUM_SPACERS'		=> 'Polje “%s” ima nepravilne karaktere, samo slova, brojevi, razmak ili -+_[] karakteri su dozvoljeni.',
 	'FIELD_INVALID_CHARS_LETTER_NUM_UNDERSCORE'		=> 'Polje “%s” ima nepravilne karaktere, samo slova, brojevi ili _ karakteri su dozvoljeni.',
+	'FIELD_INVALID_DATE'				=> 'Polje “%s” ima nepravilan datum.',
 	'FIELD_INVALID_URL'					=> 'Polje “%s” ima neispravnu adresu.',
+	'FIELD_INVALID_VALUE'				=> 'Polje “%s” ima nepravilan sadržaj.',
 
 	'FOE_MESSAGE'				=> 'Poruka od protivnika',
 	'FOES_EXPLAIN'				=> 'Protivnici su korisnici koji će standardno biti ignorisani. Postovi tih korisnika neće biti potpuno vidljivi i privatne poruke će biti zabranjene. Znajte da ne možete ignorisati moderatore ili administratore.',
@@ -234,8 +232,8 @@ $lang = array_merge($lang, array(
 		1	=> '%2$d od %1$s sačuvana',
 		2	=> '%2$d od %1$s sačuvanih',
 	),
-	'FOLDER_NAME_EXIST'			=> 'Folder <strong>%s</strong> već postoji',
 	'FOLDER_NAME_EMPTY'    =>  'Morate uneti ime za ovaj folder.',
+	'FOLDER_NAME_EXIST'			=> 'Folder <strong>%s</strong> već postoji',
 	'FOLDER_OPTIONS'			=> 'Opcije foldera',
 	'FOLDER_RENAMED'			=> 'Folder je uspešno preimenovan',
 	'FOLDER_REMOVED'			=> 'Folder je uspešno uklonjen',
@@ -259,6 +257,7 @@ $lang = array_merge($lang, array(
 	'FWD_TO'					=> 'Za: %s',
 
 	'GLOBAL_ANNOUNCEMENT'		=> 'Globalno obaveštenje',
+
 	'GRAVATAR_AVATAR_EMAIL'			=> 'Gravatar email',
 	'GRAVATAR_AVATAR_EMAIL_EXPLAIN'	=> 'Unesite email adresu koju ste koristili prilikom registracije Vašeg naloga na <a href="http://www.gravatar.com/">Gravatar</a>.',
 	'GRAVATAR_AVATAR_SIZE'			=> 'Avatar dimenzije',
@@ -271,9 +270,10 @@ $lang = array_merge($lang, array(
 
 	'IF_FOLDER_FULL'			=> 'Ako je folder pun',
 	'IMPORTANT_NEWS'			=> 'Važna obaveštenja',
-	'INVALID_CHARS_USERNAME'	=> 'Korisničko ime sadrži zabranjene karaktere.',
-	'INVALID_CHARS_NEW_PASSWORD'=> 'Šifra ne sadrži obavezne karaktere.',
 	'INVALID_USER_BIRTHDAY'		=> 'Uneti datum je neispravan.',
+	'INVALID_CHARS_USERNAME'	=> 'Korisničko ime sadrži zabranjene karaktere.',
+	'INVALID_EMOJIS_USERNAME'	=> 'Korisničko ime sadrži zabranjene karaktere (Emoji).',
+	'INVALID_CHARS_NEW_PASSWORD'=> 'Šifra ne sadrži obavezne karaktere.',
 	'ITEMS_REQUIRED'			=> 'Stavke označene sa * su obavezna polja profilai moraju biti popunjena',
 
 	'JOIN_SELECTED'				=> 'Pridruži izabranoj',
@@ -303,6 +303,7 @@ $lang = array_merge($lang, array(
 	'MESSAGE_EDITED'				=> 'Poruka je uspešno izmenejna.',
 	'MESSAGE_HISTORY'				=> 'Istorija poruke',
 	'MESSAGE_REMOVED_FROM_OUTBOX'	=> 'Ovu poruku je uklonio njen autor pre nego što je isporučena',
+	'MESSAGE_REPORTED_MESSAGE'		=> 'Prijavljena poruka',
 	'MESSAGE_SENT_ON'				=> 'na',
 	'MESSAGE_STORED'				=> 'Vaša poruka je uspešno poslata',
 	'MESSAGE_TO'					=> 'Za',
@@ -319,8 +320,9 @@ $lang = array_merge($lang, array(
 
 	'NEW_FOLDER_NAME'				=> 'Ime novog foldera',
 	'NEW_PASSWORD'					=> 'Nova šifra',
-	'NEW_PASSWORD_ERROR'			=> 'Šifre koje ste uneli se ne poklapaju.',
 	'NEW_PASSWORD_CONFIRM_EMPTY'	=> 'Niste uneli šifru za potvrdu.',
+	'NEW_PASSWORD_ERROR'			=> 'Šifre koje ste uneli se ne poklapaju.',
+
 	'NOTIFICATIONS_MARK_ALL_READ'						=> 'Obeleži sva obaveštenja kao pročitana',
 	'NOTIFICATIONS_MARK_ALL_READ_CONFIRM'				=> 'Da li ste sigurni da želite da obeležite sva obaveštenja kao pročitana?',
 	'NOTIFICATIONS_MARK_ALL_READ_SUCCESS'				=> 'Sva obaveštenja su obeležena kao pročitana.',
@@ -328,19 +330,25 @@ $lang = array_merge($lang, array(
 	'NOTIFICATION_GROUP_MODERATION'						=> 'Moderatorska obaveštenja',
 	'NOTIFICATION_GROUP_ADMINISTRATION'					=> 'Administraciona obaveštenja',
 	'NOTIFICATION_GROUP_POSTING'						=> 'Obaveštenja o postovima',
+	'NOTIFICATION_METHOD_BOARD'							=> 'Obaveštenja',
 	'NOTIFICATION_METHOD_EMAIL'							=> 'Email',
 	'NOTIFICATION_METHOD_JABBER'						=> 'Jabber',
 	'NOTIFICATION_TYPE'									=> 'Tip obaveštenja',
 	'NOTIFICATION_TYPE_BOOKMARK'						=> 'Neko je odgovorio na temu koju ste obeležili',
 	'NOTIFICATION_TYPE_GROUP_REQUEST'					=> 'Neko je zahtevao da se pridruži grupi koju vi vodite',
+	'NOTIFICATION_TYPE_FORUM'							=> 'Neko je odgovorio na temu u forumu na koji ste se pretplatili',
 	'NOTIFICATION_TYPE_IN_MODERATION_QUEUE'				=> 'Post ili tema čeka na odobrenje',
 	'NOTIFICATION_TYPE_MODERATION_QUEUE'				=> 'Vaše teme/postovi su odobreni ili neodobreni od moderatora',
 	'NOTIFICATION_TYPE_PM'								=> 'Neko Vam je poslao privatnu poruku',
 	'NOTIFICATION_TYPE_POST'							=> 'Neko je odgovorio na temu koju pratite',
 	'NOTIFICATION_TYPE_QUOTE'							=> 'Neko Vas je citirao u svom postu',
 	'NOTIFICATION_TYPE_REPORT'							=> 'Neko je prijavio post',
+	'NOTIFICATION_TYPE_REPORT_CLOSED'					=> 'Vaša prijava na post je zatvorena od moderatora',
+	'NOTIFICATION_TYPE_REPORT_PM'						=> 'Neko je prijavio privatnu poruku',
+	'NOTIFICATION_TYPE_REPORT_PM_CLOSED'				=> 'Vaša prijava na privatnu poruku je zatvorana od moderatora',
 	'NOTIFICATION_TYPE_TOPIC'							=> 'Neko je postavio temu u forumu koji pratite',
 	'NOTIFICATION_TYPE_ADMIN_ACTIVATE_USER'				=> 'Novoregistrovani korisnik čeka na aktivaciju',
+
 	'NOTIFY_METHOD'					=> 'Metod obaveštenja',
 	'NOTIFY_METHOD_BOTH'			=> 'Oba',
 	'NOTIFY_METHOD_EMAIL'			=> 'Samo email-om',
@@ -348,12 +356,12 @@ $lang = array_merge($lang, array(
 	'NOTIFY_METHOD_IM'				=> 'Samo Jabber',
 	'NOTIFY_ON_PM'					=> 'Obavesti me o novim privatnim porukama',
 	'NOT_ADDED_FRIENDS_ANONYMOUS'	=> 'Ne možete dodati anonimne korisnike u vašu listu prijatelja.',
+	'NOT_ADDED_FRIENDS_BOTS'   =>  'Ne možete dodati botove na vašu listu prijatelja.',
 	'NOT_ADDED_FRIENDS_FOES'		=> 'Ne možete dodati anonimne korisnike u vašu listu prijatelja koji su već na listi vaših protivnika',
 	'NOT_ADDED_FRIENDS_SELF'		=> 'Ne možete dodati sami sebe u listu prijatelja',
-	'NOT_ADDED_FRIENDS_BOTS'   =>  'Ne možete dodati botove na vašu listu prijatelja.',
-  'NOT_ADDED_FOES_BOTS'     =>  'Ne možete dodati botove na vašu listu protivnika.',
 	'NOT_ADDED_FOES_MOD_ADMIN'		=> 'Ne možete dodati administratore i moderatore u vašu listu protivnika.',
 	'NOT_ADDED_FOES_ANONYMOUS'		=> 'Ne možete dodati anonimnog korisnika u vašu listu protivnika.',
+	'NOT_ADDED_FOES_BOTS'     =>  'Ne možete dodati botove na vašu listu protivnika.',
 	'NOT_ADDED_FOES_FRIENDS'		=> 'Ne možete dodati anonimnog korisnika u vašu listu protivnika koji je već u vašoj listi prijatelja.',
 	'NOT_ADDED_FOES_SELF'			=> 'Ne možete dodati sami sebe na listu protivnika.',
 	'NOT_AGREE'						=> 'Ne slažem se sa ovim uslovima',
@@ -372,18 +380,19 @@ $lang = array_merge($lang, array(
 	'NO_AUTH_FORWARD_MESSAGE'		=> 'Niste autorizovani da prosleđujete privatne poruke.',
 	'NO_AUTH_GROUP_MESSAGE'			=> 'Niste autorizovani da šaljete privatne poruke u grupe.',
 	'NO_AUTH_PROFILEINFO'			=> 'Niste autorizovani da menjati informacije o profilu.',
+	'NO_AUTH_READ_HOLD_MESSAGE'		=> 'Niste autorizovani da čitate privatne poruke koje su na čekanju.',
 	'NO_AUTH_READ_MESSAGE'			=> 'Niste autorizovani da čitate privatne poruke.',
+	'NO_AUTH_PRINT_MESSAGE'			=> 'Niste autorizovani da štampate privatne poruke.',
 	'NO_AUTH_READ_REMOVED_MESSAGE'	=> 'Niste u mogućnosti da pročitate ovu poruku jer je uklonjena od stranje njenog autora.',
 	'NO_AUTH_SEND_MESSAGE'			=> 'Niste autorizovani da šaljete privatne poruke.',
 	'NO_AUTH_SIGNATURE'				=> 'Niste autorizovani da definišete potpis',
-	'NO_AUTH_PASSWORD_REMINDER'		=> 'Niste autorizovani da zatražite novu šifru.',
-	'NO_AUTH_READ_HOLD_MESSAGE'		=> 'Niste autorizovani da čitate privatne poruke koje su na čekanju.',
 
 	'NO_BCC_RECIPIENT'			=> 'Ništa',
 	'NO_BOOKMARKS'				=> 'Nemate beleške',
 	'NO_BOOKMARKS_SELECTED'		=> 'Niste izabrali ni jednu belešku',
 	'NO_EDIT_READ_MESSAGE'		=> 'Privatna poruka ne može biti izmenjena jer je već pročitana.',
 	'NO_EMAIL_USER'				=> 'Informacija o Email-u/korisničkom imenu ne može biti pronađena',
+	'EMAIL_NOT_UNIQUE'			=> 'Email koji ste uneli već koristi nekoliko korisnika. Morate isto tako izabrati i korisničko ime.',
 	'NO_FOES'					=> 'Trenutno nemate definisanih protivnika',
 	'NO_FRIENDS'				=> 'Trenutno nemate definisanih prijatelja',
 	'NO_FRIENDS_OFFLINE'		=> 'Nema OffLine prijatelja',
@@ -396,6 +405,7 @@ $lang = array_merge($lang, array(
 	'NO_OLDER_PM'				=> 'Nema starijih poruka',
 	'NO_PASSWORD_SUPPLIED'		=> 'Ne možete se prijaviti bez šifre.',
 	'NO_RECIPIENT'				=> 'Niste definisali primaoca',
+	'NO_RESET_TOKEN'			=> 'Niste uneli token za resetovanje šifre.',
 	'NO_RULES_DEFINED'			=> 'Nema definisanih pravila',
 	'NO_SAVED_DRAFTS'			=> 'Nema sačuvanih nacrta',
 	'NO_TO_RECIPIENT'			=> 'Niko',
@@ -403,67 +413,14 @@ $lang = array_merge($lang, array(
 	'NO_WATCHED_TOPICS'			=> 'Ne pratite ni jednu temu.',
 	'NO_WATCHED_SELECTED'		=> 'Niste izabrali nijednu temu ili forume za praćenje.',
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	'PASS_TYPE_ALPHA_EXPLAIN'	=> 'Šifra mora biti između %1$s i %2$s karaktera dugačka i mora sadržati alfanumeričke karaktere',
-	'PASS_TYPE_ANY_EXPLAIN'		=> 'Mora biti između %1$s i %2$s karaktera.',
-	'PASS_TYPE_CASE_EXPLAIN'	=> 'Šifra mora biti između %1$s i %2$s karaktera dugačka i mora sadržati velika i mala slova',
-	'PASS_TYPE_SYMBOL_EXPLAIN'	=> 'Šifra mora biti između %1$s i %2$s karaktera dugačka i mora sadržati simbole',
+	'PASS_TYPE_ALPHA_EXPLAIN'	=> 'Šifra mora biti najmanje %1$s karaktera, mora da sadrži mala i velika slova i mora da sadrži brojeve.',
+	'PASS_TYPE_ANY_EXPLAIN'		=> 'Mora biti najmanje %1$s karaktera.',
+	'PASS_TYPE_CASE_EXPLAIN'	=> 'Šifra mora biti najmanje %1$s karaktera, mora da sadrži mala i velika slova.',
+	'PASS_TYPE_SYMBOL_EXPLAIN'	=> 'Šifra mora biti najmanje %1$s karaktera, mora da sadrži mala i velika slova i mora da sadrži simbole.',
 	'PASSWORD'					=> 'Šifra',
 	'PASSWORD_ACTIVATED'		=> 'Vaša nova šifra je aktivirana',
-	'PASSWORD_UPDATED'			=> 'Vaša šifra je uspešno poslata na vašu originalnu email adresu.',
+	'PASSWORD_RESET'			=> 'Vaša šifra je uspešno resetovana.',
+	'PASSWORD_RESET_LINK_SENT'	=> 'Ukolio vaš nalog postoji, link za resetovanje šifre je poslat na vašu email adresu. Ukoliko niste dobili email, to može da znači da ste blokirani, vaš nalog nije aktiviran, više puta ste u kratkom roku tražili resetovanje šifre ili nemate dozvolu da menjate šifru. Kontaktirajte administratora ukoliko važi neki od navedenih razloga. Naravno, proverite i vaš spam filter.',
 	'PERMISSIONS_RESTORED'		=> 'Uspešno ste povratili originalne dozvole.',
 	'PERMISSIONS_TRANSFERRED'	=> 'Uspešno ste prebacili dozvole iz <strong>%s</strong>, sada ste u mogućnosti da pregledate forum sa dozvolama korisnika.<br />Znajte da dozvole administratora nisu prenete. U mogućnosti ste da se vratite na vaš set dozvola bilo kada.',
 	'PM_DISABLED'				=> 'Privatne poruke su onemogućene na ovom boardu',
@@ -498,6 +455,7 @@ $lang = array_merge($lang, array(
 	'RECIPIENT'							=> 'Primaoc',
 	'RECIPIENTS'						=> 'Primaoci',
 	'REGISTRATION'						=> 'Registracija',
+	'OAUTH_REGISTRATION'				=> 'Registracija pomoću eksternih servisa',
 	'RELEASE_MESSAGES'					=> '%sPusti sve poruke koje su na čekanju%s… one će biti spakovane u odgovarajući folder ako ima dovoljno mesta.',
 	'REMOVE_ADDRESS'					=> 'Ukloni adresu',
 	'REMOVE_SELECTED_BOOKMARKS'			=> 'Ukloni izabrane beleške',
@@ -510,6 +468,8 @@ $lang = array_merge($lang, array(
 	'REPLIED_MESSAGE'					=> 'Odgovoreno na poruku',
 	'REPLY_TO_ALL'           			=>  'Odgovori pošaljiocu i svim primaocima.',
 	'REPORT_PM'              			=>  'Prijavi privatnu poruku',
+	'RESET_PASSWORD'					=> 'Resetuj šifru',
+	'RESET_TOKEN_EXPIRED_OR_INVALID'	=> 'Token za resetovanje šifre je neispravan ili je istekao.',
 	'RESIGN_SELECTED'					=> 'Otkaži izabrano',
 	'RETURN_FOLDER'						=> '%1$sPovratak u prethodni folder%2$s',
 	'RETURN_UCP'						=> '%sPovratak u Korisnički Kontrolni Panel%s',
@@ -525,14 +485,13 @@ $lang = array_merge($lang, array(
 
 	'SAME_PASSWORD_ERROR'		=> 'Nova šifra koju ste uneli je ista kao i vaša trenutna šifra',
 	'SEARCH_YOUR_POSTS'			=> 'Prikaži moje postove',
-	'SEND_PASSWORD'				=> 'Pošalji šifru',
 	'SENT_AT'					=> 'Polato na',
-	'SELECT_CURRENT_TIME'		=> 'Izaberite trenutno vreme',
-	'SELECT_TIMEZONE'			=> 'Izaberite vremensku zonu',
 	'SHOW_EMAIL'				=> 'Korisnici me mogu kontaktirati putem email-a',
 	'SIGNATURE_EXPLAIN'			=> 'Ovo je blok teksta koji može biti dodat u vaše postove. Postoji limit od %d karaktera',
 	'SIGNATURE_PREVIEW'			=> 'Vaš potpis će se ovako prikazivati u postovima',
 	'SIGNATURE_TOO_LONG'		=> 'Vaš potpis je predugačak.',
+	'SELECT_CURRENT_TIME'		=> 'Izaberite trenutno vreme',
+	'SELECT_TIMEZONE'			=> 'Izaberite vremensku zonu',
 	'SORT'						=> 'Sortiraj',
 	'SORT_COMMENT'				=> 'Komentar fajla',
 	'SORT_DOWNLOADS'			=> 'Preuzimanja',
@@ -568,7 +527,6 @@ $lang = array_merge($lang, array(
 	'UCP_COPPA_ON_AFTER'		=> 'Na ili Posle %s',
 	'UCP_EMAIL_ACTIVATE'		=> 'Znajte da ćete morati da unesete ispravnu email adresu pre nego što vaš nalog bude aktiviran. Dobićete email na adresu koju ste uneli koji sadrži link za aktivaciju naloga.',
 	'UCP_JABBER'				=> 'Jabber adresa',
-	
 	'UCP_LOGIN_LINK'			=> 'Podesi asocijaciju sa spoljnim nalogom',
 
 	'UCP_MAIN'					=> 'Pregled',
@@ -609,9 +567,7 @@ $lang = array_merge($lang, array(
 	'UCP_USERGROUPS_MANAGE'		=> 'Rad sa grupama',
 
 	'UCP_PASSWORD_RESET_DISABLED'	=> 'Opcija za resetovanje lozinke je isključena. Ukoliko Vam treba pomoć oko pristupa Vašem nalogu, kontaktirajte %sAdministratora boarda%s',
-	
 	'UCP_REGISTER_DISABLE'			=> 'Kreiranje novog nalog trenutno nije moguće.',
-	'UCP_REMIND'					=> 'Pošalji šifru',
 	'UCP_RESEND'					=> 'Pošalji aktivacioni email',
 	'UCP_WELCOME'					=> 'Dobrodošli na Korisnički Kontrolni Panel. Odavde možete pratiti, pogledati ili izmeniti vaš profil, podešavanja, prijave na forume i teme. Možete takođe slati poruke drugim korisnicima (ako je omogućeno). Molimo vas da pročitate sva obaveštenja pre nego što nastavite.',
 	'UCP_ZEBRA'						=> 'Prijatelji &amp; Protivnici',
@@ -625,17 +581,15 @@ $lang = array_merge($lang, array(
 	'UPLOAD_AVATAR_URL_EXPLAIN'		=> 'Unesite URL lokacije koja sadrži sliku, i ona će biti kopirana na ovaj sajt.',
 	'USERNAME_ALPHA_ONLY_EXPLAIN'	=> 'Korisničko ime mora biti između %1$s i %2$s karaktera dugačko i koristite samo alfanumeričke karaktere',
 	'USERNAME_ALPHA_SPACERS_EXPLAIN'=> 'Korisničko ime mora biti između %1$s i %2$s karaktera dugačko i koristite alfanumeričke, razmake ili -+_[] karaktere.',
-	'USERNAME_CHARS_ANY_EXPLAIN'	=> 'Dužina mora biti između %1$s i %2$s karaktera.',
 	'USERNAME_ASCII_EXPLAIN'		=> 'Korisničko ime mora biti između %1$s i %2$s karaktera i možete koristiti samo ASCII karaktere, dakle ne i specijalne karaktere.',
 	'USERNAME_LETTER_NUM_EXPLAIN'	=> 'Korisničko ime mora biti između %1$s i %2$s karaktera i možete koristiti samo slova i brojke.',
 	'USERNAME_LETTER_NUM_SPACERS_EXPLAIN'=> 'Korisničko ime mora biti između %1$s i %2$s karaktera dugačko i možete koristiti slova, brojeve, razmak i -+_[] karaktere.',
+	'USERNAME_CHARS_ANY_EXPLAIN'	=> 'Dužina mora biti između %1$s i %2$s karaktera.',
 	'USERNAME_TAKEN_USERNAME'		=> 'Korisničko ime koje ste uneli se već koristi, molimo vas da izaberete drugo.',
 	'USERNAME_DISALLOWED_USERNAME'	=> 'Korisničko ime koje ste uneli je zabranjeno.',
 	'USER_NOT_FOUND_OR_INACTIVE'	=> 'Korisnička imena koja ste uneli ili ne mogu biti pronađena nisu aktivirani korisnici.',
 
-	'VC_REFRESH'           =>  'Regeneriši kod za potvrdu',
-  'VC_REFRESH_EXPLAIN'   =>  'Ako ne možete da pročitate kod možete zatražiti novi tako što ćete kliknuti na dugme.',
-  'VIEW_AVATARS'				=> 'Prikaži avatare',
+  	'VIEW_AVATARS'				=> 'Prikaži avatare',
 	'VIEW_EDIT'					=> 'Pregled/izmena',
 	'VIEW_FLASH'				=> 'Prikaži Flash animacije',
 	'VIEW_IMAGES'				=> 'Prikaži slike u postovima',

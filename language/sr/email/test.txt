@@ -1,0 +1,13 @@
+Subject: phpBB je ispravno podešen da šalje mejlove
+
+Zdravo {USERNAME},
+
+Čestitamo. Ukoliko ste dobili ovaj email, phpBB je ispravno podešen za slanje mejlova.
+
+<!-- IF MESSAGE -->
+{MESSAGE}
+
+<!-- ENDIF -->
+U slučaju da Vam treba pomoć, posetite phpBB forume podrške - https://www.phpbb.com/community/
+
+{EMAIL_SIG}

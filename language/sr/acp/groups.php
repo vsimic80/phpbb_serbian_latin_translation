@@ -42,13 +42,13 @@ $lang = array_merge($lang, array(
 	'ADD_USERS'						=> 'Dodaj korisnike',
 	'ADD_USERS_EXPLAIN'				=> 'Ovde dodajete nove korisnike u grupu. Možete izabrati da li će ova grupa postati nova podrazumevana grupa za izabrane korisnike. Takođe ih možete definisati i kao vođe grupe. Molimo vas da svako pojedinačno korisničko ime unesete u nov red.',
 
-	
 	'COPY_PERMISSIONS'				=> 'Kopiraj dozvole iz',
 	'COPY_PERMISSIONS_EXPLAIN'		=> 'Jednom kreirana, grupa će imati iste dozvole kao i ona koju ste izabrali.',
 	'CREATE_GROUP'					=> 'Napravi novu grupu',
 
 	'GROUPS_NO_MEMBERS'				=> 'Ova grupa nema članove',
 	'GROUPS_NO_MODS'				=> 'Nema definisanih vođa grupa',
+	
 	'GROUP_APPROVE'					=> 'Odobri',
 	'GROUP_APPROVED'				=> 'Odobreni članovi',
 	'GROUP_AVATAR'					=> 'Avatar grupe',
@@ -80,8 +80,6 @@ $lang = array_merge($lang, array(
 	'GROUP_LEGEND'					=> 'Prikaži grupu u legendi',
 	'GROUP_LIST'					=> 'Trenutni članovi',
 	'GROUP_LIST_EXPLAIN'			=> 'Ovo je kompletna lista svih trenutnih korisnika sa članstvom u ovoj grupi. Možete brisati članove (osim u određenim specijalnim grupama) ili dodati nove.',
-	'GROUP_MAX_RECIPIENTS'			=> 'Maksimalni broj dozvoljenih primaoca po privatnoj poruci',
-	'GROUP_MAX_RECIPIENTS_EXPLAIN'	=> 'Maksimalni broj dozvoljenih primaoca u privatnoj poruci. Ako je uneta 0, koristi se podešavanje boarda.',
 	'GROUP_MEMBERS'					=> 'Članovi grupe',
 	'GROUP_MEMBERS_EXPLAIN'			=> 'Ovo je kompletna lista svih članova ove korisničke grupe. Sadrži izdvojene sekcije za vođe, buduće i postojeće članove. Odavde možete podešavati ko sve ima članstvo u ovoj grupi i koja je njihova uloga. Da uklonite vođu ali i da ga zadržite u grupi koristite opciju Degradiraj umesto obriši. Slično tako, koristite Unapredi da bi postojećeg člana unapredili u vođu.',
 	'GROUP_MESSAGE_LIMIT'			=> 'Ograničenje grupnih poruka po folderu',
@@ -92,8 +90,10 @@ $lang = array_merge($lang, array(
 	'GROUP_NAME'					=> 'Ime grupe',
 	'GROUP_NAME_TAKEN'		=> 'Ime grupe koje ste uneli je već zauzeto, molimo Vas da izaberete drugo.',
 	'GROUP_OPEN'					=> 'Otvorena',
-	'GROUP_OPTIONS_SAVE' =>  'Opcije za sve grupe',
 	'GROUP_PENDING'					=> 'Budući članovi',
+	'GROUP_MAX_RECIPIENTS'			=> 'Maksimalni broj dozvoljenih primaoca po privatnoj poruci',
+	'GROUP_MAX_RECIPIENTS_EXPLAIN'	=> 'Maksimalni broj dozvoljenih primaoca u privatnoj poruci. Ako je uneta 0, koristi se podešavanje boarda.',
+	'GROUP_OPTIONS_SAVE' =>  'Opcije za sve grupe',
 	'GROUP_PROMOTE'					=> 'Unapredi',
 	'GROUP_RANK'					=> 'Čin grupe',
 	'GROUP_RECEIVE_PM'				=> 'Grupa je u mogućnosti da prima privatne poruke',
@@ -101,15 +101,17 @@ $lang = array_merge($lang, array(
 	'GROUP_REQUEST'					=> 'Zahtev',
 	'GROUP_SETTINGS_SAVE'			=> 'Podešavanja grupa',
 	'GROUP_SKIP_AUTH'    =>  'Izuzmi vođu gupe od dozvola',
-  'GROUP_SKIP_AUTH_EXPLAIN'   =>  'Ukoliko je uključeno, vođa grupe više ne nasleđuje dozvole od grupe.',
+  	'GROUP_SKIP_AUTH_EXPLAIN'   =>  'Ukoliko je uključeno, vođa grupe više ne nasleđuje dozvole od grupe.',
 	'GROUP_SPECIAL'					=> 'Predefinisana',
 	'GROUP_TEAMPAGE'				=> 'Prikaži grupu na tim stranici',
 	'GROUP_TYPE'					=> 'Tip grupe',
 	'GROUP_TYPE_EXPLAIN'			=> 'Ovo određuje koji korisnici se mogu pridružiti ili videti ovu grupu.',
 	'GROUP_UPDATED'					=> 'Podešavanja grupe su uspešno ažurirana.',
+	
 	'GROUP_USERS_ADDED'				=> 'Novi korisnici su uspešno dodati u grupu.',
 	'GROUP_USERS_EXIST'				=> 'Izabrani korisnici su već članovi.',
 	'GROUP_USERS_REMOVE'			=> 'Korisnici su uklonjeni iz grupe i novi podrazumevani su uspešno podešeni.',
+	'GROUP_USERS_INVALID'			=> 'Nijedan korisnik nije dodat u grupu jer ova korisnička imena ne postoje: %s',
 	
 	'LEGEND_EXPLAIN'				=> 'Ovo su grupe koje su prikazane u legendi grupa:',
 	'LEGEND_SETTINGS'				=> 'Podešavanje legende',
@@ -118,25 +120,23 @@ $lang = array_merge($lang, array(
 
 	'MANAGE_LEGEND'			=> 'Rad sa legendom grupa',
 	'MANAGE_TEAMPAGE'		=> 'Rad sa tim stranicom',
-
-	
 	'MAKE_DEFAULT_FOR_ALL'	=> 'Postavi kao podrazumevanu grupu za svakog člana',
 	'MEMBERS'				=> 'Članovi',
-
-	'NO_USERS_ADDED'				=> 'Nijedan korisnik nije dodat u grupu.',
 	
 	'NO_GROUP'					=> 'Nije izabrana grupa.',
 	'NO_GROUPS_ADDED'			=> 'Još uvek nema dodatih grupa.',
 	'NO_GROUPS_CREATED'			=> 'Još uvek nema napravljenih grupa.',
 	'NO_PERMISSIONS'			=> 'Ne kopiraj dozvole',
 	'NO_USERS'					=> 'Niste uneli nijednog korisnika.',
+	'NO_USERS_ADDED'				=> 'Nijedan korisnik nije dodat u grupu.',
 	'NO_VALID_USERS'			=> 'Niste uneli ni jednog korisnika prikladnog za ovu akciju.',
+
+	'PENDING_MEMBERS'			=> 'Na čekanju',
 
 	'SELECT_GROUP'				=> 'Izaberite grupu',
 	'SPECIAL_GROUPS'			=> 'Predefinisane grupe',
 	'SPECIAL_GROUPS_EXPLAIN'	=> 'Predefinisane grupe su specijalne grupe, i ne mogu biti obrisane ili direktno izmenjene. Ipak, još uvek mođete dodavati korisnike i izmeniti osnovna podešavanja. Klikom na “Podrazumevana” možete podesiti relevantnu grupu kao podrazumevanu za sve njene članove.',
 
-	'TOTAL_MEMBERS'				=> 'Članova',
 	'TEAMPAGE'					=> 'Tim stranica',
 	'TEAMPAGE_DISP_ALL'			=> 'Sva članstva',
 	'TEAMPAGE_DISP_DEFAULT'		=> 'Samo korisnička podrazumevana grupa',

@@ -1,13 +1,8 @@
 <?php
 /**
 *
-
 * This file is part of the phpBB Forum Software package.
 *
-
-
-
-
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
@@ -23,6 +18,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -58,6 +54,7 @@ $lang = array_merge($lang, array(
 	'NO_NEW_POSTS_HOT'		=> 'Nema novih postova [ Popularni ]',
 	'NO_NEW_POSTS_LOCKED'	=> 'Nema novih postova [ Zaključanih ]',
 	'NO_READ_ACCESS'		=> 'Nemate potrebne dozvole da pregledate teme u ovom forumu.',
+	'NO_FORUMS_IN_CATEGORY'	=> 'Ova kategorija nema forume.',
 	'NO_UNREAD_POSTS_HOT'	=> 'Nema privatnih postova [ Popularni ]', 
 	'NO_UNREAD_POSTS_LOCKED' => 'Nema nepročitanih postova [ Zaključanih ]',
 

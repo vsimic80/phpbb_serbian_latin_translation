@@ -1,13 +1,9 @@
 <?php
 /**
 *
-
 * This file is part of the phpBB Forum Software package.
 *
-
-
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
-
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * For full copyright and license information, please see
@@ -22,6 +18,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -40,9 +37,9 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
+	'APPROVE'							=> 'Odobri',
 	'ATTACHMENT'						=> 'Prikačeni fajl',
 	'ATTACHMENT_FUNCTIONALITY_DISABLED'	=> 'Prikačeni fajlovi su isključeni',
-	'APPROVE'							=> 'Odobri',
 
 	'BOOKMARK_ADDED'		=> 'Uspešno ste dodali belešku za temu.',
 	'BOOKMARK_ERR'			=> 'Obeležavanje teme nije uspelo. Molimo pokušajte ponovo.',
@@ -52,13 +49,10 @@ $lang = array_merge($lang, array(
 	'BUMPED_BY'				=> 'Last bumped by %1$s on %2$s',
 	'BUMP_TOPIC'			=> 'Bump topic',
 
-	'CODE'					=> 'Kod',
-
-
 	'DELETE_TOPIC'			=> 'Obriši temu',
 	'DELETED_INFORMATION'	=> 'Obrisao %1$s u %2$s',
-	'DOWNLOAD_NOTICE'		=> 'Nemate potrebne dozvole da pogledate prikačene fajlove u ovom postu.',
 	'DISAPPROVE'			=> 'Ne odobravaj',
+	'DOWNLOAD_NOTICE'		=> 'Nemate potrebne dozvole da pogledate prikačene fajlove u ovom postu.',
 
 	'EDITED_TIMES_TOTAL'	=> array(
 		1	=> 'Poslednja izmena od %2$s u %3$s, izmenjeno %1$d put ukupno.',
@@ -83,7 +77,6 @@ $lang = array_merge($lang, array(
 		1	=> 'Možete izabrati <strong>%d</strong> opciju',
 		2	=> 'Možete izabrati do <strong>%d</strong> opcije',
 	),
-	
 	'MISSING_INLINE_ATTACHMENT'	=> 'Prikačeni fajl <strong>%s</strong> više nije dostupan',
 	'MOVE_TOPIC'				=> 'Pomeri temu',
 
@@ -93,27 +86,26 @@ $lang = array_merge($lang, array(
 	'NO_UNREAD_POSTS'		=> 'Nema novih nepročitanih postova u ovoj temi.',
 	'NO_VOTE_OPTION'		=> 'Morate izabrati opciju kada glasate.',
 	'NO_VOTES'				=> 'Nema glasova',
+	'NO_AUTH_PRINT_TOPIC'	=> 'Niste autorizovani da štampate teme.',
 
 	'POLL_ENDED_AT'			=> 'Glasanje se završava %s',
 	'POLL_RUN_TILL'			=> 'Glasanje traje do %s',
 	'POLL_VOTED_OPTION'		=> 'Glasali ste za ovu opciju',
-	'PRINT_TOPIC'			=> 'Pogled za štampu',
 	'POST_DELETED_RESTORE'	=> 'Povrati obrisani post',
+	'PRINT_TOPIC'			=> 'Pogled za štampu',
 	
-	'RESTORE'				=> 'Povrati',
-	'RESTORE_TOPIC'			=> 'Povrati temu',
-
 	'QUICK_MOD'				=> 'Brzi alati',
 	'QUICKREPLY'     =>  'Brzi odgovor',
-	'QUOTE'					=> 'Citiraj',
-
+	
 	'REPLY_TO_TOPIC'		=> 'Odgovori na temu',
+	'RESTORE'				=> 'Povrati',
+	'RESTORE_TOPIC'			=> 'Povrati temu',
 	'RETURN_POST'			=> '%sVrati se na post%s',
 
 	'SUBMIT_VOTE'			=> 'Glasaj',
 
-	'TOTAL_VOTES'			=> 'Ukupno glasova',
 	'TOPIC_TOOLS'			=>	'Alatke teme',
+	'TOTAL_VOTES'			=> 'Ukupno glasova',
 
 	'UNLOCK_TOPIC'			=> 'Otključaj temu',
 
@@ -122,7 +114,6 @@ $lang = array_merge($lang, array(
 	'VIEW_PREVIOUS_TOPIC'	=> 'Prethodna tema',
 	'VIEW_RESULTS'			=> 'Pogledaj rezultate',
 	'VIEW_TOPIC_POSTS'		=> array(
-
 		1	=> '%d post',
 		2	=> '%d postova',
 	),

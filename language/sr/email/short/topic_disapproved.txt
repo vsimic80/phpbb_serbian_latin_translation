@@ -8,5 +8,4 @@ Sledeći razlog je dat kao obrazloženje:
 
 {REASON}
 
-
 {EMAIL_SIG}

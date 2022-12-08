@@ -1,4 +1,4 @@
-Subject: Dobrodošli na “{SITENAME}” — {U_BOARD}
+Subject: Dobrodošli na "{SITENAME}"
 
 {WELCOME_MSG}
 
@@ -6,14 +6,16 @@ Molimo vas da sačuvate ovaj email. Sledi informacija o vašem nalogu:
 
 ----------------------------
 Korisničko ime: {USERNAME}
+
+Board URL: {U_BOARD}
 ----------------------------
 
-Vaš nalog je trenutno neaktivan. Ne možete ga koristiti dok ne kliknete na sledeći link:
+Molimo Vas da posetite link ispod da bi aktivirali vaš nalog:
 
 {U_ACTIVATE}
 
-Nemojte zaboraviti vašu šifru jer je ona kodirana u našoj bazi i ne možemo vam je poslati nazad. Međutim, ukoliko zaboravite vašu šifru možete zatražiti novu koja će biti aktivirana na isti način kao i nalog.
+Vaša šifra je kriptovana u našoj bazi i ne može se otkriti. U slučaju da je zaboravite, možete je resetovati koristeći email adresu vašeg naloga.
 
-Hvala vam što se se registrovali.
+Hvala Vam što se se registrovali.
 
 {EMAIL_SIG}

@@ -36,7 +36,7 @@ if (empty($lang) || !is_array($lang))
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
-// Bot settings
+// Email settings
 $lang = array_merge($lang, array(
 	'ACP_MASS_EMAIL_EXPLAIN'		=> 'Ovde možete poslati email svim korisnicima ili svim korisnicima određene grupe. Da bi ovo uradili, email će biti poslat sa administratorove adrese koju ste priložili, sa BCC-om poslatim svim korisnicima. Ako šaljete email velikoj grupi korisnika molimo vas da budete strpljivi i ne stopirate stranicu u toku operacije. Normalno je da za slanje masovnog email-a treba puno vremena, i bićete obavešteni kada se skripta završi',
 	'ALL_USERS'						=> 'Svi korisnici',

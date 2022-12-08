@@ -48,10 +48,18 @@ $lang = array_merge($lang, array(
 	'MIGRATION_EFFECTIVELY_INSTALLED'	=> 'Migracija je već instalirana (preskočena): %s',
 	'MIGRATION_EXCEPTION_ERROR'			=> 'Nešto je pošlo naopako tokom zahteva i došlo je do greške. Izmene načinjene pre ove greške su vraćene najbolje što može ali bi trebalo da proverite ima li grešaka na boardu.',
 	'MIGRATION_NOT_FULFILLABLE'			=> 'Migracija "%1$s" nije potpuna, nedostaje migracija "%2$s".',
+	'MIGRATION_NOT_INSTALLED'			=> 'Migracija "%s" nije instalirana.',
 	'MIGRATION_NOT_VALID'				=> '%s nije ispravna migracija.',
 	'MIGRATION_SCHEMA_DONE'				=> 'Instalirana šema: %1$s; Vreme: %2$.2f sekundi',
 	'MIGRATION_SCHEMA_IN_PROGRESS'		=> 'Instaliranje šeme: %1$s; Vreme: %2$.2f sekundi',
 	'MIGRATION_SCHEMA_RUNNING'			=> 'Instaliram šemu: %s.',
+
+	'MIGRATION_REVERT_DATA_DONE'		=> 'Vraćeni podaci: %1$s; Vreme: %2$.2f sekundi',
+	'MIGRATION_REVERT_DATA_IN_PROGRESS'	=> 'Vraćanje podakte: %1$s; Vreme: %2$.2f sekundi',
+	'MIGRATION_REVERT_DATA_RUNNING'		=> 'Vraćanje podataka: %s.',
+	'MIGRATION_REVERT_SCHEMA_DONE'		=> 'Vrećanje šeme: %1$s; Vreme: %2$.2f sekundi',
+	'MIGRATION_REVERT_SCHEMA_IN_PROGRESS'	=> 'Vraćanje šeme: %1$s; Vreme: %2$.2f sekundi',
+	'MIGRATION_REVERT_SCHEMA_RUNNING'	=> 'Vraćanje šeme: %s.',
 	
 	'MIGRATION_INVALID_DATA_MISSING_CONDITION'		=> 'Migracija je neispravna. Nedostaje uslov za UKOLIKO.',
 	'MIGRATION_INVALID_DATA_MISSING_STEP'			=> 'Migracija je neispravna. Odgovarajući korak za migraciju nedostaje za UKOLIKO.',
@@ -69,5 +77,6 @@ $lang = array_merge($lang, array(
 	'PARENT_MODULE_FIND_ERROR'			=> 'Nije moguće utvrditi roditeljski modul za: %s',
 	'PERMISSION_NOT_EXIST'				=> 'Dozvola "%s" neočekivano ne postoji.',
 
+	'ROLE_ASSIGNED_NOT_EXIST'			=> 'Uloga dozvole dodeljena grupi "%1$s" neočekivano ne postoji. Id uloge: "%2$s"',
 	'ROLE_NOT_EXIST'					=> 'Uloga dozvole "%s" neočekivano ne postoji.',
 ));
