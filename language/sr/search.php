@@ -1,13 +1,9 @@
 <?php
 /**
 *
-
 * This file is part of the phpBB Forum Software package.
 *
-
-
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
-
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * For full copyright and license information, please see
@@ -22,6 +18,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -55,7 +52,6 @@ $lang = array_merge($lang, array(
 	),
 
 	'GLOBAL'				=> 'Globalno obaveštenje',
-	'GO_TO_SEARCH_ADV'		=> 'Napredna pretraga',
 
 	'IGNORED_TERMS'			=> 'ignorisanih',
 	'IGNORED_TERMS_EXPLAIN'	=> 'Sledeće reči u vašoj pretrazi su ignorisane: <strong>%s</strong>',
@@ -84,13 +80,15 @@ $lang = array_merge($lang, array(
 	'WORD_IN_NO_POST'		=> 'Nije pronađen nijedan post jer se reč %s ne pojavljuje ni u jednom postu.',
 	'WORDS_IN_NO_POST'		=> 'Nije pronađen nijedan post jer se reči %s ne pojavljuju ni u jednom postu.',
 
-	'PHRASE_SEARCH_DISABLED'	=> 'Pretraga po frazama je isključena',
 	'POST_CHARACTERS'		=> 'karaktera posta',
+	'PHRASE_SEARCH_DISABLED'	=> 'Pretraga po frazama je isključena',
 
 	'RECENT_SEARCHES'		=> 'Česte pretrage',
 	'RESULT_DAYS'			=> 'Ograniči rezultate na prethodnih',
 	'RESULT_SORT'			=> 'Sortiraj rezultate po',
 	'RETURN_FIRST'			=> 'Prikaži prvih',
+	'RETURN_FIRST_EXPLAIN'	=> 'Unesite 0 za prikaz celog posta.',
+	'GO_TO_SEARCH_ADV'		=> 'Idi na naprednu pretragu',
 
 	'SEARCHED_FOR'				=> 'Traženi termin',
 	'SEARCHED_TOPIC'			=> 'Tražene teme',

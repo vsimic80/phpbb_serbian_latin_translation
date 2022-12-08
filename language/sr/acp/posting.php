@@ -1,26 +1,27 @@
 <?php
-/** 
+/**
 *
-* posting [Serbian]
+* This file is part of the phpBB Forum Software package.
 *
-* @package language
-* @version $Id: posting.php,v 1.24 2006/11/19 14:56:06 davidmj Exp $
-* @copyright (c) 2005 phpBB Group 
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @copyright (c) phpBB Limited <https://www.phpbb.com>
+* @license GNU General Public License, version 2 (GPL-2.0)
+*
+* For full copyright and license information, please see
+* the docs/CREDITS.txt file.
 *
 */
 
 /**
 * DO NOT CHANGE
 */
-if (empty($lang) || !is_array($lang))
-{
-	$lang = array();
-}
-
 if (!defined('IN_PHPBB'))
 {
 	exit;
+}
+
+if (empty($lang) || !is_array($lang))
+{
+	$lang = array();
 }
 
 // DEVELOPERS PLEASE NOTE
@@ -41,19 +42,21 @@ $lang = array_merge($lang, array(
 	'ACP_BBCODES_EXPLAIN'		=> 'BBKod je specijalna implementacija HTML-a nudeći veću kontrolu šta se i kako prikazuje. Sa ove stranice možete dodati, ukloniti ili izmeniti BBKodove',
 	'ADD_BBCODE'				=> 'Dodaj novi BBKod',
 
+	'BBCODE_DANGER'				=> 'BBKod koji pokušavate da dodate izgleda koristi {TEXT} token unutar HTML atributa. Ovo je mogući problem sa XSS bezbednošću. Pokušajte da koristite restriktivnije {SIMPLETEXT} ili {INTTEXT} tipove. Nastavite samo ukoliko razumete rizik i smatrate da je korišćenje {TEXT} apsolutno neizbežno.',
+	'BBCODE_DANGER_PROCEED'		=> 'Nastavi - razumem rizik', //'I understand the risk',
+	
 	'BBCODE_ADDED'				=> 'BBKod je uspešno dodat.',
 	'BBCODE_EDITED'				=> 'BBKod je uspešno izmenjen.',
 	'BBCODE_DELETED'			=> 'BBCode je uspešno uklonjen.',
-	'BBCODE_DANGER'				=> 'BBKod koji pokušavate da dodate izgleda koristi {TEXT} token unutar HTML atributa. Ovo je mogući problem sa XSS bezbednošću. Pokušajte da koristite restriktivnije {SIMPLETEXT} ili {INTTEXT} tipove. Nastavite samo ukoliko razumete rizik i smatrate da je korišćenje {TEXT} apsolutno neizbežno.',
-	'BBCODE_DANGER_PROCEED'		=> 'Nastavi - razumem rizik', //'I understand the risk',
 	'BBCODE_NOT_EXIST'			=> 'BBKod koji ste izabrali ne postoji.',
 	'BBCODE_HELPLINE'			=> 'Pomoćna linija',
 	'BBCODE_HELPLINE_EXPLAIN'	=> 'Ovo polje sadrži mouseover tekst BBKoda',
 	'BBCODE_HELPLINE_TEXT'		=> 'Tekst pomoćne linije',
 	'BBCODE_HELPLINE_TOO_LONG'	=> 'Pomoćna linija koju ste uneli je predugačka.',
+	
 	'BBCODE_INVALID_TAG_NAME'	=> 'Naziv BBKod taga koji ste izabrali već postoji.',
 	'BBCODE_INVALID'			=> 'Vaš BBKod je konstruisan na nepravilan način.',
-	'BBCODE_OPEN_ENDED_TAG'		=> 'Vaš proizvoljni BBKod tag mora sadržati i otvarajući i zatvarajući tag.',
+	'BBCODE_INVALID_TEMPLATE'	=> 'Šablon vašeg BBKod-a je neispravan.',
 	'BBCODE_TAG'				=> 'Tag',
 	'BBCODE_TAG_TOO_LONG'		=> 'Definicija taga kojeg ste uneli je predugačka, molimo vas da skratite definiciju taga.',
 	'BBCODE_TAG_DEF_TOO_LONG'	=> 'Definicija taga kojeg ste uneli je predugačka, molimo vas da skratite definiciju taga.',
@@ -73,7 +76,6 @@ $lang = array_merge($lang, array(
 	'TOKENS_EXPLAIN'		=> 'Simboli su držači za unos korisnika. Unos će biti proveren samo ako se poklapa sa odgovarajućom definicijom. Ako je potrebno, možete ih numerisati tako što ćete dodatibroj kao poslednji karakterizmeđu zagrada, npr. {KORISNICKOIME1}, {KORISNICKOIME2}.<br /><br />Dodatno, možete koristiti bilo koji od jezičkih stringova prisutan u vašem language/ direktorijumu kao npr.: {L_<em>&lt;stringname&gt;</em>} gde je <em>&lt;stringname&gt;</em> nayiv prevedenog stringa koji želite da dodate. Na primer, {L_WROTE} će biti prikazano kao "wrote" ili kao njegov prevod u zavisnosti od korisnikovog lokalnog podešavanja',
 	'TOKEN_DEFINITION'		=> 'Šta može da bude?',
 	'TOO_MANY_BBCODES'		=> 'Ne možete više kreirati BBKodovoe. Molimo vas da uklonite jedan ili više BBKOdova i pokušate ponovo.',
-	'TOO_MANY_SMILIES'    => 'Dostigli ste ograničenje od %d smajlija.',
 
 	'tokens'	=>	array(
 		'TEXT'			=> 'Bilo kakav tekst, uključujući i strane karaktere, brojeve itd… Ne bi trebalo da koristite ovaj token u HTML tagovima. Umesto toga koristite IDENTIFIER, INTTEXT ili SIMPLETEXT.',
@@ -169,11 +171,13 @@ $lang = array_merge($lang, array(
 		1	=> 'Smajli je uspešno dodat.',
 		2	=> 'Smajlići su uspešno dodati.',
 	),
-	
 	'SMILIES_CODE'				=> 'Kod smajlija',
 	'SMILIES_CONFIG'			=> 'Konfiguracija smajlija',
 	'SMILIES_DELETED'			=> 'Smajli je uspešno uklonjen.',
 	'SMILIES_EDIT'				=> 'Izmeni smajli',
+	'SMILIE_NO_CODE'			=> 'Smajli “%s” je ignorisan, jer nije unet kod.',
+	'SMILIE_NO_EMOTION'			=> 'Smajli “%s” je ignorisan, jer nije unea emocija.',
+	'SMILIE_NO_FILE'			=> 'Smajli “%s” se ignoriše jer taj fajl ne postoji.',
 	'SMILIES_EDITED'			=> array(
 		0	=> 'Nijedan smajli nije ažuriran.',
 		1	=> 'Smajli je uspešno ažuriran.',
@@ -186,12 +190,9 @@ $lang = array_merge($lang, array(
 	'SMILIES_IMPORT_SUCCESS'	=> 'Paket smajlija je uspešno uvežen.',
 	'SMILIES_LOCATION'			=> 'Lokacija smajlija',
 	'SMILIES_NOT_DISPLAYED'		=> 'Sledeći smajliji neće biti prikazani na stranici za pisanje posta',
-	'SMILIE_NO_CODE'			=> 'Smajli “%s” je ignorisan, jer nije unet kod.',
-	'SMILIE_NO_EMOTION'			=> 'Smajli “%s” je ignorisan, jer nije unea emocija.',
 	'SMILIES_ORDER'				=> 'Redosled smajlija',
 	'SMILIES_URL'				=> 'Fajl smajlija',
 	'SMILIES_WIDTH'				=> 'Širina smajlija',
-	'SMILIE_NO_FILE'			=> 'Smajli “%s” se ignoriše jer taj fajl ne postoji.',
 
 	'TOO_MANY_SMILIES'			=> array(
 		1	=> 'Dostignut je limit od %d smajlija.',
@@ -285,7 +286,6 @@ $lang = array_merge($lang, array(
 	'REASON_TITLE'				=> 'Naslov razloga',
 	'REASON_TITLE_TRANSLATED'	=> 'Prikazan naslov razloga',
 	'REASON_UPDATED'			=> 'Razlog za izveštaj/odbijanje je uspešno izmenjen.',
-
 
 	'USED_IN_REPORTS'		=> 'Koristi se u izveštajima',
 ));

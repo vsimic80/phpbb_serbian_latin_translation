@@ -2,11 +2,10 @@ Subject: Obaveštenje o novoj temi — “{FORUM_NAME}”
 
 Zdravo {USERNAME},
 
-Dobili ste ovo obaveštenje jer ste izabrali da pratite forum “{FORUM_NAME}” na sajtu “{SITENAME}”. Ovaj forum ima novu temu<!-- IF AUTHOR_NAME --> : korisnik {AUTHOR_NAME}<!-- ENDIF --> od vaše poslednje posete “{TOPIC_TITLE}”. Možete iskoristiti sledeći link da pogledate forum, a nećete dobijati više obaveštenja dok ne posetite forum.
-
+Forum “{FORUM_NAME}” ima novu temu "{TOPIC_TITLE}"<!-- IF AUTHOR_NAME != '' --> od {AUTHOR_NAME}<!-- ENDIF --> vaše poslednje posete "{SITENAME}". Nećete više dobijati obaveštenja dok ne posetite forum.
 {U_FORUM}
 
-Ako ne želite da više pratite ovaj forum možete ili da kliknete na  “Otkaži pretplatu na forum” link koji se nalazi na forumu, ili klikom na sledeći link:
+Ako ne želite da više pratite ovaj forum možete ili da kliknete na sledeći link:
 
 {U_STOP_WATCHING_FORUM}
 

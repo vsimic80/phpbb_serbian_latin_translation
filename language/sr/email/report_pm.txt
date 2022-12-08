@@ -1,4 +1,4 @@
-Subject: Prijava privatne poruke - "{TOPIC_TITLE}"
+Subject: Prijava privatne poruke - "{SUBJECT}"
 
 Zdravo {USERNAME},
 

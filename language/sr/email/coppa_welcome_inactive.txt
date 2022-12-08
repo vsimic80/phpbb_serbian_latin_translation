@@ -1,4 +1,4 @@
-Subject: Dobrodošli na “{SITENAME}” — {U_BOARD}
+Subject: Dobrodošli na "{SITENAME}"
 
 {WELCOME_MSG}
 
@@ -13,7 +13,7 @@ ili pošaljite poštom na:
 {MAIL_INFO}
 
 ------------------------------ ISECITE OVDE ------------------------------
-Dozvola za pristup forumu “{SITENAME}”
+Dozvola za pristup forumu "{SITENAME}" {U_BOARD}
 
 Korisničko ime: {USERNAME}
 

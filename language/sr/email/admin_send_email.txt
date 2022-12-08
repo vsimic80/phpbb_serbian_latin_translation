@@ -10,5 +10,4 @@ Sledi poruka koja vam je poslata:
 
 {MESSAGE}
 
-
 {EMAIL_SIG}

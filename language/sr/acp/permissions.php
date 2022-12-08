@@ -1,13 +1,9 @@
 <?php
 /**
 *
-
 * This file is part of the phpBB Forum Software package.
 *
-
-
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
-
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * For full copyright and license information, please see
@@ -22,6 +18,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -116,10 +113,11 @@ $lang = array_merge($lang, array(
 
 	'COPY_PERMISSIONS_CONFIRM'   =>  'Da li ste sigurni da želite da izvršite ovu operaciju? Znajte da ćete ovim obrisati sve postojeće dozvole za izabrane stavke.',
 	'COPY_PERMISSIONS_FORUM_FROM_EXPLAIN'  =>  'Izvorni forum sa koga želite da iskopirate dozvole.',
-  'COPY_PERMISSIONS_FORUM_TO_EXPLAIN'   =>  'Odredišni forumi na koje želite da primenite dozvole.',
-  'COPY_PERMISSIONS_FROM'   =>  'Kopiraj dozvole od',
-  'COPY_PERMISSIONS_TO'   =>  'Primeni dozvole na',
-  'CREATE_ROLE'				=> 'Napravi pravilo',
+	'COPY_PERMISSIONS_FORUM_TO_EXPLAIN'   =>  'Odredišni forumi na koje želite da primenite dozvole.',
+	'COPY_PERMISSIONS_FROM'   =>  'Kopiraj dozvole od',
+	'COPY_PERMISSIONS_TO'   =>  'Primeni dozvole na',
+	
+	'CREATE_ROLE'				=> 'Napravi pravilo',
 	'CREATE_ROLE_FROM'			=> 'Iskoristi podešavanja od…',
 	'CUSTOM'					=> 'Proizvoljno…',
 
@@ -169,22 +167,22 @@ $lang = array_merge($lang, array(
 	'ROLE_FORUM_FULL'			=> 'Potpuni pristup',
 	'ROLE_FORUM_LIMITED'		=> 'Ograničen pristup',
 	'ROLE_FORUM_LIMITED_POLLS'	=> 'Ograničen pristup + glasanja',
-	'ROLE_FORUM_NEW_MEMBER'  =>  'Novo registrovani korisnik',
 	'ROLE_FORUM_NOACCESS'		=> 'Nema pristup',
 	'ROLE_FORUM_ONQUEUE'		=> 'Na čekanju moderatora',
 	'ROLE_FORUM_POLLS'			=> 'Standardni pristup + glasanja',
 	'ROLE_FORUM_READONLY'		=> 'Pristup samo za čitanje',
 	'ROLE_FORUM_STANDARD'		=> 'Standardni pristup',
+	'ROLE_FORUM_NEW_MEMBER'  	=>  'Novo registrovani korisnik',
 	'ROLE_MOD_FULL'				=> 'Potpuni moderator',
 	'ROLE_MOD_QUEUE'			=> 'Čekanje moderatora',
 	'ROLE_MOD_SIMPLE'			=> 'Jednostavan moderator',
 	'ROLE_MOD_STANDARD'			=> 'Standardan moderator',
 	'ROLE_USER_FULL'			=> 'Sve mogućnosti',
 	'ROLE_USER_LIMITED'			=> 'Ograničene mogućnosti',
-	'ROLE_USER_NEW_MEMBER' =>  'Novo registrovani korisnik',
 	'ROLE_USER_NOAVATAR'		=> 'Bez avatara',
 	'ROLE_USER_NOPM'			=> 'Bez privatnih poruka',
 	'ROLE_USER_STANDARD'		=> 'Standardne mogućnosti',
+	'ROLE_USER_NEW_MEMBER' 		=>  'Novo registrovani korisnik',
 	
 	'ROLE_DESCRIPTION_ADMIN_FORUM'			=> 'Može pristupiti menadžmentu foruma i podešavanju dozvola foruma.',
 	'ROLE_DESCRIPTION_ADMIN_FULL'			=> 'Ima pristup svim funkcijama administratora na ovom forumu. <br />Nije preporučljivo.',
@@ -194,22 +192,22 @@ $lang = array_merge($lang, array(
 	'ROLE_DESCRIPTION_FORUM_FULL'			=> 'Može koristiti sve mogućnosti foruma, uključujući pisanje obaveštenja i lepljivih postova. Može takođe ignorisati ograničenje flodovanja.<br />Nije preporučljivo za obične korisnike.',
 	'ROLE_DESCRIPTION_FORUM_LIMITED'		=> 'Može koristiti neke opcije foruma, ali ne može prikačiti fajlove ili da koristi ikonice za postove.',
 	'ROLE_DESCRIPTION_FORUM_LIMITED_POLLS'	=> 'Kao i za Ograničen pristup ali može da kreira glasanja.',
-	'ROLE_DESCRIPTION_FORUM_NEW_MEMBER'  =>  'Pravilo za članove specijalne grupe novi registrovani korisnici; sadrži <samp>NIKADA</samp> dozvole da bi zaključali opcije novim korisnicima.',
 	'ROLE_DESCRIPTION_FORUM_NOACCESS'		=> 'Ne može čak ni da pregleda niti da pristupi forumu.',
 	'ROLE_DESCRIPTION_FORUM_ONQUEUE'		=> 'Može koristiti većinu mogućnosti foruma uključujući prikačene fajlove, ali postovi i teme mora da odobri moderator.',
 	'ROLE_DESCRIPTION_FORUM_POLLS'			=> 'Kao Standardni pristup ali takođe mož da kreira glasanja.',
 	'ROLE_DESCRIPTION_FORUM_READONLY'		=> 'Može da čita forum, ali ne može da kreira nove teme ili da odgovara na postove.',
 	'ROLE_DESCRIPTION_FORUM_STANDARD'		=> 'Može da koristi većinu opcija foruma uključujući prikačene fajlove, ali ne može da zakluča ili brišr sopstvene teme, i ne može da pravi glasanja.',
+	'ROLE_DESCRIPTION_FORUM_NEW_MEMBER'  	=>  'Pravilo za članove specijalne grupe novi registrovani korisnici; sadrži <samp>NIKADA</samp> dozvole da bi zaključali opcije novim korisnicima.',
 	'ROLE_DESCRIPTION_MOD_FULL'				=> 'Može da koristi sve opcije moderatora, uključujući i zabrane.',
 	'ROLE_DESCRIPTION_MOD_QUEUE'			=> 'Može koristiti mogućnosti moderatora da ispravlja i menja postove, ali ništa više.',
 	'ROLE_DESCRIPTION_MOD_SIMPLE'			=> 'Može da koristi samo osnovne akcije sa temom. Ne može da šalje upozorenja ili da koristi opcije moderatora.',
 	'ROLE_DESCRIPTION_MOD_STANDARD'			=> 'Može da koristi opcije moderatora, ali ne može da zabrani korisnike ili da menja autora poruke.',
 	'ROLE_DESCRIPTION_USER_FULL'			=> 'Mođe da koristi sve dostupne opcije korisnika foruma, iključujući i promenu korisničkog imena ili ignorisanje ograničenja flodovanja. <br />Nije preporučljivo.',
 	'ROLE_DESCRIPTION_USER_LIMITED'			=> 'Može pristupiti nekim od opcija korisnika. Prikačeni fajlovi, e-majlovi, ili instant poruke nisu dozvoljeni.',
-	'ROLE_DESCRIPTION_USER_NEW_MEMBER'  =>  'Pravilo za članove specijalne grupe novi registrovani korisnici; sadrži <samp>NIKADA</samp> dozvole da bi zaključali opcije novim korisnicima.',
 	'ROLE_DESCRIPTION_USER_NOAVATAR'		=> 'Ima ograničen set opcija i nije u mogućnosti da koristi opciju avatara.',
 	'ROLE_DESCRIPTION_USER_NOPM'			=> 'Ima ograničen set opcija i nema opciju korišćenja privatnih poruka.',
 	'ROLE_DESCRIPTION_USER_STANDARD'		=> 'Može pristupiti većini, ali ne i svim opcijama korisnika. Ne može menjati korisničko ime ili ignorisati interval flodovanja na primer.',
+	'ROLE_DESCRIPTION_USER_NEW_MEMBER'  =>  'Pravilo za članove specijalne grupe novi registrovani korisnici; sadrži <samp>NIKADA</samp> dozvole da bi zaključali opcije novim korisnicima.',
 	
 	'ROLE_DESCRIPTION_EXPLAIN'		=> 'Možete uneti kratak opis šta radi pravilo ili čemu je namenjeno. Tekst koji ovde unesete bićeć takođe prikazan na ekranu sa dozvolama.',
 	'ROLE_DESCRIPTION_LONG'			=> 'Opis pravila je predugačak, molimo vas da se ograničite na 4000 karaktera.',

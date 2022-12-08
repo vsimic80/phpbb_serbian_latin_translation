@@ -1,13 +1,9 @@
 <?php
 /**
 *
-
 * This file is part of the phpBB Forum Software package.
 *
-
-
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
-
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * For full copyright and license information, please see
@@ -22,6 +18,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -67,21 +64,20 @@ $lang = array_merge($lang, array(
 	'CANNOT_WARN_SELF'		=> 'Ne možete upozoriti samog sebe',
 	'CAN_LEAVE_BLANK'		=> 'Ovo možete ostaviti prazno.',
 	'CHANGE_POSTER'			=> 'Promeni pošaljioca',
+	'CLOSE_PM_REPORT'    =>  'Zatvori PM prijavu',
+	'CLOSE_PM_REPORT_CONFIRM' => 'Da li ste sigurni da želite da zatvorite izabrenu prijavu?',
+	'CLOSE_PM_REPORTS'  =>  'Zatvori PM prijave',
+	'CLOSE_PM_REPORTS_CONFIRM'  =>  'Da li ste sigurni da želite da zatvorite izabrane prijave?',
 	'CLOSE_REPORT'			=> 'Zatvori prijavu',
 	'CLOSE_REPORT_CONFIRM'	=> 'Da li ste sigurni da želite da zatvorite izabranu prijavu',
 	'CLOSE_REPORTS'			=> 'Zatvori prijave',
 	'CLOSE_REPORTS_CONFIRM'	=> 'Da li ste sigurni da želite da zatvorite izabrane prijave',
-	'CLOSE_PM_REPORT'    =>  'Zatvori PM prijavu',
-  'CLOSE_PM_REPORT_CONFIRM' => 'Da li ste sigurni da želite da zatvorite izabrenu prijavu?',
-  'CLOSE_PM_REPORTS'  =>  'Zatvori PM prijave',
-  'CLOSE_PM_REPORTS_CONFIRM'  =>  'Da li ste sigurni da želite da zatvorite izabrane prijave?',
   
-  'DELETE_PM_REPORT'  => 'Obriši prijavu',
-  'DELETE_PM_REPORT_CONFIRM'  => 'Da li ste sigurni da želite da obrišete izabranu prijavu?',
-  'DELETE_PM_REPORTS' =>  'Obriši prijave',
-  'DELETE_PM_REPORTS_CONFIRM' =>  'Da li ste sigurni da želite da obrišete izabrane prijave?',
+	'DELETE_PM_REPORT'  => 'Obriši prijavu',
+	'DELETE_PM_REPORT_CONFIRM'  => 'Da li ste sigurni da želite da obrišete izabranu prijavu?',
+	'DELETE_PM_REPORTS' =>  'Obriši prijave',
+	'DELETE_PM_REPORTS_CONFIRM' =>  'Da li ste sigurni da želite da obrišete izabrane prijave?',
 	'DELETE_POSTS'				=> 'Obriši postove',
-	
 	'DELETE_REPORT'				=> 'Obriši prijavu',
 	'DELETE_REPORT_CONFIRM'		=> 'Da li ste sigurni da želite da obrišete ove prijave?',
 	'DELETE_REPORTS'			=> 'Obriši prijave',
@@ -139,6 +135,7 @@ $lang = array_merge($lang, array(
 	'LOCK_TOPICS_CONFIRM'		=> 'Da li ste sigurni da želite da zaključate sve izabrane teme?',
 	'LOGS_CURRENT_TOPIC'		=> 'Trenutno pregledate logove od:',
 	'LOGIN_EXPLAIN_MCP'			=> 'Da bi uređivali ovaj forum morate se prvo prijaviti.',
+	'LOGVIEW_VIEWPOST'			=> 'Pregled posta',
 	'LOGVIEW_VIEWTOPIC'			=> 'Pregled teme',
 	'LOGVIEW_VIEWLOGS'			=> 'Pregled loga teme',
 	'LOGVIEW_VIEWFORUM'			=> 'Pregled foruma',
@@ -186,12 +183,13 @@ $lang = array_merge($lang, array(
 	'MCP_NOTES_USER'				=> 'Detalji korisnika',
 
 	'MCP_POST_REPORTS'				=> 'Prijave za ovaj post',
+
 	'MCP_PM_REPORTS'         =>  'Prijavljene PP',
-  'MCP_PM_REPORT_DETAILS' =>  'PP detalji prijave',
-  'MCP_PM_REPORTS_CLOSED' =>  'Zatvorene PP prijave',
-  'MCP_PM_REPORTS_CLOSED_EXPLAIN' =>  'Ovo je lista svih prijava o privatnim porukama koje su ranije rešene.',
-  'MCP_PM_REPORTS_OPEN'   =>  'Otvorene PP prijave',
-  'MCP_PM_REPORTS_OPEN_EXPLAIN' =>  'Ovo je liste svih prijavljenih privatnih poruka koje treba da se reše.',
+	'MCP_PM_REPORT_DETAILS' =>  'PP detalji prijave',
+	'MCP_PM_REPORTS_CLOSED' =>  'Zatvorene PP prijave',
+	'MCP_PM_REPORTS_CLOSED_EXPLAIN' =>  'Ovo je lista svih prijava o privatnim porukama koje su ranije rešene.',
+	'MCP_PM_REPORTS_OPEN'   =>  'Otvorene PP prijave',
+	'MCP_PM_REPORTS_OPEN_EXPLAIN' =>  'Ovo je liste svih prijavljenih privatnih poruka koje treba da se reše.',
 
 	'MCP_REPORTS'					=> 'Prijavljeni postovi',
 	'MCP_REPORT_DETAILS'			=> 'Detalji prijave',
@@ -206,7 +204,6 @@ $lang = array_merge($lang, array(
 	'MCP_QUEUE_UNAPPROVED_POSTS_EXPLAIN'	=> 'Ovo je lista svih postova koji zahtevaju odobrenje pre nego što će biti vidljive korisnicima',
 	'MCP_QUEUE_UNAPPROVED_TOPICS'			=> 'Teme koje čekaju odobrenje',
 	'MCP_QUEUE_UNAPPROVED_TOPICS_EXPLAIN'	=> 'Ovo je lista svih tema koje zahtevaju odobrenje pre nego što će biti vidljive korisnicima',
-	
 	'MCP_QUEUE_DELETED_POSTS'				=> 'Obrisani postovi',
 	'MCP_QUEUE_DELETED_POSTS_EXPLAIN'		=> 'Ovo je lista svih blago obrisanih postova. Možete ih povratiti ili zauvek obrisati.',
 	'MCP_QUEUE_DELETED_TOPICS'				=> 'Obrisane teme',
@@ -220,7 +217,6 @@ $lang = array_merge($lang, array(
 	'MCP_WARN_POST'			=> 'Upozorenje za određene postove',
 	'MCP_WARN_USER'			=> 'Upozori korisnika',
 
-	
 	'MERGE_POSTS_CONFIRM'	=> 'DA li ste sigurni da želite da sastavite izabrane postove?',
 	'MERGE_TOPIC_EXPLAIN'	=> 'Koristeći formu ispod možete sastaviti izabrane postove u drugu temu. Ovim postovima neće biti izmenjen redosled i prikazaće se kao i da su ih korisnici poslali u novu temu.<br />Molimo vas da unesete id odredišne teme ili kliknite na "Izaberi" dugme je da potražite',
 	'MERGE_TOPIC_ID'		=> 'Id odredišne teme',
@@ -235,7 +231,7 @@ $lang = array_merge($lang, array(
 	'MOVE_TOPIC_CONFIRM'	=> 'Da li ste sigurni da želite pomerite temu u novi forum?',
 	'MOVE_TOPICS'			=> 'Pomeri izabranu temu',
 	'MOVE_TOPICS_CONFIRM'	=> 'Da li ste sigurni da želite pomerite teme u novi forum?',
-
+	
 	'NOTIFY_POSTER_APPROVAL'		=> 'Obavesti pošaljioca o odobrenju?',
 	'NOTIFY_POSTER_DISAPPROVAL'		=> 'Obavesti pošaljioca o neodobravanju?',
 	'NOTIFY_USER_WARN'				=> 'Obavesti korisnika o upozorenju?',
@@ -256,35 +252,34 @@ $lang = array_merge($lang, array(
 	'NO_REPORTS'					=> 'Nema prijava',	
 	'NO_REPORT_SELECTED'			=> 'Morate izabrati najmanje jednu prijavu da bi izvršili ovu opraciju.',
 	'NO_TOPIC_ICON'					=> 'Nema',
+	'NO_TOPIC_SELECTED'				=> 'Morate izabrati najmanje jednu temu da bi izvršili ovu operaciju',
 	'NO_TOPICS_DELETED'				=> 'Nema obrisanih tema.',
 	'NO_TOPICS_QUEUE'				=> 'Nema tema za odobrenje',
-	'NO_TOPIC_SELECTED'				=> 'Morate izabrati najmanje jednu temu da bi izvršili ovu operaciju',
-
 	
 	'ONLY_TOPIC'			=> 'Samo tema "%s"',
 	'OTHER_USERS'			=> 'Korisnici koji pišu sa ove IP adrese',
 	
 	'QUICKMOD_ACTION_NOT_ALLOWED' => "%s nije dozvoljena u brzom modu",
 
-  'PM_REPORT_CLOSED_SUCCESS'  =>  'Izabrana PP prijava je uspešno zatvorena.',
-  'PM_REPORT_DELETED_SUCCESS' =>  'Izabrana PP prijava je uspešno obrisana.',
-  'PM_REPORTED_SUCCESS'       =>  'Ova privatna poruka je uspešno prijavljena.',
-  'PM_REPORTS_TOTAL'			=> array(
+	'PM_REPORT_CLOSED_SUCCESS'  =>  'Izabrana PP prijava je uspešno zatvorena.',
+	'PM_REPORT_DELETED_SUCCESS' =>  'Izabrana PP prijava je uspešno obrisana.',
+	'PM_REPORTED_SUCCESS'       =>  'Ova privatna poruka je uspešno prijavljena.',
+	'PM_REPORTS_CLOSED_SUCCESS' =>  'Izabrane PP prijave su automatski zatvorene.',
+	'PM_REPORTS_DELETED_SUCCESS'  =>  'Izabrane PP prijave su uspešno obrisane.',
+	'PM_REPORTS_TOTAL'			=> array(
 		0	=> 'Nema prijava privatnih poruka za pregled.',
 		1	=> 'Imate <strong>1</strong> prijavu privatne poruke za pregled.',
 		2	=> 'imate <strong>%d</strong> prijava privatnih poruka za pregled.',
 	),
-  'PM_REPORT_DETAILS'         =>  'Detalji prijave privatne poruke',
-  'PM_REPORTS_CLOSED_SUCCESS' =>  'Izabrane PP prijave su automatski zatvorene.',
-  'PM_REPORTS_DELETED_SUCCESS'  =>  'Izabrane PP prijave su uspešno obrisane.',
+	'PM_REPORT_DETAILS'         =>  'Detalji prijave privatne poruke',
 	'POSTER'					=> 'Pošaljioc',
 	'POSTS_APPROVED_SUCCESS'	=> 'Izabrani postovi su odobreni',
 	'POSTS_DELETED_SUCCESS'		=> 'Izabrani postovi su uspešno uklonjeni iz baze',
 	'POSTS_DISAPPROVED_SUCCESS'	=> 'Izabrani postovi su zabranjeni',
 	'POSTS_LOCKED_SUCCESS'		=> 'Izabrani postovi su uspešno zaključani',
 	'POSTS_MERGED_SUCCESS'		=> 'Izabrani postovi su spojeni',
-	'POSTS_UNLOCKED_SUCCESS'	=> 'Izabrani postovi su uspešno otključani',
 	'POSTS_PER_PAGE'			=> 'Postova po stranici',
+	'POSTS_UNLOCKED_SUCCESS'	=> 'Izabrani postovi su uspešno otključani',
 	'POSTS_PER_PAGE_EXPLAIN'	=> '(Postavite na 0 da vidite sve postove)',
 	'POSTS_RESTORED_SUCCESS'	=> 'Izabrani postovi su uspešno vrećeni.',
 	'POST_APPROVED_SUCCESS'		=> 'Izabrani post je odobren',

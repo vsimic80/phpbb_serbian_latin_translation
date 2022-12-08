@@ -10,5 +10,4 @@ Možete iskoristiti ovaj link da pogledate profil korisnika:
 Možete iskoristiti ovaj link da aktivirate nalog:
 {U_ACTIVATE}
 
-
 {EMAIL_SIG}

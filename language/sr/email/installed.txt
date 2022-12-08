@@ -9,7 +9,6 @@ Ovaj email sadrži važne informacije za vašu instalaciju i trebalo bi da ga sa
 ----------------------------
 Korisničko ime: {USERNAME}
 
-
 Adresa foruma: {U_BOARD}
 ----------------------------
 

@@ -2,7 +2,7 @@ Subject: Citat na temu - "{TOPIC_TITLE}"
 
 Zdravo {USERNAME},
 
-Dobili ste ovo obaveštenje jer Vas je "{AUTHOR_NAME}" citirao u temi "{TOPIC_TITLE}" na sajtu "{SITENAME}". Možete iskoristiti sledeći link da pogledate odgovor.
+Dobili ste ovo obaveštenje jer Vas je "{AUTHOR_NAME}" citirao u temi "{TOPIC_TITLE}" na sajtu "{SITENAME}".
 
 Ukoliko želite da pogledate citiran post, kliknite na sledeći link:
 {U_VIEW_POST}
@@ -14,7 +14,6 @@ Ukoliko želite da pogledate forum, kliknite na sledeći link:
 {U_FORUM}
 
 Ukoliko ne želida da ubuduće primate obaveštenja o odgovorima koji Vas citiraju, molimo Vas da izmenite podešavanja ovde:
-
 {U_NOTIFICATION_SETTINGS}
 
 {EMAIL_SIG}

@@ -8,5 +8,4 @@ Sledi obražloženje:
 
 {REASON}
 
-
 {EMAIL_SIG}

@@ -1,13 +1,8 @@
 <?php
 /**
 *
-
 * This file is part of the phpBB Forum Software package.
 *
-
-
-
-
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
@@ -23,6 +18,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -47,9 +43,9 @@ $lang = array_merge($lang, array(
 	'BAN_ALREADY_ENTERED'	=> 'Zabrana je već prethodno uspešno uneta. Lista zabrana nije ažurirana.',
 	'BAN_SUCCESSFUL'		=> 'Uspešno uneta zabrana.',
 
+	'CANNOT_BAN_ANONYMOUS'			=> 'Ne možete da zabranite anonimne korisnike. Dozvole za anonimne korisnike možete podesiti u delu Dozvole.',
 	'CANNOT_BAN_FOUNDER'			=> 'Ne možete da zabranite osnivačke naloge.',
 	'CANNOT_BAN_YOURSELF'			=> 'Ne možete da zabranite sami sebe.',
-	'CANNOT_BAN_ANONYMOUS'			=> 'Ne možete da zabranite anonimne korisnike. Dozvole za anonimne korisnike možete podesiti u delu Dozvole.',
 	'CANNOT_DEACTIVATE_BOT'			=> 'Ne možete da deaktivirate bot naloge. Molimo vas da deaktivirate bot-a.',
 	'CANNOT_DEACTIVATE_FOUNDER'		=> 'Ne možete da deaktivirate osnivačke naloge.',
 	'CANNOT_DEACTIVATE_YOURSELF'	=> 'Ne možete da deaktivirate vaš nalog.',
@@ -57,8 +53,8 @@ $lang = array_merge($lang, array(
 	'CANNOT_FORCE_REACT_FOUNDER'	=> 'Ne možete da forsirate reaktivaciju asnivačkih naloga.',
 	'CANNOT_FORCE_REACT_YOURSELF'	=> 'Ne možete da forsirate reaktivaciju vašeg naloga.',
 	'CANNOT_REMOVE_ANONYMOUS'		=> 'Ne možete da uklonite korisnički nalog gosta.',
-	'CANNOT_REMOVE_YOURSELF'		=> 'Ne možete da uklonite vaš nalog.',
 	'CANNOT_REMOVE_FOUNDER'			=> 'Ne možete ukloniti naloge osnivača.',
+	'CANNOT_REMOVE_YOURSELF'		=> 'Ne možete da uklonite vaš nalog.',
 	'CANNOT_SET_FOUNDER_IGNORED'	=> 'Ne možete da proglasite ignorisane korisnike da budu osnivači.',
 	'CANNOT_SET_FOUNDER_INACTIVE'	=> 'Morate da aktivirate korisnike pre nego što ih proglasite za osnivače, samo aktivni korisnici mogu biti promovisani.',
 	'CONFIRM_EMAIL_EXPLAIN'			=> 'Ovo samo odrešujete ukoliko menjate korisničku email adresu.',
@@ -84,8 +80,8 @@ $lang = array_merge($lang, array(
 	'MOVE_POSTS_EXPLAIN'	=> 'Molimo vas da izaberete forum u koji želite da pomerite sve postove ovog korisnika.',
 
 	'NO_SPECIAL_RANK'		=> 'Nije dodeljen specijalan čin',
+	'NO_WARNINGS'			=>  'Nema upozorenja.',
 	'NOT_MANAGE_FOUNDER'	=> 'Pokušali ste da izmenite korisnika sa osnivačkim statusom. Samo osnivači mogu da menjaju druge osnivače.',
-	'NO_WARNINGS'      =>  'Nema upozorenja.',
 
 	'QUICK_TOOLS'			=> 'Brze alatke',
 
@@ -111,17 +107,17 @@ $lang = array_merge($lang, array(
 	'USER_ADMIN_DEL_ATTACH'			=> 'Obriši sve prikačene fajlove',
 	'USER_ADMIN_DEL_AVATAR'			=> 'Obriši avatar',
 	'USER_ADMIN_DEL_OUTBOX'    		=>  'Isprazni PP outbox',
-  'USER_ADMIN_LEAVE_NR'     		=>  'Ukloni iz novo registvrovani',
 	'USER_ADMIN_DEL_POSTS'			=> 'Obriši sve postove',
 	'USER_ADMIN_DEL_SIG'			=> 'Obriši potpis',
 	'USER_ADMIN_EXPLAIN'			=> 'Ovde možete promeniti informacije o vašim korisnicima i određene specifične opcije. Da bi izmenili dozvole korisnika molimo vas da koristite sistem da dozvole korisnika i grupa.',
 	'USER_ADMIN_FORCE'				=> 'Forsiraj reaktivaciju',
+	'USER_ADMIN_LEAVE_NR'     		=>  'Ukloni iz novo registvrovani',
 	'USER_ADMIN_MOVE_POSTS'			=> 'Pomeri sve postove',
 	'USER_ADMIN_SIG_REMOVED'		=> 'Uspešno uklonjen potpis iz korisničkog naloga.',
 	'USER_ATTACHMENTS_REMOVED'		=> 'Uspešno uklonjeni svi prikačeni fajlovi ovog korisnika.',
-	'USER_AVATAR_UPDATED'			=> 'Uspešno ažurirani detalji korisničkog avatara.',
 	'USER_AVATAR_NOT_ALLOWED'  		=>  'Avatar ne može biti prikazan jer su avatari zabranjeni.',
-  'USER_AVATAR_TYPE_NOT_ALLOWED'  	=>  'Trenutni avatar ne može biti prikazan jer je avatar tog tipa zabranjen.',
+	'USER_AVATAR_UPDATED'			=> 'Uspešno ažurirani detalji korisničkog avatara.',
+  	'USER_AVATAR_TYPE_NOT_ALLOWED'  	=>  'Trenutni avatar ne može biti prikazan jer je avatar tog tipa zabranjen.',
 	'USER_CUSTOM_PROFILE_FIELDS'	=> 'Proizvoljna polja profila',
 	'USER_DELETED'					=> 'Korisnik uspešno obrisan.',
 	'USER_GROUP_ADD'				=> 'Dodaj korisnika u grupu',
@@ -132,7 +128,7 @@ $lang = array_merge($lang, array(
 	'USER_NO_ATTACHMENTS'			=> 'Nema prikačenih fajlova za prikaz.',
 	'USER_NO_POSTS_TO_DELETE'		=> 'Korisnik nema postove za čuvanje ili brisanje.',
 	'USER_OUTBOX_EMPTIED'    		=> 'Uspešno ste ispraznil korisnikov outbox za privatne poruke.',
-  'USER_OUTBOX_EMPTY'     			=>  'Korisnikov outbox za privatne poruke je već bio prazan.',
+  	'USER_OUTBOX_EMPTY'     			=>  'Korisnikov outbox za privatne poruke je već bio prazan.',
 	'USER_OVERVIEW_UPDATED'			=> 'Detalji korisnika su ažurirani.',
 	'USER_POSTS_DELETED'			=> 'Uspešno uklonjeni svi postovi ovog korisnika.',
 	'USER_POSTS_MOVED'				=> 'Uspešno pomereni postovi korisnika u željeni forum.',
@@ -142,6 +138,6 @@ $lang = array_merge($lang, array(
 	'USER_RANK'						=> 'Čin korisnika',
 	'USER_RANK_UPDATED'				=> 'Ažuriran čin korisnika.',
 	'USER_SIG_UPDATED'				=> 'Potpis korisnika je uspešno ažuriran.',
-	'USER_TOOLS'					=> 'Osnovni alati',
 	'USER_WARNING_LOG_DELETED' =>  'Nema dostupnih informacija. Moguće je da je zapis u logu izbrisan.',
+	'USER_TOOLS'					=> 'Osnovni alati',
 ));

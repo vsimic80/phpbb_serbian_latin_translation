@@ -1,7 +1,9 @@
 Subject: Obaveštenje o odgovoru na temu — “{TOPIC_TITLE}”
+Odjava sa liste: <{U_STOP_WATCHING_TOPIC}>
+
 Zdravo {USERNAME},
 
-Dobili ste ovo obaveštenje jer ste izabrali da pratite temu, “{TOPIC_TITLE}” na forumu “{SITENAME}”. Na ovu temu je odgovoreno <!-- IF AUTHOR_NAME !== '' --> od {AUTHOR_NAME}<!-- ENDIF --> od vaše poslednje posete. Možete koristiti sledeći link da bi pogledali odgovore, i nećete biti više obaveštavani sve dok ne posetite temu.
+Tema, "{TOPIC_TITLE}" ima novi odgovor<!-- IF AUTHOR_NAME != '' --> od {AUTHOR_NAME}<!-- ENDIF --> vaše poslednje posete "{SITENAME}". Nećete biti više obaveštavani sve dok ne posetite temu.
 
 Ako želite da pogledate najnoviji odgovor od vaše poslednje posete, kliknite na sledeći link:
 {U_NEWEST_POST}
@@ -12,7 +14,7 @@ Ako želite da pogledate temu, kliknite na link ispod:
 Ako želite da pogledate tforum, kliknite na link ispod:
 {U_FORUM}
 
-Ako ne želite više da pratite temu možete ili da kliknete na “Prekid praćenja teme” link koji se nalazi u dnu tene iznad, ili klikom na sledeći link:
+Ako ne želite više da pratite temu kliknete na link ispod:
 {U_STOP_WATCHING_TOPIC}
 
 {EMAIL_SIG}

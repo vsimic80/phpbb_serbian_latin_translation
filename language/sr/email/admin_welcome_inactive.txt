@@ -2,7 +2,6 @@ Subject: Dobrodošli na "{SITENAME}"
 
 {WELCOME_MSG}
 
-
 Molimo vas da sačuvate ovaj email. Slede informacije o vašem nalogu:
 
 ----------------------------

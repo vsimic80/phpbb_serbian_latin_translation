@@ -2,6 +2,8 @@ Subject: Vaš nalog je aktiviran
 
 Zdravo {USERNAME},
 
-Vaš nalog na forumu “{SITENAME}” je aktiviran, tako da se sada možete prijaviti koristeči korisničko ime i šifru koje ste dobili u prethodnom email-u.
+Vaš nalog na forumu “{SITENAME}” je aktiviran, tako da se sada možete prijaviti.
+
+Vaša šifra je bezbedno sačuvana u našoj bazi i ne može da se otkrije. U slučaju da se zaboravili šifru, moći ćete da je povratite koristeći email adresu Vašeg naloga.
 
 {EMAIL_SIG}

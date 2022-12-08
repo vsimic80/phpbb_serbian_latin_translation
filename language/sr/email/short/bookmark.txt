@@ -7,12 +7,6 @@ Doboli ste ovaj email jer je na temi koju ste obeležili, "{TOPIC_TITLE}" na saj
 Ukoliko želide da pogledate najnoviji post od Vaše poslednje posete, kliknite na sledeći link:
 {U_NEWEST_POST}
 
-Ukoliko želide da pogledate temu, kliknite na sledeći link:
-{U_TOPIC}
-
-Ukoliko želide da pogledate forum, kliknite na sledeći link:
-{U_FORUM}
-
 Ukoliko ne želite da dobijate obaveštenja o odgovorima na temu, molimo Vas da izmenite podešavanja ovde:
 
 {U_NOTIFICATION_SETTINGS}

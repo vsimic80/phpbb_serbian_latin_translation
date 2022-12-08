@@ -1,13 +1,9 @@
 <?php
 /**
 *
-
 * This file is part of the phpBB Forum Software package.
 *
-
-
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
-
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * For full copyright and license information, please see
@@ -22,6 +18,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -46,6 +43,7 @@ $lang = array_merge($lang, array(
 	'ADD_POLL'					=> 'Pravljenje glasanja',
 	'ADD_POLL_EXPLAIN'			=> 'Ako ne želite da dodate glasanje u vašu temu, ostavite polja prazna',
 	'ALREADY_DELETED'			=> 'Žao nam je ali ova poruka je već obrisana.',
+	'ATTACH_COMMENT_NO_EMOJIS'	=> 'Komentar prikačenog fajla sadrži zabranjene karaktere (Emoji).',
 	'ATTACH_DISK_FULL'			=> 'Nema dovoljno slobodnog mesta na disku da sačuvate fajl.',
 	'ATTACH_QUOTA_REACHED'		=> 'Žao nam je, ali dostignuto je ograničenje boarda za prikačene fajlove.',
 	'ATTACH_SIG'				=> 'Prikači potpis (potpisi se mogu menjati u KKP-u)',
@@ -53,6 +51,7 @@ $lang = array_merge($lang, array(
 	'BBCODE_A_HELP'				=> 'U nivou poslat prikačeni fajl: [attachment=]filename.ext[/attachment]',
 	'BBCODE_B_HELP'				=> 'Podebljan tekst: [b]tekst[/b]  (alt+b)',
 	'BBCODE_C_HELP'				=> 'Prikaz koda: [code]kod[/code]  (alt+c)',
+	'BBCODE_D_HELP'				=> 'Flash: [flash=width,height]http://url[/flash]  (alt+d)',
 	'BBCODE_F_HELP'				=> 'Veličina fonta: [size=x-small]sićušna slova[/size]',
 	'BBCODE_IS_OFF'				=> '%sBBKod%s je <em>Isključen</em>',
 	'BBCODE_IS_ON'				=> '%sBBKod%s je <em>Uključen</em>',
@@ -64,9 +63,8 @@ $lang = array_merge($lang, array(
 	'BBCODE_Q_HELP'				=> 'Citiraj tekst: [quote]tekst[/quote]  (alt+q)',
 	'BBCODE_S_HELP'				=> 'Boja fonta: [color=red]tekst[/color]  Trik: možete takođe koristiti color=#FF0000',
 	'BBCODE_U_HELP'				=> 'Podvučeni tekst: [u]tekst[/u]  (alt+u)',
-	'BBCODE_Y_HELP'				=> 'Lista: Dodaj element u listu',
 	'BBCODE_W_HELP'				=> 'Ubaci link: [url]http://url[/url] ili [url=http://url]URL tekst[/url]  (alt+w)',
-	'BBCODE_D_HELP'				=> 'Flash: [flash=width,height]http://url[/flash]  (alt+d)',
+	'BBCODE_Y_HELP'				=> 'Lista: Dodaj element u listu',
 	'BUMP_ERROR'				=> 'Ne možete tako brzo maknuti ovu temu posle zadnjeg posta.',
 
 	'CANNOT_DELETE_REPLIED'		=> 'Žao nam je ali možete brisati samo poostove na koje nije odgovoreno.',
@@ -75,8 +73,6 @@ $lang = array_merge($lang, array(
 	'CANNOT_POST_ANNOUNCE'		=> 'Žao nam je ali ne možete slati prikačene fajlove.',
 	'CANNOT_POST_STICKY'		=> 'Žao nam je ali ne možete pisati lepljive teme.',
 	'CHANGE_TOPIC_TO'			=> 'Promeni tip teme u',
-	'CLOSE_TAGS'				=> 'Zatvori tagove',
-	'CURRENT_TOPIC'				=> 'Trenutna tema',
 	'CHARS_POST_CONTAINS'		=> array(
 		1	=> 'Vaša poruka sadrži %1$d karakter.',
 		2	=> 'Vaša poruka sadrži %1$d karaktera.',
@@ -85,6 +81,8 @@ $lang = array_merge($lang, array(
 		1	=> 'Vaš potpis sadrži %1$d karakter.',
 		2	=> 'Vaš potpis sadrži %1$d karaktera.',
 	),
+	'CLOSE_TAGS'				=> 'Zatvori tagove',
+	'CURRENT_TOPIC'				=> 'Trenutna tema',
 
 	'DELETE_FILE'				=> 'Obriši fajl',
 	'DELETE_MESSAGE'			=> 'Obriši poruku',
@@ -113,8 +111,8 @@ $lang = array_merge($lang, array(
 	'DISABLE_BBCODE'			=> 'Onemogući BBKod',
 	'DISABLE_MAGIC_URL'			=> 'Nemoj automatski prosleđivati linkove',
 	'DISABLE_SMILIES'			=> 'Onemogući smajlije',
-	'DISALLOWED_EXTENSION'		=> 'Ekstenzija %s nije dozvoljena',
 	'DISALLOWED_CONTENT'		=> 'Slanje je odbijeno jer je poslati fajl prepoznat kao mogući oblik napada.',
+	'DISALLOWED_EXTENSION'		=> 'Ekstenzija %s nije dozvoljena',
 	'DRAFT_LOADED'				=> 'Nacrt je učitan, sada ga možetete završiti.<br />Vaš nacrt će biti obrisan posle slanja ovog posta.',
 	'DRAFT_LOADED_PM'			=> 'Nacrt učitan u oblast za poruku, možda biste želeli da sada završite privatnu poruku.<br />Your draft will be deleted after submitting this private message.',
 	'DRAFT_SAVED'				=> 'Nacrt je uspešno sačuvan.',
@@ -148,10 +146,12 @@ $lang = array_merge($lang, array(
 	'LOAD_DRAFT_EXPLAIN'		=> 'Ovde možete izabrati nacrt koji želite da dovršite. Vaš trenutni post će biti poništen, i sav njegov sadržaj će biti obrisan. Pregledajte, menjajte i brišite nacrte iz vašeg Korisničkog Kontrolnog Panela.',
 	'LOGIN_EXPLAIN_BUMP'		=> 'Morate se prijaviti da bi izbacili teme u ovom forumu.',
 	'LOGIN_EXPLAIN_DELETE'		=> 'Morate se prijaviti da bi brisali postove u ovom forumu.',
+	'LOGIN_EXPLAIN_SOFT_DELETE'	=> 'Morate se prijaviti da bi meko-brisali postove u ovom forumu.',
 	'LOGIN_EXPLAIN_POST'		=> 'Morate se prijaviti da bi pisali u ovom forumu.',
 	'LOGIN_EXPLAIN_QUOTE'		=> 'Morate se prijaviti da bi citirali postove u ovom forumu.',
 	'LOGIN_EXPLAIN_REPLY'		=> 'Morate se prijaviti da bi odgovarali na teme u ovom forumu.',
 
+	'MAX_ATTACHMENT_FILESIZE'	=> 'Maksimalna veličina fajla: %s.',
 	'MAX_FONT_SIZE_EXCEEDED'	=> 'Možete foristit fontove sve do veličine %1$d.',
 	'MAX_FLASH_HEIGHT_EXCEEDED'	=> array(
 		1	=> 'Vaši flash fajlovi mogu biti maksimalno %d piksel visoki.',
@@ -185,8 +185,10 @@ $lang = array_merge($lang, array(
 	'NO_POLL_TITLE'				=> 'Morate uneti naslov glasanja',
 	'NO_POST'					=> 'Traženi post ne postoji.',
 	'NO_POST_MODE'				=> 'Niste izabrali mod slanja',
+	'NO_TEMP_DIR'				=> 'Privremeni folder ne može biti nađen ili nije upisiv.',
 	
 	'PARTIAL_UPLOAD'			=> 'Poslati fajl je samo delimično poslat',
+	'PHP_UPLOAD_STOPPED'		=> 'PHP ekstenzija je zaustavila upload fajla.',
 	'PHP_SIZE_NA'				=> 'Veličina prikačenog fajla je prevelika.<br />Ne mogu da utvrdim maksimalnu veličinu definisanu u PHP-u u php.ini.',
 	'PHP_SIZE_OVERRUN'			=> 'Veličina prikačenog fajla je prevelika, maksimana veličina ufajla za slanje je %1$d %2$s.<br />Znajte da je ovo podešeno u php.ini fajlu i ne može se zaobiči.',
 	'PLACE_INLINE'				=> 'Postavi u red',
@@ -222,7 +224,7 @@ $lang = array_merge($lang, array(
 	'POST_REVIEW'				=> 'Pošalji kritiku',
 	'POST_REVIEW_EXPLAIN'		=> 'Najmanje jedan novi post je poslat u ovoj temi. Možda biste voleli da uporedite vaš post sa ostalima.',
 	'POST_REVIEW_EDIT'   => 'Uređivanje posta',
-  'POST_REVIEW_EDIT_EXPLAIN'  =>  'Ovaj post je menjao drugi korisnik dok ste radili izmenu. Možda želite da pogledate trenutnu verziju posta i izmenite po potrebi.',
+  	'POST_REVIEW_EDIT_EXPLAIN'  =>  'Ovaj post je menjao drugi korisnik dok ste radili izmenu. Možda želite da pogledate trenutnu verziju posta i izmenite po potrebi.',
 	'POST_STORED'				=> 'Vaša poruka je uspešno poslata',
 	'POST_STORED_MOD'			=> 'Vaša poruka je sačuvana ali zahteva odobrenje',
 	'POST_TOPIC_AS'				=> 'Postavite temu kao',
@@ -255,7 +257,6 @@ $lang = array_merge($lang, array(
 	'TOO_FEW_POLL_OPTIONS'		=> 'Morate uneti najmanje dve opcije glasanja',
 	'TOO_MANY_ATTACHMENTS'		=> 'Ne mogu da dodam više prikačenih fajlova, %d je maksimalno.',
 	'TOO_MANY_CHARS'			=> 'Vaša poruka sadrži previše karaktera.',
-	
 	'TOO_MANY_CHARS_LIMIT'		=> array(
 		2	=> 'Maksimalni broj dozvoljenih karaktera je %1$d.',
 	),
@@ -266,7 +267,6 @@ $lang = array_merge($lang, array(
 	'TOPIC_BUMPED'				=> 'Tema je uspešno izbačena',
 
 	'UNAUTHORISED_BBCODE'		=> 'Ne možete koristiti određene BBKodove: %s.',
-	'UNGLOBALISE_EXPLAIN'		=> 'Da bi promenili ovu temu iz globalne u normalnu, morate izabrati forum u kojem želite da se prikaže ova tema.',
 	'UNSUPPORTED_CHARACTERS_MESSAGE'	=> 'Vaša poruka sadrži sledeće karaktere koji nisu podržani:<br />%s',
 	'UNSUPPORTED_CHARACTERS_SUBJECT'	=> 'Vaš naslov sadrži sledeće karaktere koji nisu podržani:<br />%s',
 	'UPDATE_COMMENT'			=> 'Ažuriraj komentar',

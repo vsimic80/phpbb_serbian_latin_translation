@@ -1,4 +1,4 @@
-Subject: Odobren post — “{POST_SUBJECT}”
+Subject: Odobren post — "{POST_SUBJECT}"
 
 Zdravo {USERNAME},
 
@@ -9,6 +9,5 @@ Da pogledate post, kliknite na sledeći link:
 
 Ako želite da pogledate temu, kliknite na sledeći link:
 {U_VIEW_TOPIC}
-
 
 {EMAIL_SIG}

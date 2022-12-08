@@ -1,13 +1,8 @@
 <?php
 /**
 *
-
 * This file is part of the phpBB Forum Software package.
 *
-
-
-
-
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
@@ -30,6 +25,8 @@ if (empty($lang) || !is_array($lang))
 }
 
 // DEVELOPERS PLEASE NOTE 
+//
+// All language files should use UTF-8 as their encoding and the files must not contain a BOM.
 //
 // Placeholders can now contain order information, e.g. instead of
 // 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
@@ -55,26 +52,17 @@ $lang = array_merge($lang, array(
 	'DISABLE_BOARD_EXPLAIN'			=> 'Ova opcija će isklučiti bord korisnicima. Možete uneti kratku (255 karaktera) poruku koju će posetioci videti ako želite.',
 	'DISPLAY_LAST_SUBJECT'			=> 'Prikaži temu poslednje dodatog posta na listi foruma',
 	'DISPLAY_LAST_SUBJECT_EXPLAIN'	=> 'Tema poslednje dodatog posta će biti prikazana u listi foruma sa linkom ka postu. Teme od šifrom zaštićenih foruma gde korinik nema pristup neće biti prikazane.',
+	'DISPLAY_UNAPPROVED_POSTS'		=> 'Prikaži neodobrene postove autoru',
+	'DISPLAY_UNAPPROVED_POSTS_EXPLAIN'	=> 'Autor može da vidi neodobrene postove. Ne važi za postove gosta.',
 	'GUEST_STYLE'					=> 'Stil za goste',
 	'GUEST_STYLE_EXPLAIN'			=> 'Stil boarda za goste.',
-	'FORM_TIME_MAX'					=> 'Maksimalno vreme za popunjavanje formi',
-	'FORM_TIME_MAX_EXPLAIN'			=> 'Vreme za koje korisnik mora da ispuni formu. Upišite -1 za neograničeno. Znajte da forma može postati nevažeća ukoliko sesija istekne, u zavisnosti od ovog parametra.',
-	'FORM_SID_GUESTS'				=> 'Prilagodi forme za sesije gostiju',
-	'FORM_SID_GUESTS_EXPLAIN'		=> 'Ako je uključeno, forma će biti ekskluzivna za goste. Ovo može dovesti do problema kod nekih provajdera.',
-	'JAB_GTALK_NOTE'				=> 'Znajte da GTalk neće raditi jer  <samp>dns_get_record</samp> funkcija nije pronađena. Ova funkcija ne postoji u PHP4, i nije ugrađena na Windows platformi. Trenutno ne radi na BSD-baziranim sistemima, uključujući Mac OS.',
-	'NO_REF_VALIDATION'				=> 'Bez provere',
-	'REF_HOST'						=> 'Samo proveri host',
-	'REF_PATH'						=> 'Takođe proveri putanju',
-	
 	'OVERRIDE_STYLE'				=> 'Potisni korisnički stil',
 	'OVERRIDE_STYLE_EXPLAIN'		=> 'Menja korisnički stil sa podrazumevanim.',
-	'SCRIPT_PATH'					=> 'Putanja do skripti',
-	'SCRIPT_PATH_EXPLAIN'				=> 'Putanja gde je phpBB lociran relativno od naziva domena, npr. <samp>/phpBB3</samp>.',
 	'SITE_DESC'						=> 'Opis sajta',
 	'SITE_HOME_TEXT'				=> 'Glavni tekst sajta',
 	'SITE_HOME_TEXT_EXPLAIN'		=> 'Ovaj tekst će biti prikazan kao link ka početnoj strani sajta u meniju boarda. Ukoliko nije postavljeno biće “Home”.',
-	'SITE_HOME_URL'					=> 'Main website URL',
-	'SITE_HOME_URL_EXPLAIN'			=> 'If specified, a link to this URL will be prepended to your board’s breadcrumbs and the board logo will link to this URL instead of the forum index. An absolute URL is required, e.g. <samp>http://www.phpbb.com</samp>.',
+	'SITE_HOME_URL'					=> 'URL glavnog sajt',
+	'SITE_HOME_URL_EXPLAIN'			=> 'Ukoliko je postavljen, link do ove adrese će biti umetnut ispred linkova vašeg boarda i logo boarda će voditi do ovog linka umesto na indeks foruma. Apsolutni URL je obavezan, npr. <samp>http://www.phpbb.com</samp>.',
 	'SITE_NAME'						=> 'Naziv sajta',
 	'SYSTEM_TIMEZONE'				=> 'Sistemska vremenska zona',
 	'SYSTEM_TIMEZONE_EXPLAIN'		=> 'Vremenska zona za prikaz vremena za korisnike koji nisu prijavljeni (gosti, botovi). Prijavljeni korisnici podešavaju svoju vremensku zonu tokom registracije i mogu je promeniti u kontrolnom panelu.',
@@ -85,36 +73,6 @@ $lang = array_merge($lang, array(
 // Board Features
 $lang = array_merge($lang, array(
 	'ACP_BOARD_FEATURES_EXPLAIN'	=> 'Ovde možete uključiti/isključiti opcije boarda',
-	'ACP_FEED_MANAGEMENT'    =>  'Generalna podešavanja Feed-ova',
-  'ACP_FEED_MANAGEMENT_EXPLAIN' =>  'Ovaj modul omogućuje razne ATOM Feed-ove, uprošćavajući BBKodove u postovima da bi oni bili čitljivi u feedovima.',
-  'ACP_FEED_ENABLE'             =>  'Omogući Feed-ove',
-  'ACP_FEED_ENABLE_EXPLAIN'     =>  'Uključuje ili isključuje ATOM Feed-ove za ceo board.<br />Ukoliko je isključena ova opcija, onemogućićete sve feed-ove, bez obzira kako su opcije ispod podešene.',
-  'ACP_FEED_LIMIT'              =>  'Broj stavki',
-  'ACP_FEED_LIMIT_EXPLAIN'      =>  'Maksimalni broj feed-ova koji će biti prikazani.',
-  'ACP_FEED_OVERALL_FORUMS'     =>  'Omogući ukupni forum feed',
-  'ACP_FEED_OVERALL_FORUMS_EXPLAIN' =>  'Ovaj feed prikazuje poslednje postove tema sa svih foruma.',
-  'ACP_FEED_FORUM'              => 'Omogući feed-ove po forumu',
-  'ACP_FEED_FORUM_EXPLAIN'      => 'Novi postovi u pojedinačnom forumu.',
-  'ACP_FEED_TOPIC'              =>  'Omogući feed-ove po temi',
-  'ACP_FEED_TOPIC_EXPLAIN'      =>  'Novi postovi u pojedinačnoj temi.',
-  'ACP_FEED_NEWS'               =>  'News Feed-ovi',
-  'ACP_FEED_NEWS_EXPLAIN'       =>  'Povlači prvi post iz tih foruma. Nemojte izabrati forume ukoliko želite da isključite news feed.<br />Možete izabrati više foruma tako što držite <samp>CTRL</samp> i kliknete.',
-  'ACP_FEED_GENERAL'            =>  'Generalna podešavanja feed-ova',
-  'ACP_FEED_ITEM_STATISTICS'    =>  'Statistika',
-  'ACP_FEED_ITEM_STATISTICS_EXPLAIN'  =>  'Prikazuje individualnu statistiku ispod stavki feed-ova<br />(Poslato od, datum i vreme, Odgovori, Pogledi)',
-  'ACP_FEED_EXCLUDE_ID'         =>  'Preskače ovo forume',
-  'ACP_FEED_EXCLUDE_ID_EXPLAIN' =>  'Sadržaj ovih <strong>neće biti ubačen u feed-ove</strong>. Nemojte izabrati ni jedan forum da bi vukli podatke sa svih foruma.<br />Možete izabrati više foruma tako što držite <samp>CTRL</samp> i kliknete.',
-  'ACP_FEED_POST_BASED'         =>  'Podešavanja feed-a vezanih za postove',
-  'ACP_FEED_TOPIC_BASED'        =>  'Podešavanja feed-a	vezanih za teme',
-  'ACP_FEED_SETTINGS_OTHER'     =>  'Ostala podešavanja feed-a',
-  'ACP_FEED_OVERALL'            =>  'Omogući feed boarda',
-  'ACP_FEED_OVERALL_EXPLAIN'    =>  'Novi postovi na boardu.',
-  'ACP_FEED_TOPICS_NEW'         =>  'Omoguži feed novih tema',
-  'ACP_FEED_TOPICS_NEW_EXPLAIN' =>  'Omogućava “Nove Teme” feed, koji prikazuje poslednje postove uključujući i prvi post.',
-  'ACP_FEED_TOPICS_ACTIVE'      =>  'Omogući feed aktivnih tema',
-  'ACP_FEED_TOPICS_ACTIVE_EXPLAIN'  =>  'Omogućava “Aktivne Teme” feed, koji prikazuje poslednje aktivne teme uključujući i poslednji post.',
-  'ACP_FEED_HTTP_AUTH'          =>  'Omogući HTTP Autentikaciju',
-  'ACP_FEED_HTTP_AUTH_EXPLAIN'  =>  'Omogućava HTTP autentikaciju koja dozvoljava korisnicima da dobiju sadržaj koji je skriven gostima tako što dodaje <samp>auth=http</samp> parametar u adresu feed-a. Znajte da neke PHP konfiguracije zahtevaju dodatne izmene u .htaccess fajlu. Instrukcije možete naći u tom fajlu.',
 
 	'ALLOW_ATTACHMENTS'			=> 'Dozvoli prikačene fajlove',
 	'ALLOW_BIRTHDAYS'			=> 'Dozvoli rođendane',
@@ -128,15 +86,10 @@ $lang = array_merge($lang, array(
 	'ALLOW_NO_CENSORS_EXPLAIN'	=> 'Korisnik može isključiti cenzurisane reči.',
 	'ALLOW_PM_ATTACHMENTS'		=> 'Dozvoli prikačene fajlove u privatnim porukama',
 	'ALLOW_PM_REPORT'        =>  'Dozvoli korisnicima da prijave privatne poruke',
-  'ALLOW_PM_REPORT_EXPLAIN' =>  'Ako je ova opcija uključena, korisnici imaju opciju da prijave moderatorima privatne poruke koje su dobili ili poslali. Ove privatne poruke će tada biti vidljive u Kontrolnom Panelu Aministratora.',
-  'ALLOW_QUICK_REPLY'       =>  'Dozvoli brzi odgovor',
-  'ALLOW_QUICK_REPLY_EXPLAIN' =>  'Ova opcija definiše da li je brzi odgovor omogućen ili ne. Ako je omogućen, forumi takođe treba da imaju uključenu ovu opciju.',
-  'ALLOW_QUICK_REPLY_BUTTON'  =>  'Omogućava brzi odgovor u svim forumima',
-  'ALLOW_AVATARS'     =>  'Omogući avatare',
-  'ALLOW_AVATARS_EXPLAIN'   =>  'Dozvoljava generalnu upotrebu avatara;<br />Ako onemogućite avatare generalno ili avatare u određenom modu, onmogućeni avatari se neće više prikazivati na boardu, ali će korisnici i dalje biti u mogućnosti da downloaduju sopstvene avatare u Korisničkom Kontrelnom Panelu.',
-  'ALLOW_GRAVATAR'				=> 'Omogući gravatare',
-  'ALLOW_REMOTE_UPLOAD'   =>  'Omogućuje postavljanje udaljenih avatara',
-  'ALLOW_REMOTE_UPLOAD_EXPLAIN' =>  'Omogućuje postavljanje avatara sa drugih sajtova.',
+	'ALLOW_PM_REPORT_EXPLAIN' =>  'Ako je ova opcija uključena, korisnici imaju opciju da prijave moderatorima privatne poruke koje su dobili ili poslali. Ove privatne poruke će tada biti vidljive u Kontrolnom Panelu Aministratora.',
+	'ALLOW_QUICK_REPLY'       =>  'Dozvoli brzi odgovor',
+	'ALLOW_QUICK_REPLY_EXPLAIN' =>  'Ova opcija definiše da li je brzi odgovor omogućen ili ne. Ako je omogućen, forumi takođe treba da imaju uključenu ovu opciju.',
+	'ALLOW_QUICK_REPLY_BUTTON'  =>  'Omogućava brzi odgovor u svim forumima',
 	'ALLOW_SIG'					=> 'Dozvoli potpise',
 	'ALLOW_SIG_BBCODE'			=> 'Dozvoli BBKod u potpisima korisnika',
 	'ALLOW_SIG_FLASH'			=> 'Dozvoli korišćenje <code>[FLASH]</code> BBKod taga u potpisima korisnika',
@@ -148,15 +101,21 @@ $lang = array_merge($lang, array(
 	'ALLOW_TOPIC_NOTIFY'		=> 'Dozvoli posmatranje tema',
 	'BOARD_PM'					=> 'Privatne poruke',
 	'BOARD_PM_EXPLAIN'			=> 'Dozvolite ili zabranite privatne poruke za sve korisnike.',
+	'ALLOW_BOARD_NOTIFICATIONS' => 'Dozvoli obaveštenja boarda',
 ));
 
 // Avatar Settings
 $lang = array_merge($lang, array(
 	'ACP_AVATAR_SETTINGS_EXPLAIN'	=> 'Avatari su male, unikatne sličice koje korisnici mogu dodeliti sebi. U zavisnosti od stila one su obično prikazane ispod korisničkog imena kada čitate teme. Ovde određujete kako korisnici mogu da odrede sebi avatare. Da bi mogli da upload-ujete avatare morate imati napravljen direktorijum čiji naziv unesete ispod i proverite da direktorijum ima dozvolu za upisivanje. Znajde da se ograničenje veličine fajla odnosi samo na upload-ovane avatare, ali ne i na linkovane sličice.',
 
+	'ALLOW_AVATARS'     			=>  'Omogući avatare',
+	'ALLOW_AVATARS_EXPLAIN'   		=>  'Dozvoljava generalnu upotrebu avatara;<br />Ako onemogućite avatare generalno ili avatare u određenom modu, onmogućeni avatari se neće više prikazivati na boardu, ali će korisnici i dalje biti u mogućnosti da downloaduju sopstvene avatare u Korisničkom Kontrelnom Panelu.',
+	'ALLOW_GRAVATAR'				=> 'Omogući gravatare',
 	'ALLOW_LOCAL'					=> 'Dozvoli galeriju avatara',
 	'ALLOW_REMOTE'					=> 'Dozvoli udaljenje avatare',
 	'ALLOW_REMOTE_EXPLAIN'			=> 'Avatari linkovani sa drugog sajta',
+	'ALLOW_REMOTE_UPLOAD'   		=>  'Omogućuje postavljanje udaljenih avatara',
+	'ALLOW_REMOTE_UPLOAD_EXPLAIN' 	=>  'Omogućuje postavljanje avatara sa drugih sajtova.',
 	'ALLOW_UPLOAD'					=> 'Dozvoli upload avatara',
 	'AVATAR_GALLERY_PATH'			=> 'Putanja do galerije avatara',
 	'AVATAR_GALLERY_PATH_EXPLAIN'	=> 'Putanja ispod phpBB root direktorijuma za unapred učitane sličice, na primer <samp>images/avatars/gallery</samp>',
@@ -204,6 +163,8 @@ $lang = array_merge($lang, array(
 	'ACP_POST_SETTINGS_EXPLAIN'			=> 'Ovde podešavate sve podrazumevane vrednosti za postove',
 	'ALLOW_POST_LINKS'					=> 'Dozvoli linkove u postovima/privatnim porukama',
 	'ALLOW_POST_LINKS_EXPLAIN'			=> 'Ako zabranite, URL BBKod tag i automatske/magične adrese su isključene.',
+	'ALLOWED_SCHEMES_LINKS'				=> 'Dozvoli šeme u linkovima',
+	'ALLOWED_SCHEMES_LINKS_EXPLAIN'		=> 'Korisnici mogu samo pisati URL-ove bez šema ili neke od zarezom razdvojenih lista dozvoljenih šema.',
 	'ALLOW_POST_FLASH'					=> 'Dozvoli korišćenje <code>[FLASH]</code> BBKod taga u postovima. ',
 	'ALLOW_POST_FLASH_EXPLAIN'			=> 'Ako je zabranjen <code>[FLASH]</code> BBKod tag je onemogućen u postovima. Inače, sistem dozvola kontroliše koji korisnici mogu da koriste <code>[FLASH]</code> BBKod tag.',
 
@@ -215,8 +176,8 @@ $lang = array_merge($lang, array(
 	'DISPLAY_LAST_EDITED_EXPLAIN'	=> 'Izaberite ovu opciju ako želite prikažete vreme poslednje izmene na postovima',
 	'EDIT_TIME'						=> 'Ograniči vreme pisanja',
 	'EDIT_TIME_EXPLAIN'				=> 'Ograničava vreme za pisanje novog posta, unesite nulu za neograničeno',
-	'DELETE_TIME'          =>  'Ograniči vreme brisanja',
-  'DELETE_TIME_EXPLAIN' =>  'Ograničava vreme dostupno za brisanje posta. Upišite 0 da isključite ovu opciju.',
+	'DELETE_TIME'          			=>  'Ograniči vreme brisanja',
+  	'DELETE_TIME_EXPLAIN' 			=>  'Ograničava vreme dostupno za brisanje posta. Upišite 0 da isključite ovu opciju.',
 	'FLOOD_INTERVAL'				=> 'Interval flood-ovanja',
 	'FLOOD_INTERVAL_EXPLAIN'		=> 'Broj sekundi koje korisnik mora da sačeka između slanja novoih poruka. Da bi omogućili korisnicima da zaobiđu ovo, izmenite njihove dozvole.',
 	'HOT_THRESHOLD'					=> 'Broj postova za status Popularno, unesite 0 da isključite popularne teme.',
@@ -230,9 +191,10 @@ $lang = array_merge($lang, array(
 	'MAX_POST_IMG_WIDTH_EXPLAIN'	=> 'Maksimalna širina slike/flash fajla u postovima. Postavite na 0 za neograničenu veličinu.',
 	'MAX_POST_URLS'					=> 'Maksimalno likova po postu',
 	'MAX_POST_URLS_EXPLAIN'			=> 'Postavite na 0 za neograničen broj linkova.',
+	'MIN_CHAR_LIMIT'				=> 'Minimum karaktera po postu/poruci',
+	'MIN_CHAR_LIMIT_EXPLAIN'		=> 'Minimalni broj karaktera koji korisnik treba da unese u u postu/privatnoj poruci. Minimum za ovo podešavanje je 1.',
 	'POSTING'						=> 'Postovi',
-	'POSTS_PER_PAGE'				=> 'Postova po stranici',
-	
+	'POSTS_PER_PAGE'				=> 'Postova po stranici',	
 	'QUOTE_DEPTH_LIMIT'				=> 'Maksimalno ugnježdenih citata po postu',
 	'QUOTE_DEPTH_LIMIT_EXPLAIN'		=> 'Postavite na 0 za neograničenu dubinu.',
 	'SMILIES_LIMIT'					=> 'Maksimalno smajlija po postu',
@@ -266,6 +228,11 @@ $lang = array_merge($lang, array(
 	'ACC_ACTIVATION'			=> 'Aktivacija naloga',
 	'ACC_ACTIVATION_EXPLAIN'	=> 'Određuje da li korisnici odmah imaju pristup boardu ili je potrebna potvrda. Takođe možete potpuno zabraniti nove registracije.',
 	'ACC_ACTIVATION_WARNING'		=> 'Znajte da trenutno izabrani aktivacioni metod zahteva da email bude omogućen ili će registracija bidi onemogućena. Preporučujemo da ili izaberete drugi tip aktivacije ili da omogućite emajlove.',
+	'NEW_MEMBER_POST_LIMIT'			=> 'Limit broja postova za novog člana',
+	'NEW_MEMBER_POST_LIMIT_EXPLAIN'	=> 'Novi članovi su u okviru <em>Novi Registrovani Korisnici</em> groupe sve dok ne dostignu ovaj broj postova. Možete koristiti ovu grupu da ih sprečite da koriste privatne poruke  ili da radite reviziju njihovih postova. <strong>Vrednost 0 isključuje ovu opciju.</strong>',
+	'NEW_MEMBER_GROUP_DEFAULT'		=> 'Postavi Novi Registrovani Korisnici grupu kao podrazumevanu',
+	'NEW_MEMBER_GROUP_DEFAULT_EXPLAIN'	=> 'Ukoliko postavite ovo i ako je definisan limit za postove novih korisnika, novoregistrovoani korisnici neće biti samo u grupi <em>Novi Registrovani Korisnici</em>, već će i ova grup biti njihova podrazumevana grupa. Ovo može biti zgodno ukoliko želite da dodelite podrazumevani čin grupi i/ili avatar koji onda korisnik nasleđuje.',
+	
 	'ACC_ADMIN'					=> 'Admin',
 	'ACC_DISABLE'				=> 'Isključi',
 	'ACC_NONE'					=> 'Nijedno',
@@ -281,17 +248,11 @@ $lang = array_merge($lang, array(
 	'ENABLE_COPPA_EXPLAIN'		=> 'Zahteva od korisnika da potvrde da imaju 13 ili više godina i time ispunjavaju U.S. COPPA Act. Ako je ovo isključeno COPPA grupe više neće biti prikazivane.',
 	'MAX_CHARS'					=> 'Maksimalno',
 	'MIN_CHARS'					=> 'Minimanlno',
-	'MIN_CHAR_LIMIT'   =>  'Minimum karaktera pa postu/poruci',
-  'MIN_CHAR_LIMIT_EXPLAIN'  =>  'Minimalni broj karaktera koji korisnik treba da unese u postu/poruci.',
-	'NEW_MEMBER_POST_LIMIT'      =>  'Ograničenje postova za nove članove',
-  'NEW_MEMBER_POST_LIMIT_EXPLAIN' =>  'Novi članovi su u okviru <em>Novi Registrovani Članovi</em> grupe sve dok ne dostignu ovaj zadati broj postova. Možete koristiti ovu grupu da im zabranite korišćenje PP sistema ili da izmenjuju sopstvene postove. <strong>Vrednost 0 isključuje ovu opciju.</strong>',
-  'NEW_MEMBER_GROUP_DEFAULT'    =>  'Postavi Novi Registrovani Članovi grupu kao podrazumevanu',
-  'NEW_MEMBER_GROUP_DEFAULT_EXPLAIN'  =>  'Ako izaberete da, i minimalni broj postova je određen, novi registrovani korisnici neće biti samo stavljeni u <em>Novi Registrovani Članovi</em> grupu, nego će ova grupa biti i njihova podrazumevana. Ovo može biti zgodno ukoliko želite da dodelite grupi čin i/ili avatar koji onda član nasleđuje.',
 	'NO_AUTH_PLUGIN'			=> 'Nije pronađen odgovarajući dodatak za autorizaciju.',
 	'PASSWORD_LENGTH'			=> 'Dužina šifre',
 	'PASSWORD_LENGTH_EXPLAIN'	=> 'Minimalni i maksimalni broj kataktera u šifama.',
-	'REG_LIMIT'					=> 'Broj pokušaja za registraciju',
-	'REG_LIMIT_EXPLAIN'			=> 'Broj pokušaja koji korisnik može da napravi pri unosi koda za potvrdu pre zaključavanje sesije.',
+	'REG_LIMIT'					=> 'Pokušaja registraceje',
+	'REG_LIMIT_EXPLAIN'			=> 'Broj pokušaja koji korisnik može da napravi kod rešavanja anti spam botova pre nego što im se zaključa sesija.',
 	'USERNAME_ALPHA_ONLY'		=> 'Samo alfanumerički',
 	'USERNAME_ALPHA_SPACERS'	=> 'Alfanumerički i razdvajači',
 	'USERNAME_ASCII'			=> 'ASCII (ne internacionalni unikod)',
@@ -304,22 +265,54 @@ $lang = array_merge($lang, array(
 	'USERNAME_LENGTH_EXPLAIN'	=> 'Minimalni i maksimalni broj karaktera u korisničkim imenima.',
 ));
 
+// Feeds
+$lang = array_merge($lang, array(
+	'ACP_FEED_MANAGEMENT'    =>  'Generalna podešavanja Feed-ova',
+  	'ACP_FEED_MANAGEMENT_EXPLAIN' =>  'Ovaj modul omogućuje razne ATOM Feed-ove, uprošćavajući BBKodove u postovima da bi oni bili čitljivi u feedovima.',
+  	
+	'ACP_FEED_GENERAL'            =>  'Generalna podešavanja feed-ova',
+	'ACP_FEED_POST_BASED'         =>  'Podešavanja feed-a vezanih za postove',
+	'ACP_FEED_TOPIC_BASED'        =>  'Podešavanja feed-a	vezanih za teme',
+	'ACP_FEED_SETTINGS_OTHER'     =>  'Ostala podešavanja feed-a',
+	
+	'ACP_FEED_ENABLE'             =>  'Omogući Feed-ove',
+  	'ACP_FEED_ENABLE_EXPLAIN'     =>  'Uključuje ili isključuje ATOM Feed-ove za ceo board.<br />Ukoliko je isključena ova opcija, onemogućićete sve feed-ove, bez obzira kako su opcije ispod podešene.',
+  	'ACP_FEED_LIMIT'              =>  'Broj stavki',
+  	'ACP_FEED_LIMIT_EXPLAIN'      =>  'Maksimalni broj feed-ova koji će biti prikazani.',
+  	
+	'ACP_FEED_OVERALL'            =>  'Omogući feed boarda',
+	'ACP_FEED_OVERALL_EXPLAIN'    =>  'Novi postovi na boardu.',
+	'ACP_FEED_FORUM'              => 'Omogući feed-ove po forumu',
+	'ACP_FEED_FORUM_EXPLAIN'      => 'Novi postovi u pojedinačnom forumu.',
+	'ACP_FEED_TOPIC'              =>  'Omogući feed-ove po temi',
+	'ACP_FEED_TOPIC_EXPLAIN'      =>  'Novi postovi u pojedinačnoj temi.',
+	
+	'ACP_FEED_TOPICS_NEW'         =>  'Omoguži feed novih tema',
+	'ACP_FEED_TOPICS_NEW_EXPLAIN' =>  'Omogućava “Nove Teme” feed, koji prikazuje poslednje postove uključujući i prvi post.',
+	'ACP_FEED_TOPICS_ACTIVE'      =>  'Omogući feed aktivnih tema',
+	'ACP_FEED_TOPICS_ACTIVE_EXPLAIN'  =>  'Omogućava “Aktivne Teme” feed, koji prikazuje poslednje aktivne teme uključujući i poslednji post.',
+	'ACP_FEED_NEWS'               =>  'News Feed-ovi',
+	'ACP_FEED_NEWS_EXPLAIN'       =>  'Povlači prvi post iz tih foruma. Nemojte izabrati forume ukoliko želite da isključite news feed.<br />Možete izabrati više foruma tako što držite <samp>CTRL</samp> i kliknete.',
+  	
+	'ACP_FEED_OVERALL_FORUMS'     =>  'Omogući ukupni forum feed',
+  	'ACP_FEED_OVERALL_FORUMS_EXPLAIN' =>  'Ovaj feed prikazuje poslednje postove tema sa svih foruma.',
+	
+	'ACP_FEED_HTTP_AUTH'          =>  'Omogući HTTP Autentikaciju',
+	'ACP_FEED_HTTP_AUTH_EXPLAIN'  =>  'Omogućava HTTP autentikaciju koja dozvoljava korisnicima da dobiju sadržaj koji je skriven gostima tako što dodaje <samp>auth=http</samp> parametar u adresu feed-a. Znajte da neke PHP konfiguracije zahtevaju dodatne izmene u .htaccess fajlu. Instrukcije možete naći u tom fajlu.',
+	'ACP_FEED_ITEM_STATISTICS'    =>  'Statistika',
+	'ACP_FEED_ITEM_STATISTICS_EXPLAIN'  =>  'Prikazuje individualnu statistiku ispod stavki feed-ova<br />(Poslato od, datum i vreme, Odgovori, Pogledi)',
+	'ACP_FEED_EXCLUDE_ID'         =>  'Preskače ovo forume',
+	'ACP_FEED_EXCLUDE_ID_EXPLAIN' =>  'Sadržaj ovih <strong>neće biti ubačen u feed-ove</strong>. Nemojte izabrati ni jedan forum da bi vukli podatke sa svih foruma.<br />Možete izabrati više foruma tako što držite <samp>CTRL</samp> i kliknete.',
+));
+
 // Visual Confirmation Settings
 $lang = array_merge($lang, array(
 	'ACP_VC_SETTINGS_EXPLAIN'		=> 'Ovde definišete podrazumevane vrednosti vizuelnih potvrda i captcha podešavanja.',
 	'ACP_VC_EXT_GET_MORE'					=> 'Za dodatne (i verovatno bolje) anti-spam pluginove posetite <a href="https://www.phpbb.com/go/anti-spam-ext"><strong>phpBB.com Extensions Database</strong></a>. Za više informacija kako da sprečite đubre na Vašem boardu posetite <a href="https://www.phpbb.com/go/anti-spam"><strong>phpBB.com Knowledge Base</strong></a>.',
 	'AVAILABLE_CAPTCHAS'        => 'Raspoloživi dodaci',
-	
-  'CAPTCHA_UNAVAILABLE'     =>  'CAPTCHA-u ne možete izabrati jer ne ispunjavate uslove koje zahteva.',
-  'CAPTCHA_GD_3D'           =>  'GD 3D Captcha',
-  'CAPTCHA_NO_GD' 	        =>  'CAPTCHA bez GD',
-  'CAPTCHA_SELECT'          =>  'Instalirani CAPTCHA dodaci',
-  'CAPTCHA_SELECT_EXPLAIN'  =>  'Lista sadrži CAPTCHA dodatke koje je boar prepoznao. Sive stavke nisu trenutno dostupne i moguće da je potrebno podešavanje da bi se koristile.',
-  'CAPTCHA_CONFIGURE'       =>  'Podešavanje CAPTCHA-e',
-  'CAPTCHA_CONFIGURE_EXPLAIN' =>  'Menjanje podešavanja za izabranu CAPTCHA-u.',
-  'CONFIGURE'               =>  'Podešavanja',
-  'CAPTCHA_NO_OPTIONS'      =>  'Ova CAPTCHA nema opcija za podešavanje.',
+	'CAPTCHA_UNAVAILABLE'     =>  'CAPTCHA-u ne možete izabrati jer ne ispunjavate uslove koje zahteva.',
 	'CAPTCHA_GD'					=> 'GD CAPTCHA',
+	'CAPTCHA_GD_3D'           =>  'GD 3D Captcha',
 	'CAPTCHA_GD_FOREGROUND_NOISE'				=> 'GD CAPTCHA nivo šuma',
 	'CAPTCHA_GD_EXPLAIN'			=> 'Koristite GD da bi dobili mnogo napredniji CAPTCHA',
 	'CAPTCHA_GD_FOREGROUND_NOISE_EXPLAIN'		=> 'Koristite nivo šuma da bi osnovni GD CAPTCHA učinili još težim',
@@ -327,25 +320,32 @@ $lang = array_merge($lang, array(
 	'CAPTCHA_GD_X_GRID_EXPLAIN'				=> 'Unesite manju vrednost da bi CAPTCHA bila teža. 0 će onemogućiti nivo šuma x-ose .',
 	'CAPTCHA_GD_Y_GRID'						=> 'GD CAPTCHA nivo šuma y-ose',
 	'CAPTCHA_GD_Y_GRID_EXPLAIN'				=> 'Unesite manju vrednost da bi CAPTCHA bila teža. 0 će onemogućiti nivo šuma y-ose.',
-	
 	'CAPTCHA_GD_WAVE'            => 'GD CAPTCHA distoryija talasa',
-  'CAPTCHA_GD_WAVE_EXPLAIN'     =>  'Utiče na distorziju talasa za CAPTCHA.',
-  'CAPTCHA_GD_3D_NOISE' 	     =>  'Dodaj 3D-šum objekte',
-  'CAPTCHA_GD_3D_NOISE_EXPLAIN' =>  'Ovim dodajete dodatne objekte na CAPTCHA, preko slova.',
-  'CAPTCHA_GD_FONTS' 	        =>  'Koristi različite fontove',
-  'CAPTCHA_GD_FONTS_EXPLAIN' 	=>  'Ovim podešavate koliko različitih oblika slova želite da koristite. Možete samo koristiti podrazumevane oblike ili uvesit iznenjena slova. Dodavanje malih slova je takođe moguće.',
-  'CAPTCHA_FONT_DEFAULT' 	    =>  'Podrazumevani',
-  'CAPTCHA_FONT_NEW' 	        =>  'Novi oblici',
-  'CAPTCHA_FONT_LOWER' 	      =>  'Takođe koristi mala slova',
-	
+	'CAPTCHA_GD_WAVE_EXPLAIN'     =>  'Utiče na distorziju talasa za CAPTCHA.',
+	'CAPTCHA_GD_3D_NOISE' 	     =>  'Dodaj 3D-šum objekte',
+	'CAPTCHA_GD_3D_NOISE_EXPLAIN' =>  'Ovim dodajete dodatne objekte na CAPTCHA, preko slova.',
+	'CAPTCHA_GD_FONTS' 	        =>  'Koristi različite fontove',
+	'CAPTCHA_GD_FONTS_EXPLAIN' 	=>  'Ovim podešavate koliko različitih oblika slova želite da koristite. Možete samo koristiti podrazumevane oblike ili uvesit iznenjena slova. Dodavanje malih slova je takođe moguće.',
+	'CAPTCHA_FONT_DEFAULT' 	    =>  'Podrazumevani',
+	'CAPTCHA_FONT_NEW' 	        =>  'Novi oblici',
+	'CAPTCHA_FONT_LOWER' 	      =>  'Takođe koristi mala slova',
+	'CAPTCHA_NO_GD' 	        =>  'CAPTCHA bez GD',
 	'CAPTCHA_PREVIEW_MSG'					=> 'Vaše izmene podešavanja vizuelne potvrde nisu sačuvane. Ovo je samo pregled kako će izgledati.',
 	'CAPTCHA_PREVIEW_EXPLAIN'				=> 'Prikaz kako će CAPTCHA izgledati sa trenutnim podešavanjima. Koristite dugme pregled da bi osvežili prikaz. Znajte da su slova i brjevi nasumični i da će se razlikovati od pregleda do pregleda.',
+	
+	'CAPTCHA_SELECT'          =>  'Instalirani CAPTCHA dodaci',
+	'CAPTCHA_SELECT_EXPLAIN'  =>  'Lista sadrži CAPTCHA dodatke koje je boar prepoznao. Sive stavke nisu trenutno dostupne i moguće da je potrebno podešavanje da bi se koristile.',
+	'CAPTCHA_CONFIGURE'       =>  'Podešavanje CAPTCHA-e',
+	'CAPTCHA_CONFIGURE_EXPLAIN' =>  'Menjanje podešavanja za izabranu CAPTCHA-u.',
+	'CONFIGURE'               =>  'Podešavanja',
+	'CAPTCHA_NO_OPTIONS'      =>  'Ova CAPTCHA nema opcija za podešavanje.',
+	
 	'VISUAL_CONFIRM_POST'			=> 'Omogući vizuelnu potvrdu za postove gosta',
 	'VISUAL_CONFIRM_POST_EXPLAIN'	=> 'Zahteva od anonimnih korisnika da unesu nasumično izabran kod koji se mora poklopiti sa slikom da bi se sprečilo masovno slanje postova.',
 	'VISUAL_CONFIRM_REG'			=> 'Omogući vizuelnu potvrdu prilikom registracije',
 	'VISUAL_CONFIRM_REG_EXPLAIN'	=> 'Zahteva od anonimnih korisnika da unesu nasumično izabran kod koji se mora poklopiti sa slikom da bi se sprečilo masovno registrovanje.',
 	'VISUAL_CONFIRM_REFRESH'     =>  'Omogući korisnicima da mogu da regenerišu novi kod za potvrdu',
-  'VISUAL_CONFIRM_REFRESH_EXPLAIN'  =>  'Omogući korisnicima da mogu da regenerišu nove kodove za potvrdu, ako nisu u mogućnosti da pročitaju kod tokom registracije.',
+  	'VISUAL_CONFIRM_REFRESH_EXPLAIN'  =>  'Omogući korisnicima da mogu da regenerišu nove kodove za potvrdu, ako nisu u mogućnosti da pročitaju kod tokom registracije.',
 ));
 
 // Cookie Settings
@@ -353,8 +353,13 @@ $lang = array_merge($lang, array(
 	'ACP_COOKIE_SETTINGS_EXPLAIN'		=> 'Ovde definišete detalje koji će biti korišćeni za slanje kolačića korisnicima. U većini slučajeva podrazumevane vrednosti za kolačiće će biti dovoljne. Ako imate potrebu da menjate ove vrednosti, budite pažljivi jer pogrešne vrednosti mogu sprečiti korisnike da se prijave.',
 
 	'COOKIE_DOMAIN'				=> 'Domen kolačića',
+	'COOKIE_DOMAIN_EXPLAIN'		=> 'U većini slučajeva domen kolačića nije obavezan. Ostavite prazno ukoilko niste sigurni.<br><br> U slučju da imate board integrisan sa drugim softverom ili imate više domena, onda da bi ste utvrdili domen kolačića morate da uradite sledeće. Ukoliko imate nešto kao <i>example.com</i> i <i>forums.example.com</i>, ili možda <i>forums.example.com</i> i <i>blog.example.com</i>. Uklonite poddomene sve dok ne nađete zajedničko domen, <i>example.com</i>. Sada dodajte tačku ispred zajedničkog domena i upišite .example.com (obratite pažnju na tačku na početku).',
 	'COOKIE_NAME'				=> 'Ima kolačića',
+	'COOKIE_NAME_EXPLAIN'		=> 'Ovo može biti bilo šta, napravite da bude originalno. Svaki put kada menjate podešavanja kolaćiža trebalo bi da promenite i ime kolačića.',
+	'COOKIE_NOTICE'				=> 'Obaveštenje o kolačižima',
+	'COOKIE_NOTICE_EXPLAIN'		=> 'Ukoliko je uključeno, korisnicima će biti prikazano obaveštenje kada posete board. Ovo može biti obavezno po zakonu u zavisnosti od sadržaja vašeg barda i uključenih ekstenzija.',
 	'COOKIE_PATH'				=> 'Putanja kolačića',
+	'COOKIE_PATH_EXPLAIN'		=> 'Ovo je obično isto kao i putanja do skripti ili prosto kosa crta da bi ste postavili kolačiće dostupnim za ceo domen.',
 	'COOKIE_SECURE'				=> 'Bezbedni kolačići',
 	'COOKIE_SECURE_EXPLAIN'		=> 'Ako vaš server pokreće SSL uključite ovu opciju, u suprotnom je ostavite isključenu. Podešavanjem na uključeno a vaš server nema podršku za SSL dovešće do grešaka prilikom redirektovanja.',
 	'ONLINE_LENGTH'				=> 'Ko je OnLine vreme',
@@ -363,15 +368,27 @@ $lang = array_merge($lang, array(
 	'SESSION_LENGTH_EXPLAIN'	=> 'Sesija će isteći posle ovoliko vremena, u sekundama.',
 ));
 
+// Contact Settings
+$lang = array_merge($lang, array(
+	'ACP_CONTACT_SETTINGS_EXPLAIN'		=> 'Ovde možete uključiti i isključiti kontakt stranicu i dodati tekst koji se prikazuje na stranici.',
+
+	'CONTACT_US_ENABLE'				=> 'Omogući kontakt stranicu',
+	'CONTACT_US_ENABLE_EXPLAIN'		=> 'Ova stranica omogućuje korisnicima da pošalju email administratorima boarda. Znajte da takođe morate da uključite i opciju emailova za ceo board. Ovu upciju ćete pronaći u Generalno &gt; Komunikacija sa Klijentima &gt; Email podešavanja.',
+
+	'CONTACT_US_INFO'				=> 'Kontakt informacije',
+	'CONTACT_US_INFO_EXPLAIN'		=> 'Poruka je prikazana na stranici za kontakt',
+	'CONTACT_US_INFO_PREVIEW'		=> 'Stranica za kontakt - pregled',
+	'CONTACT_US_INFO_UPDATED'		=> 'Kontakt informacije su ažurirane.',
+));
+
 // Load Settings
 $lang = array_merge($lang, array(
 	'ACP_LOAD_SETTINGS_EXPLAIN'	=> 'Ovde možete uključiti i isključiti neke od funkcija boarda da bi smanjili količinu obaveznog procesiranja. Na većini servera nema potrebe da isključujete bilo koju od funkcija. Ipak, na nekim sistemima ili u okruženju deljenog hostinga može biti korisno da isključite opcije koje vam stvarno nisu potrebne. Možete takođe definisati vrednosti za opterećenje sistema i aktivne sesije posle kojih će board biti nedostupan.',
+	
 	'ALLOW_CDN'						=> 'Omogući korišćenje sadržaja sa drugih mreža',
 	'ALLOW_CDN_EXPLAIN'				=> 'Ukoliko je ova opcija omogućena, neki fajlovi će biti servirani sa spoljnih servera umesto sa Vašeg servera. Ovo umanjuje utrošak mrežnog protoka Vašeg servera, ali može pretstavljati problem privatnosti za neke administratore. U standardnoj phpBB instalaciji, ovo uključuje učitavanje “jQuery” i fonta “Open Sans” sa Google servera.',
 	'ALLOW_LIVE_SEARCHES'			=> 'Dozvoli pretragu uživo',
 	'ALLOW_LIVE_SEARCHES_EXPLAIN'	=> 'Ukoliko je ova opcija uključena, korisnicima će se prikazivati sugestije čim unesu par slova.',
-
-
 	'CUSTOM_PROFILE_FIELDS'			=> 'Proizvoljna polja profila',
 	'LIMIT_LOAD'					=> 'Ograniči opterećenje sistema',
 	'LIMIT_LOAD_EXPLAIN'			=> 'Ako u toku jednog minuta opterećenje sistema premaši ovu vrednost board će biti nedostupan, 1.0 jednako je ~100% iskorišćenja jednog procesora. Ova opcija radi samo na UNIX baziranim sistemima.',
@@ -383,13 +400,14 @@ $lang = array_merge($lang, array(
 	'LOAD_CPF_VIEWTOPIC'			=> 'Prikaži proizvoljna polja profila u temama',
 	'LOAD_USER_ACTIVITY'			=> 'Prikaži aktivnost korisnika',
 	'LOAD_USER_ACTIVITY_EXPLAIN'	=> 'Prikaži aktivnu temu/forum u korisničkom profilu i korisničkom kontrolnom panelu. Preporučljivo je da isključite ovu opciju na boardima sa više od milion postova.',
-	'LDAP_USER_FILTER'		=> 'LDAP filter korisnika',
-	'LDAP_USER_FILTER_EXPLAIN'	=> 'Opciono možete ograničiti objekte pretrage dodatnim filterima. Na primer <samp>objectClass=posixGroup</samp> će rezultovati korišćenjem <samp>(&(uid=$username)(objectClass=posixGroup))</samp>',
-	
+	'LOAD_USER_ACTIVITY_LIMIT'		=> 'Korisnička aktivnost post limit',
+	'LOAD_USER_ACTIVITY_LIMIT_EXPLAIN'	=> 'Aktivna tema/forum neće biti prikazana korisnicima koji imaju više postova od ovog broja. Postavite 0 da isključite limit.',
 	'READ_NOTIFICATION_EXPIRE_DAYS'	=> 'Istek pročitanog obaveštenja',
 	'READ_NOTIFICATION_EXPIRE_DAYS_EXPLAIN' => 'Broj dana koji treba da prođe pre nego što se pročitana obaveštenja automatski brišu. Postavite na 0 da bi obaveštenja ostala trajno.',
 	'RECOMPILE_STYLES'				=> 'Osveži zaostale komponente stilova',
 	'RECOMPILE_STYLES_EXPLAIN'		=> 'Proverava ako postoje nove verzije komponenti stilova u fajl sistemu i osvežava ih.',
+	'YES_ACCURATE_PM_BUTTON'			=> 'Omogući PM dugme specijalnih dozvola na strani sa temama',
+	'YES_ACCURATE_PM_BUTTON_EXPLAIN'	=> 'Ukoliko je uključeno, samo korisnici kojima je dozvoljeno da čitaju privatne poruke će imati PM dugme.',
 	'YES_ANON_READ_MARKING'			=> 'Omogući markiranje tema za goste',
 	'YES_ANON_READ_MARKING_EXPLAIN'	=> 'Čuva pročitan/nepročitan status za goste. Ako je ova opcija iskljućena postovi su uvek obeležani kao pročitani za goste.',
 	'YES_BIRTHDAYS'					=> 'Omogući listu rođendana',
@@ -414,6 +432,7 @@ $lang = array_merge($lang, array(
 	'ACP_AUTH_SETTINGS_EXPLAIN'	=> 'phpBB podržava dodatke za autorizaciju, ili module. Oni omogućavaju da utvrdite kako su korisnici autorizovani kada se prijave na board. Standardno, tri dodatka su obezbeđena; DB, LDAP i Apache. Ne zahtevaju svi metodi dodatne informacije pa zato samo popunite polja koja su potrebna za izabrani metod.',
 
 	'AUTH_METHOD'				=> 'Izaberite metod autorizacije',
+	
 	'AUTH_PROVIDER_OAUTH_ERROR_ELEMENT_MISSING'	=> 'Ključ i tajna moraju biti postavljeni za svaki omogućeni OAuth servis Samo jedan je od ova dva je priložen za OAuth servis.',
 	'AUTH_PROVIDER_OAUTH_EXPLAIN'				=> 'Svaki OAuth dobavljač zahteva unikatnu tajnu i ključ da bi se izvršila autorizacija sa spoljnim serverom. Oni bi trebalo da budu priloženi od OAuth servisa kada registrujete Vaš sajt sa njima i morate ih uneti tačno onako kako su navedeni.<br />Bilo koji servis koji nema oba parametra - ključ i tajnu neće biti dostupan za korišćenje korisnicima. Takođe znajte da korisnik može još uvek da se registruje i prijavi koristeći DB authentikacioni dodatak.',
 	'AUTH_PROVIDER_OAUTH_KEY'					=> 'Ključ (key)',
@@ -440,12 +459,14 @@ $lang = array_merge($lang, array(
 	'LDAP_UID_EXPLAIN'			=> 'Ovo je ključ pod kojim se traži zadati identitet prijave, na primer <var>uid</var>, <var>sn</var>, itd.',
 	'LDAP_USER'						=> 'LDAP korisnik',
 	'LDAP_USER_EXPLAIN'				=> 'Ostavite prazno ako želite anonimni pristup. Ako je polje popunjeno phpBB će se konektovati na LDAP server kao izabrani korisnik.',
+	'LDAP_USER_FILTER'				=> 'LDAP filter korisnika',
+	'LDAP_USER_FILTER_EXPLAIN'		=> 'Opciono možete još više ograničiti objekte pretraživanja sa dodatnim filterima. Na primer <samp>objectClass=posixGroup</samp> će rezultovati korišćenje <samp>(&amp;(uid=$username)(objectClass=posixGroup))</samp>',
 ));
 
 // Server Settings
 $lang = array_merge($lang, array(
 	'ACP_SERVER_SETTINGS_EXPLAIN'	=> 'Ovde određujete podešavanja o serveru i domenu. Unesite ispravne podatke, jer će greške dovesti do email-ova koji sadrže pogrešne podatke. Kada unosite domen zapamtite da unesete http:// ili drugi protokol. Port menjajte samo ako znate da vaš server koristi drugi drugačiji, port 80 je u većini slučajeva.',
-
+	
 	'ENABLE_GZIP'				=> 'Omogući GZip kompresiju',
 	'ENABLE_GZIP_EXPLAIN'		=> 'Generisani sadržaj će biti kompresovan za slanje korisniku. Ovo može smanjiti mrežni saobraćaj ali će povećati iskorišćenost procesora i na serveru i kod klijenta.',
 	'FORCE_SERVER_VARS'			=> 'Forsiraj serverska podešavanja za URL',
@@ -459,7 +480,8 @@ $lang = array_merge($lang, array(
 	'PATH_SETTINGS'				=> 'Podešavanja putanje',
 	'RANKS_PATH'				=> 'Putanja za smeštanje sličica za rang',
 	'RANKS_PATH_EXPLAIN'		=> 'Putanja ispod phpBB root direktorijuma, na primer <samp>images/ranks</samp>',
-	
+	'SCRIPT_PATH'				=> 'Putanja za skripte',
+	'SCRIPT_PATH_EXPLAIN'		=> 'Putanja gde se phpBB nalazi relatino u odnosu na ime domena, e.g. <samp>/phpBB3</samp>.',
 	'SERVER_NAME'				=> 'Ime domena',
 	'SERVER_NAME_EXPLAIN'		=> 'Ime domena sa koga se pokreće board (na primer: <samp>www.foo.bar</samp>)',
 	'SERVER_PORT'				=> 'Port servera',
@@ -496,6 +518,10 @@ $lang = array_merge($lang, array(
 	'EMAIL_CHECK_MX_EXPLAIN'		=> 'Ako je ova opcija uključena, emil domen unet pri registraciji i izmeni profila će biti proveren za ispravnim MX zapisom.',
 	'FORCE_PASS_CHANGE'				=> 'Forsiraj promenu šifre',
 	'FORCE_PASS_CHANGE_EXPLAIN'		=> 'Zahteva od korisnika da promene njihovu šifru posle određenog broja dana ili 0 da isključite ovu opciju.',
+	'FORM_TIME_MAX'					=> 'Maksimalno vreme za popunjavanje formi',
+	'FORM_TIME_MAX_EXPLAIN'			=> 'Vreme koje korisnik ima da ispuni formu. Upišite -1 da isključite vreme. Znajte da forma može biti neispravna ukoliko sesija istekne, nevezano za ovo podešavanje.',
+	'FORM_SID_GUESTS'				=> 'Poveži forme sa sesijom gosta',
+	'FORM_SID_GUESTS_EXPLAIN'		=> 'Ako je uključena ova opcija, token forme dodeljen gostima će biti session-exclusive. Ovo može praviti probleme nekim internet provajderima.',
 	'FORWARDED_FOR_VALID'			=> 'Provereno <var>X_FORWARDED_FOR</var> zaglavlje',
 	'FORWARDED_FOR_VALID_EXPLAIN'	=> 'Sesije će biti nastavljene samo ako je poslato <var>X_FORWARDED_FOR</var> zaglavlje jednako onim poslatim sa prethodnim zahtevom. Zabrane će biti proverene sa IP adresama u <var>X_FORWARDED_FOR</var>.',
 	'IP_VALID'						=> 'Provera IP sesije',
@@ -509,23 +535,27 @@ $lang = array_merge($lang, array(
 	'MAX_LOGIN_ATTEMPTS'			=> 'Maksimalan broj pokušaja za prijavu',
 	'MAX_LOGIN_ATTEMPTS_EXPLAIN'	=> 'Posle ovog broja pogrešnih prijava korisnik treba da dodatno potvrdi svoj identitet vizuelno (vizuelna potvrda)',
 	'NO_IP_VALIDATION'				=> 'Nijedno',
+	'NO_REF_VALIDATION'				=> 'Nijedno',
 	'PASSWORD_TYPE'					=> 'Kompleksnost šifre',
 	'PASSWORD_TYPE_EXPLAIN'			=> 'Utvrđuje koliko kompleksna šifra treba da bude kada se definiše ili menja, kasnije opcije uključuju i prethodne.',
 	'PASS_TYPE_ALPHA'				=> 'Mora da sadrži alfanumeričke',
 	'PASS_TYPE_ANY'					=> 'Bez zahteva',
 	'PASS_TYPE_CASE'				=> 'Mora sadržati mala i velika slova',
 	'PASS_TYPE_SYMBOL'				=> 'Mora sadržati simbole',
+	'REF_HOST'						=> 'Samo proveri host',
+	'REF_PATH'						=> 'Takođe proveri putanju',
 	'REFERRER_VALID'				=> 'Proveri prosledioca',
 	'REFERRER_VALID_EXPLAIN'		=> 'Ukoliko je uključena, prosledioc POST zahteva će biti proveren sa podešavanjima u host/script putanji. Ovo može napraviti probleme na boardu koji koriste nekoliko domena ili spoljašnje prijave.',
 	'TPL_ALLOW_PHP'					=> 'Dozvoli php u templejtima',
 	'TPL_ALLOW_PHP_EXPLAIN'			=> 'Ako je ova opcija uključena, <code>PHP</code> i <code>INCLUDEPHP</code> iskazi će biti prepoznati i prosleđeni u templejtima.',
+	'UPLOAD_CERT_VALID'				=> 'Proveri upload sertifikat',
+	'UPLOAD_CERT_VALID_EXPLAIN'		=> 'Kada je uključena ova opcija sertifikati udaljenih uploada će biti proveravani. Ovo zahteva da CA paket bude definisan kod <samp>openssl.cafile</samp> ili <samp>curl.cainfo</samp> u podešavanjima u Vašem php.ini fajlu.',
 ));
 
 // Email Settings
 $lang = array_merge($lang, array(
-	'ACP_CONTACT_SETTINGS_EXPLAIN'		=> 'HOvde možete uključiti i isključiti kontakt stranicu kao i dodati tekst koji će se prikazati na kontakt stranici.',
 	'ACP_EMAIL_SETTINGS_EXPLAIN'	=> 'Ova informacija se koristi kada board šalje mejlove korisnicima. Pobrinite se da je email adresa koju odredite ispravna, svaka neisporučena poruka će biti poslata na ovu adresu. Ako vaš hosting ne podržava prirodni (baziran na PHP-u) email servis, možete umesto slati poruke direktno koristeći SMTP. Ovo zahteva adrese odgovarajužih servera (ako je potrebno, raspitajte se kod provajdera), nemojte unositi bilo koje ime ovde! Ako server zahteva autorizaciju (i samo ako zahteva) unesite potrebno korisničko ime i šifru. Znajte da je ponuđena samo osnovna autorizacija, različite implementacije autorizacije trenutno nisu podržane.',
-
+	
 	'ADMIN_EMAIL'					=> 'Povratna email adresa',
 	'ADMIN_EMAIL_EXPLAIN'			=> 'Ova adresa će biti korišćena kao povratna adresa za sve emailove.',
 	'BOARD_EMAIL_FORM'				=> 'Korisnici šalju email putem boarda',
@@ -536,21 +566,20 @@ $lang = array_merge($lang, array(
 	'CONTACT_EMAIL_EXPLAIN'			=> 'Ova adresa će biti korišćena uvek kada je specifičan kontakt neophodan, na primer spam, nepravilan prikaz, neželjeni rezultati i slično.',
 	'CONTACT_EMAIL_NAME'			=> 'Ime za kontakt',
 	'CONTACT_EMAIL_NAME_EXPLAIN'	=> 'Ovo je ime za kontakt koji će videti primaoci emajlova. Ukoliko ne želite da imate kontakt ime ostavite ovo polje prazno.',
-	'CONTACT_US_ENABLE'				=> 'Omogući kontakt stranicu',
-	'CONTACT_US_ENABLE_EXPLAIN'		=> 'Ova stanica omogućava korisnicima da pošalju email administratorima',
-
-	'CONTACT_US_INFO'				=> 'Kontakt informacije',
-	'CONTACT_US_INFO_EXPLAIN'		=> 'Poruka je prikazana na kontakt stranici',
-	'CONTACT_US_INFO_PREVIEW'		=> 'Informacije o kontakt stranici - pregled',
-	'CONTACT_US_INFO_UPDATED'		=> 'Stranica sa kontakt informacijama je ažurirana.',
-	'EMAIL_FUNCTION_NAME'			=> 'Naziv email funkcije',
-	'EMAIL_FUNCTION_NAME_EXPLAIN'	=> 'Email funkcija koja se koristi za slanje pošte kroz PHP.',
+	'EMAIL_FORCE_SENDER'			=> 'Forsiraj OD email adresa',
+	'EMAIL_FORCE_SENDER_EXPLAIN'	=> 'Ovo će postaviti <samp>Return-Path</samp> crednost OD email adrese umesto da se koristi lokalni korisnik i ime hosta. TOvo ne važi ukoliko koristite SMTP.<br><em><strong>Upozorenje:</strong> Ovo zahteva da korisnik koji pokreće web server bude dodat kao provereni korisnik u sendmail konfiguraciji.</em>',
 	'EMAIL_PACKAGE_SIZE'			=> 'Veličina email paketa',
 	'EMAIL_PACKAGE_SIZE_EXPLAIN'	=> 'Ovo je broj emaila poslatim u jednom paketu.',
+	'EMAIL_MAX_CHUNK_SIZE'			=> 'Maksimalni broj dozvoljenih primaoca',
+	'EMAIL_MAX_CHUNK_SIZE_EXPLAIN'	=> 'Ukoliko je potrebno, postavite limit da ne bi prekoračili maksimalni broj primaoca koji vaš email server dozvoljava u jednoj email poruci.',
 	'EMAIL_SIG'						=> 'Email potpis',
-	'EMAIL_SIG_EXPLAIN'				=> 'Ovaj tekst že biti prikačen za sve email-ove koje board pošalje.',
+	'EMAIL_SIG_EXPLAIN'				=> 'Ovo će biti dodato u svim mejlovima koje board šalje.',
 	'ENABLE_EMAIL'					=> 'Omogući emailove putem boarda',
 	'ENABLE_EMAIL_EXPLAIN'			=> 'Ako je ova opcija isključena, nijedan email neće biti poslat sa boarda.',
+	'SEND_TEST_EMAIL'				=> 'Pošalji test email',
+	'SEND_TEST_EMAIL_EXPLAIN'		=> 'Ovim šajllete test email na adresu vašeg naloga.',
+	'SMTP_ALLOW_SELF_SIGNED'		=> 'Dozvoli self-signed SSL sertifikate',
+	'SMTP_ALLOW_SELF_SIGNED_EXPLAIN'=> 'Dozvoli konekcije ka SMTP serveru sa self-signed SSL sertifikatom. <br><em><strong>Upozorenje:</strong> Ukoliko dozvolite self-signed SSL sertifikate to može izazvati bezbedonosne probleme.</em>',
 	'SMTP_AUTH_METHOD'				=> 'Metod autorizacije za SMTP',
 	'SMTP_AUTH_METHOD_EXPLAIN'		=> 'Koristi se samo ako su korisničko ime/šifra podešeni, pitajte vašeg provajdera ako niste sigurni koji metod da koristite.',
 	'SMTP_CRAM_MD5'					=> 'CRAM-MD5',
@@ -567,6 +596,12 @@ $lang = array_merge($lang, array(
 	'SMTP_SETTINGS'					=> 'SMTP podešavanja',
 	'SMTP_USERNAME'					=> 'SMTP korisničko ime',
 	'SMTP_USERNAME_EXPLAIN'			=> 'Korisničko ime unesite samo ako ga vaš SMTP  server zahteva.',
+	'SMTP_VERIFY_PEER'				=> 'Proveri SSL sertifikat',
+	'SMTP_VERIFY_PEER_EXPLAIN'		=> 'Zahtevajte proverz SSL sertifikata koji se koristi za SMTP server. <br><em><strong>Upozorenje:</strong> Konektovanje na peer-ove sa neproverenim SSL sertifikatom može izazvati sigurnosne probleme.</em>',
+	'SMTP_VERIFY_PEER_NAME'			=> 'Proveri SMTP ime peer-a',
+	'SMTP_VERIFY_PEER_NAME_EXPLAIN'	=> 'Zahtevajte proveru imena peer-a za SMTP servere koristeći SSL / TLS konekcije. <br><em><strong>Upozorenje:</strong> Konektovanje na neproverene peer-ove mo-e izazvati sigurnosne probleme.</em>',
+	'TEST_EMAIL_SENT'				=> 'Test email je poslat.<br>Ukoliko niste dobili email, movimo Vas da proverite email podešavanja.<br><br>Ukoliko Vam je potrebna pomoć, posetite <a href="https://www.phpbb.com/community/">phpBB forume za podršku</a>.',
+
 	'USE_SMTP'						=> 'Koristi SMTP server za email',
 	'USE_SMTP_EXPLAIN'				=> 'Izaberite “Da” ako želite da šaljete poštu putem SMTP servera, umesto lokalne mail funkcije.',
 ));
@@ -574,17 +609,18 @@ $lang = array_merge($lang, array(
 // Jabber settings
 $lang = array_merge($lang, array(
 	'ACP_JABBER_SETTINGS_EXPLAIN'	=> 'Ovde možete omogućiti i kontrolisati korišćenje Jabber-a za instant poruke i obaveštenja boarda. Jabber je opensource protokol i samim tim slobodan za korišženje. Neki Jabber serveri uključuju transporte koji omogućavaju da kontaktirate korisnike na drugim mrežama. Ne nude svi serveri sve transporte i promene u protokolima mogu sprečiti transporte da rade ispravno. Znajte da je potrebno nekoliko sekundi da se ažuriraju detalji Jabber naloga, ne prekidajte skriptu dok se ne završi!',
-
 	
+	'JAB_ALLOW_SELF_SIGNED'			=> 'Dozvoli self-signed SSL sertifikate',
+	'JAB_ALLOW_SELF_SIGNED_EXPLAIN'	=> 'Dozvoli konekcije na Jabber server sa self-signed SSL sertifikatom. <br><em><strong>Upozorenje:</strong> Ukoliko dozvolite self-signed SSL sertifikate to može izazvati sigurnosne probleme.</em>',
 	'JAB_ENABLE'				=> 'Omogući Jabber',
 	'JAB_ENABLE_EXPLAIN'		=> 'Omogućuje korišćenje jabber poruka i obaveštenja',
+	'JAB_GTALK_NOTE'				=> 'Znajte da GTalk neće raditi zbog toga što <samp>dns_get_record</samp> funkcija nije nađema. Ova funkcija nije dostupna u PHP4, i nije implementirana na Windows platformama. Trenutno ne radi na BSD baziranim sistemima, uključujući i Mac OS.',
 	'JAB_PACKAGE_SIZE'			=> 'Veličina paketa Jabber-a',
 	'JAB_PACKAGE_SIZE_EXPLAIN'	=> 'Ovo je broj poslatih poruka u jednom paketu. Ako je podešeno na 0 poruka je odmah poslata i neće biti obeležena za kasnije slanje.',
 	'JAB_PASSWORD'				=> 'Jabber šifra',
-	
+	'JAB_PASSWORD_EXPLAIN'			=> '<em><strong>Upozorenje:</strong> Ova šifra će biti sačuvana u tekst formatu u bazi, vidljiva svima koji imaju pristup bazi ili koji mogu da vide ovu stranicu sa podešavanjima.</em>',
 	'JAB_PORT'					=> 'Jabber port',
 	'JAB_PORT_EXPLAIN'			=> 'Ostavite prazno osim ako port nije 5222',
-	
 	'JAB_SERVER'				=> 'Jabber server',
 	'JAB_SERVER_EXPLAIN'		=> 'Pogledajte %sjabber.org%s za listu servera',
 	'JAB_SETTINGS_CHANGED'		=> 'Jabber podešavanja su uspešno promenjena.',
@@ -592,5 +628,8 @@ $lang = array_merge($lang, array(
 	'JAB_USE_SSL_EXPLAIN'		=> 'Ako je omogućena, biće pokušano da se ostvari bezbedna konekcija. Jabber port će biti izmenjen na 5223 ako je izabrani port 5222.',
 	'JAB_USERNAME'				=> 'Jabber korisničko ime',
 	'JAB_USERNAME_EXPLAIN'		=> 'Ako korisnik nije registrovan, biće kreiran ako je moguće.',
-	'JAB_PASSWORD_EXPLAIN'   =>  '<em><strong>Upozorenje:</strong> Ova šifra će biti sačuvana kao običan tekst u bazi i biće vidljiva svima koji mogu da pristupe vašoj bazi ili mogu da vide konfiguracionu stranicu.</em>',
+	'JAB_VERIFY_PEER'				=> 'Proveri SSL sertifikat',
+	'JAB_VERIFY_PEER_EXPLAIN'		=> 'Zahtevajte proveru SSL sertifikata koji koristi Jabber server. <br><em><strong>Upozorenje:</strong> Konektovanje na neproverene self-signed SSL sertifikate može izazvati sigurnosne probleme.</em>',
+	'JAB_VERIFY_PEER_NAME'			=> 'Proveri ime Jabber peer-a',
+	'JAB_VERIFY_PEER_NAME_EXPLAIN'	=> 'Zahtevajte proveru imena peer-a za Jabber server koristeži SSL / TLS konekcije. <br><em><strong>Upozorenje:</strong> Konektovanje na neproverene peer-ove može izazvati sigurnosne probleme.</em>',
 ));

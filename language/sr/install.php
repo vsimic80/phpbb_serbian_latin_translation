@@ -1,13 +1,8 @@
 <?php
 /**
 *
-
 * This file is part of the phpBB Forum Software package.
 *
-
-
-
-
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
@@ -23,6 +18,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -40,562 +36,214 @@ if (empty($lang) || !is_array($lang))
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
+// Common installer pages
 $lang = array_merge($lang, array(
+	'INSTALL_PANEL'				=> 'Instalacioni panel',
+	'SELECT_LANG'				=> 'Izaberite jezik',
+
+	'STAGE_INSTALL'	=> 'Instaliram phpBB',
+
+	// Introduction page
+	'INTRODUCTION_TITLE'	=> 'Uvod',
+	'INTRODUCTION_BODY'		=> 'Dobrodošli u phpBB3!<br /><br />phpBB® je najkorišćeniji bilten board otvorenog koda na svetu. phpBB3 je poslednje izdanje u liniji paketa koje je počelo u 2000. KAo i njegovi prethodnici, phpBB3 je pun mogučnosti, jednostavan, i potpuno podržan od phpBB tima. phpBB3 ispravlja sve ono što je phpBB2 učinilo popularnim, i donosi često tražene mogučnosit koje nisu bile prisutne u prethodnim verzijama. Nadamo se da će ispuniti vaša iščekivanja.<br /><br />Ovaj instalacioni sistem će vas voditi kroz instalaciju phpBB3, nadogradnju sa prethodnih verzija, kao i konvertovanja na phpBB3 sa drugih forums (uključujući i phpBB2). Za više informacija, pročitajte <a href="../docs/INSTALL.html">instalacioni vodič</a>.<br /><br />Da vidite phpBB3 licencu ili potražite pomoć, izaberite odgovarajuće opcije i bočnog menija. Za nastavak, izaberite odgovarajući tab iznad.',
+
+	// Support page
+	'SUPPORT_TITLE'		=> 'Podrška',
+	'SUPPORT_BODY'		=> 'Puna podrška će biti pružena za trenutno izdanje phpBB3, besplatno. Ovo uključuje:</p><ul><li>instalaciju</li><li>konfiguraciju</li><li>tehnička pitanja</li><li>problemi vezani za potencijalne greške u softveru</li><li>ažuriranje from Release Candidate (RC) verzija na poslednju stabilnu verziju</li><li>konvertovanje sa phpBB 2.0.x na phpBB3</li><li>konvertovanje sa drugih foruma na phpBB3 (pogledajte <a href="https://www.phpbb.com/community/viewforum.php?f=486">Convertors Forum</a>)</li></ul><p>Ohrabrujemo korisnike koji još uvek koriste beta verziju phpBB3 da zamene svoje instalacije svežom kopijom poslednje verzije.</p><h2>Ekstenzije / Stilovi</h2><p>Za probleme sa ekstenzijama, pišite u udgovorajućem <a href="https://www.phpbb.com/community/viewforum.php?f=451">Extensions Forum</a>.<br />Za probleme sa stilovima, šablonima i temama, pišite u odgovarajućem <a href="https://www.phpbb.com/community/viewforum.php?f=471">Styles Forum</a>.<br /><br />Ukoliko se pitanje odnosi na određeni paket, pišite direktno u temi posvećenoj paketu.</p><h2>Kako dobiti podršku</h2><p><a href="https://www.phpbb.com/support/">Support Section</a><br /><a href="https://www.phpbb.com/support/docs/en/3.3/ug/quickstart/">Quick Start Guide</a><br /><br />Da bi ste bili u toku sa novostima i izadnjima, pratite na na <a href="https://www.twitter.com/phpbb/">Twitter-u</a> i <a href="https://www.facebook.com/phpbb/">Facebook-u</a><br /><br />',
+
+	// License
+	'LICENSE_TITLE'		=> 'Licenca',
+	
+	// Install page
+	'INSTALL_INTRO'				=> 'Dobrodošli na instalaciju',
+	'INSTALL_INTRO_BODY'		=> 'Sa ovom opcijom, moguće je instalirati phpBB na vš server.</p><p>Da bi nastavili, moraćete da imate podatke o bazi. Ukoliko to ne znate, molimo Vas da prvo pitate kod vašeg hosting provajder. Nećete moći da nastavite bez njih. Trebaće vam:</p>
+
+	<ul>
+	<li>Tip baze - baza koju ćete koristiti</li>
+	<li>Server ime baze ili DSN - adresa servera baze</li>
+	<li>Port baze - u većini slučaja ovo vam neće trebati</li>
+	<li>Ime baze - naziv baze na serveru</li>
+	<li>Korisničko ime i šifra baze - podaci sa kojima pristupate bazi</li>
+	</ul>
+	
+	<p><strong>Note:</strong> ukoliko instalirate koristeći SQLite, trebate uneti punu putanju do baze u DSN polju i ostavite korisničko ime i šifru prazno. Zbog bezbednosnih razloga, pobriniti se da se fajl baze ne nalazi na lokaciji kojoj se može pristupiti sa interneta.</p>
+	
+	<p>phpBB3 podržava sledeće baze:</p>
+	<ul>
+		<li>MySQL 4.1.3 ili noviji (MySQLi je obavezan)</li>
+		<li>PostgreSQL 8.3+</li>
+		<li>SQLite 3.6.15+</li>
+		<li>MS SQL Server 2000 ili noviji (direktno ili putem ODBC)</li>
+		<li>MS SQL Server 2005 ili noviji (native)</li>
+		<li>Oracle</li>
+	</ul>
+
+	<p>Samo baze podržane od vašeg servera će biti prikazane.',
+
+	'ACP_LINK'	=> 'Vodi me na <a href="%1$s">AKP</a>',
+
+	'INSTALL_PHPBB_INSTALLED'		=> 'phpBB je već instaliran.',
+	'INSTALL_PHPBB_NOT_INSTALLED'	=> 'phpBB još uvek nije instaliran.',
+));
+
+// Requirements translation
+$lang = array_merge($lang, array(
+	// Filesystem requirements
+	'FILE_NOT_EXISTS'						=> 'Fajl ne postojit',
+	'FILE_NOT_EXISTS_EXPLAIN'				=> 'Da bi instalirali phpBB fajl %1$s mora da postoji.',
+	'FILE_NOT_EXISTS_EXPLAIN_OPTIONAL'		=> 'Preporučujemo da fajl %1$s postoji u sistemu zbog boljeg korisničkog iskustva.',
+	'FILE_NOT_WRITABLE'						=> 'Fajl nije upisiv',
+	'FILE_NOT_WRITABLE_EXPLAIN'				=> 'Da bi instalirali phpBB %1$s fajl mora da je upisiv.',
+	'FILE_NOT_WRITABLE_EXPLAIN_OPTIONAL'	=> 'Preporučujemo da fajl %1$s bude upisiv zbog boljeg korisničkog iskustva.',
+
+	'DIRECTORY_NOT_EXISTS'						=> 'Folder ne postoji',
+	'DIRECTORY_NOT_EXISTS_EXPLAIN'				=> 'Da bi instalirali phpBB folder %1$s mora da postoji.',
+	'DIRECTORY_NOT_EXISTS_EXPLAIN_OPTIONAL'		=> 'Preporučujemo da folder %1$s postoji u sistemu zbog boljeg korisničkog iskustva.',
+	'DIRECTORY_NOT_WRITABLE'					=> 'Folder nije upisiv',
+	'DIRECTORY_NOT_WRITABLE_EXPLAIN'			=> 'Da bi instalirali phpBB folder %1$s mora da bude upisiv.',
+	'DIRECTORY_NOT_WRITABLE_EXPLAIN_OPTIONAL'	=> 'Preporučujemo da fajl %1$s bude upisiv zbog boljeg korisničkog iskustva.',
+
+	// Server requirements
+	'PHP_VERSION_REQD'					=> 'PHP verzija',
+	'PHP_VERSION_REQD_EXPLAIN'			=> 'phpBB zahteva PHP veryiju 7.1.3 ili noviju.',
+	'PHP_GETIMAGESIZE_SUPPORT'			=> 'PHP funkcija getimagesize() je dostupna',
+	'PHP_GETIMAGESIZE_SUPPORT_EXPLAIN'	=> 'Da bi phpBB ispravno funkcionisao, getimagesize funkcija mora biti dostupna.',
+	'PCRE_UTF_SUPPORT'				=> 'PCRE UTF-8 Podrška',
+	'PCRE_UTF_SUPPORT_EXPLAIN'		=> 'phpBB neće raditi ako vaša PHP instalacija nije kompajlirana sa UTF-8 podrškom u PCRE ekstenziji',
+	'PHP_JSON_SUPPORT'				=> 'PHP JSON podrška',
+	'PHP_JSON_SUPPORT_EXPLAIN'		=> 'Da bi phpBB ispravno funkcionisao, PHP JSON ekstenzija mora biti dostupna.',
+	'PHP_MBSTRING_SUPPORT'				=> 'PHP mbstring podrška',
+	'PHP_MBSTRING_SUPPORT_EXPLAIN'		=> 'Da bi phpBB ispravno funkcionisao, PHP mbstring ekstenzija mora biti dostupna.',
+	'PHP_XML_SUPPORT'					=> 'PHP XML/DOM podrška',
+	'PHP_XML_SUPPORT_EXPLAIN'			=> 'Da bi phpBB ispravno funkcionisao, PHP PHP XML/DOM ekstenzija mora biti dostupna.',
+	'PHP_SUPPORTED_DB'				=> 'Podržane Baze',
+	'PHP_SUPPORTED_DB_EXPLAIN'		=> '<strong>Obavezni</strong> - Morate imati podršku za najmanje jednu bazu kompatibilnu sa PHP-om. Ako nema modula baza prikazanih kao dostupni trebalo bi da kontaktirate vašeg hosting provajdera.',
+
+	'RETEST_REQUIREMENTS'	=> 'Ponovo proveri zahteve',
+
+	'STAGE_REQUIREMENTS'	=> 'Proveri zahteve',
+));
+
+// General error messages
+$lang = array_merge($lang, array(
+	'INST_ERR_MISSING_DATA'		=> 'Morate popuniti sva polja u ovom bloku',
+
+	'TIMEOUT_DETECTED_TITLE'	=> 'Instaler je primetio zastoj',
+	'TIMEOUT_DETECTED_MESSAGE'	=> 'Instalaciona skripta je primetila zastoj. Možete probati da osvežite stranicu što može dovesti do problema sa podacima. Predlažemo da ili povećate timeout podešavanje ili pokušate da koristite CLI.',
+));
+
+// Data obtaining translations
+$lang = array_merge($lang, array(
+	'STAGE_OBTAIN_DATA'	=> 'Postavite instalacione podatke',
+
+	//
+	// Admin data
+	//
+	'STAGE_ADMINISTRATOR'		=> 'Detalji Administratora',
+
+	// From labels
 	'ADMIN_CONFIG'				=> 'Admin Konfiguracija',
 	'ADMIN_PASSWORD'			=> 'Šifra administratora',
 	'ADMIN_PASSWORD_CONFIRM'	=> 'Potvrdi šifu administratora',
 	'ADMIN_PASSWORD_EXPLAIN'	=> '(Molimo vas da unesete šifru dužine između 6 i 30 karaktera)',
-	'ADMIN_TEST'				=> 'Proveri podešavanja administratora',
 	'ADMIN_USERNAME'			=> 'Korisničko ime administratora',
 	'ADMIN_USERNAME_EXPLAIN'	=> '(Molimo vas da unesete korisničko ime dužine između 3 i 20 karaktera)',
-	'APP_MAGICK'				=> 'Imagemagick podrška [ Prikačeni fajlovi ]',
-	'AUTHOR_NOTES'				=> 'Beleške autora<br />» %s',
-	'AVAILABLE'					=> 'Dostupno',
-	'AVAILABLE_CONVERTORS'		=> 'Dostupni konverteri',
 
-	'BACKUP_NOTICE'				=> 'Napravite bekap vašeg boarda pre nadogradnje u slučaju da se pojave problemi tokom procesa nadogradnje.',
-	'BEGIN_CONVERT'				=> 'Započni konverziju',
-	'BLANK_PREFIX_FOUND'		=> 'Skeniranje vaših tabela je pokazalo ispravnu instalaciju bez prefiksa tabela.',
-	'BOARD_NOT_INSTALLED'			=> 'Nije pronađena instalacija',
-	'BOARD_NOT_INSTALLED_EXPLAIN'	=> 'phpBB-ov konverter zahteva podrazumevanu instalaciju phpBB3 da bi radio, molimo vas <a href="%s">nastavite sa instalacijom phpBB3</a>.',
-	
-	'CATEGORY'					=> 'Kategorija',
-	'CACHE_STORE'				=> 'Tip keša',
-	'CACHE_STORE_EXPLAIN'		=> 'Fizička lokacija gde se podaci keširaju, preporučujemo fajl sisetm.',
-	'CAT_CONVERT'				=> 'Konvertuj',
-	'CAT_INSTALL'				=> 'Instaliraj',
-	'CAT_OVERVIEW'				=> 'Pregled',
-	'CAT_UPDATE'				=> 'Nadogradi',
-	'CHANGE'					=> 'Promeni',
-	'CHECK_TABLE_PREFIX'		=> 'Proverite prefiks tabele i pokušajte ponovo.',
-	'CLEAN_VERIFY'				=> 'Čišćenje i proveravanje finalne strukture',
-	'CLEANING_USERNAMES'		=> 'Čišćenje korisničkih imena',
-	'COLLECTING_FILE_DIFFS'		=> 'Sakupljam razlike u fajlovima',
-	'COLLIDING_CLEAN_USERNAME'	=> '<strong>%s</strong> je očišćeno korisničko ime za:',
-	'COLLIDING_USERNAMES_FOUND'	=> 'Duplirana korisnička imena su pronađena na vašem starom boardu. Da bi kompletirali konverziju molimo vas da obrišete ili preimenujete ove korisniketako da bude samo jedan korisnik na vašem boardu za svako korisničko ime.',
-	'COLLIDING_USER'			=> '» korisnički id: <strong>%d</strong> korisničko ime: <strong>%s</strong> (%d postova)',
-	'CONFIG_CONVERT'			=> 'Konvertovanje konfiguracije',
-	'CONFIG_CONVERT'			=> 'Konvertovanje konfiguracije',
-	'CONFIG_FILE_UNABLE_WRITE'	=> 'Nije moguće upisivanje konfiguracionog fajla. Alternativne metode kako da napravite ovaj fajl su prikazane ispod',
-	'CONFIG_FILE_WRITTEN'		=> 'Konfiguracioni fajl je upisan, sada možete nastaviti sa sledećim korakom instalacije',
-	'CONFIG_RETRY'				=> 'Pokušaj ponovo',
-	'CONFIG_PHPBB_EMPTY'  		=> 'phpBB3 konfiguracija za "%s" je prazna.',
-	'CONTINUE_CONVERT'			=> 'Nastavi konverziju',
-	'CONTINUE_CONVERT_BODY'		=> 'Detektovan je prethodni pokušaj konvertovanja. Možete izabrati da nastavite konverziju ili pokrenete novu.',
-	'CONTINUE_LAST'				=> 'Nastavi poslednje izjave',
-	'CONTINUE_OLD_CONVERSION'	=> 'Nastavi prethodno startovanu konverziju',
-	'CONTINUE_UPDATE'			=> 'Nastavi nadogradnju',
-	'CONVERT'					=> 'Konvertuj',
-	'CONVERT_OPTIONS'				=> 'Opcije',
-	'CONVERT_COMPLETE'			=> 'Konvertovanje završeno',
-	'CONVERT_COMPLETE_EXPLAIN'	=> 'Uspešno ste konvertovali vaš board u phpBB 3.0. Sada se možete prijaviti i <a href="../">pristupiti vašem forumu</a>. Znajde da je pomoć za korišćenje phpBB-a dostupna OnLine na <a href="http://www.phpbb.com/support/documentation/3.0/">Userguide</a> i <a href="http://www.phpbb.com/phpBB/viewforum.php?f=46">Beta support forum</a>',
-	'CONVERT_INTRO'				=> 'Dobrodošli na phpBB Univerzalni Konvertor Framework',
-	'CONVERT_INTRO_BODY'		=> 'Odavde možete uvesti podatke sa ostalih (instaliranih) foruma. Lista ispod prikazuje sve trenutno dostupne mofule za konverziju. Ako ne postoji modul u listi koji vama odgovara, molimo vas da posetite naš sajt gde će budući moduli za konverziju biti dostupni za peuzimanje.',
-	'CONVERT_NEW_CONVERSION'	=> 'Nova konverzija',
-	'CONVERT_NOT_EXIST'			=> 'Izabrani konvertor ne postoji',
-	'CONVERT_SETTINGS_VERIFIED'	=> 'Informacija koju ste uneli je proverena. Da bi počeli sa konverzijom, pritisnite dugme ispod',
-	'CONV_ERR_FATAL'					=> 'Fatalna greška konverzije',
-
-	'CONV_ERROR_ATTACH_FTP_DIR'			=> 'FTP slanje prikačenih fajlova je uključeno na starom boardu. Molimo vas da prekopirate sve prikačene fajlove u određeni direktorijum, isključite ftp slanje i proverite da je izabran ispravan direktorijum za slanje. Ako ste ovo uradili, restartujte konvertor.',
-	'CONV_ERROR_CONFIG_EMPTY'			=> 'Nema konfiguracione informacije za konverziju.',
-	'CONV_ERROR_FORUM_ACCESS'			=> 'Ne mogu da dobijem informaciju o pristupu forumu.',
-	'CONV_ERROR_GET_CATEGORIES'			=> 'Ne mogu da dobijem kategorije.',
-	'CONV_ERROR_GET_CONFIG'				=> 'Ne mogu da dobijem configuraciju vašeg foruma.',
-	'CONV_ERROR_COULD_NOT_READ'			=> 'Ne mogu da pristupim/pročitam "%s".',
-	'CONV_ERROR_GROUP_ACCESS'			=> 'Ne mogu da dobijem informacije o autorizaciji grupe.',
-	'CONV_ERROR_INCONSISTENT_GROUPS'	=> 'Nekonsistencija u tabeli sa grupama detektovana u add_bots() - moraćete da dodate sve specijalne grupeo ako to uradite manuelno.',
-	'CONV_ERROR_INSERT_BOT'				=> 'Ne mogu da dodam bot-a u tabelu korisnika.',
-	'CONV_ERROR_INSERT_BOTGROUP'		=> 'Ne mogu da dodam bota u bots tabelu.',
-	'CONV_ERROR_INSERT_USER_GROUP'		=> 'Ne mogu da ubacim korisnika u user_group tabelu.',
-	'CONV_ERROR_MESSAGE_PARSER'			=> 'Greška u prosleđivaču poruka',
-	'CONV_ERROR_NO_AVATAR_PATH'			=> 'Za developere: morate odrediti $convertor[\'avatar_path\'] da bi koristili %s.',
-	'CONV_ERROR_NO_FORUM_PATH'			=> 'Relativna putanja do foruma nie određena.',
-	'CONV_ERROR_NO_GALLERY_PATH'		=> 'Za developere: morate odrediti $convertor[\'avatar_gallery_path\'] da bi koristili %s.',
-	'CONV_ERROR_NO_GROUP'				=> 'Grupa "%1$s" ne može biti pronađena u %2$s.',
-	'CONV_ERROR_NO_RANKS_PATH'			=> 'Za developere: morate odrediti $convertor[\'ranks_path\'] da bi koristili %s.',
-	'CONV_ERROR_NO_SMILIES_PATH'		=> 'Za developere: morate odrediti $convertor[\'smilies_path\'] da bi koristili %s.',
-	'CONV_ERROR_NO_UPLOAD_DIR'			=> 'Za developere: morate odrediti $convertor[\'upload_dir\'] da bi koristili %s.',
-	'CONV_ERROR_PERM_SETTING'			=> 'Ne mogu da ubacim/ažuriram podešavanja dozvola.',
-	'CONV_ERROR_PM_COUNT'				=> 'Ne mogu da izaberem folder pm count.',
-	'CONV_ERROR_REPLACE_CATEGORY'		=> 'Ne mogu da ubacim nov forum menjajući staru kategoriju.',
-	'CONV_ERROR_REPLACE_FORUM'			=> 'Ne mogu da ubacim nov forum menjajući stari forum.',
-	'CONV_ERROR_USER_ACCESS'			=> 'Ne mogu da dobijem informaciju o autorijaciji korisnika.',
-	'CONV_ERROR_WRONG_GROUP'			=> 'Pogrešna grupa "%1$s" definisana u %2$s.',
-	'CONV_OPTIONS_BODY'					=> 'Ova stranica sakuplja podatke neophodne za pristup izvoru boarda. Unesite detalje o bazi vašeg bivšeg boarda; konverter neće izmeniti ništa u bazi. Izvorni board bi trebalo onemogućiti da bi se omogućila nesmetana konverzija.',
-	'CONV_SAVED_MESSAGES'				=> 'Sačuvane poruke',
-	
-	'COULD_NOT_COPY'			=> 'Ne mogu da kopiram fajl <strong>%1$s</strong> u <strong>%2$s</strong><br /><br />Proverite da odredišni direktorijum postoji i da se u njega može upisivati',
-	'COULD_NOT_FIND_PATH'		=> 'Ne mogu da pronađem putanju do vašeg starog foruma. Molimo vas da je unesete i pokušate ponovo.<br />» Putanja je bila %s',
-
-	'DBMS'						=> 'Tip baze',
-	'DB_CONFIG'					=> 'Konfiguracija baze',
-	'DB_CONNECTION'				=> 'Konekcija sa bazom',
-	'DB_ERR_INSERT'				=> 'Greška pri procesiranju <code>INSERT</code> query-ja',
-	'DB_ERR_LAST'				=> 'Greška pri procesiranju <var>query_last</var>',
-	'DB_ERR_QUERY_FIRST'		=> 'Greška prilikom izvršavanja <var>query_first</var>',
-	'DB_ERR_QUERY_FIRST_TABLE'	=> 'Greška prilikom izvršavanja <var>query_first</var>, %s ("%s")',
-	'DB_ERR_SELECT'				=> 'Greška prilikom pokretanja <code>SELECT</code> query-ja',
-	'DB_HOST'					=> 'Database server hostname ili DSN',
-	'DB_HOST_EXPLAIN'			=> 'DSN je skraćenica od Naziv Izvora Podataka i važi samo za ODBC instalacije.',
-	'DB_NAME'					=> 'Ime baze',
-	'DB_PASSWORD'				=> 'Šifra baze',
-	'DB_PORT'					=> 'Port baze',
-	'DB_PORT_EXPLAIN'			=> 'Ostavite prazno osim ako znate da server radi na nestandardnom portu.',
-	'DB_UPDATE_NOT_SUPPORTED'  => 'Žao nam je ali ova skripta ne podržava nadoradnju phpBB za verzije od “%1$s”. Vaša trenutno instalirana verzija je “%2$s”. Molimo vas da nadogradite na prethodnu verziju pre nego što pokrenete ovu skriptu. Pomoć oko ovoga možete pronaći na Support Forum-u na phpBB.com.',
-	'DB_USERNAME'				=> 'Korisničko ime baze',
-	'DB_TEST'					=> 'Testiraj konekciju',
-	'DEFAULT_LANG'				=> 'Podrazumevani jezik boarda',
-	'DEFAULT_PREFIX_IS'			=> 'Podrazumevani prekiks za %1$s je <strong>%2$s</strong>',
-	'DEV_NO_TEST_FILE'			=> 'Nije uneta vrednost za test_file promenljivu u konverteru. Ako ste korisnik ovog konvertora, ne bi trebalo da vidite ovu grešku, molimo vas da prijavite ovu poruku autoru konvertora. Ako ste autor konvertera, morate odrediti nazib fajla koji postoji u izvornom forumu i dozvolite da putanja bude proverena.',
-	'DIRECTORIES_AND_FILES'		=> 'Podešavanje direktorijuma i fajlova',
-	'DISABLE_KEYS'				=> 'Onemogućavanje tastature',
-	'DLL_FTP'					=> 'Udaljena FTP podrška [ Instalacija ]',
-	'DLL_GD'					=> 'GD graphics podrška [ Vizuelne potvrde ]',
-	'DLL_MBSTRING'				=> 'Multi-byte karakterna podrška',
-	'DLL_MSSQL'					=> 'MSSQL Server 2000+',
-	'DLL_MSSQL_ODBC'			=> 'MSSQL Server 2000+ preko ODBC-a',
-	'DLL_MSSQLNATIVE'			=> 'MSSQL Server 2005+ [ Native ]',
-	'DLL_MYSQL'					=> 'MySQL',
-	'DLL_MYSQLI'				=> 'MySQL sa MySQLi Ekstenzijom',
-	'DLL_ORACLE'				=> 'Oracle',
-	'DLL_POSTGRES'				=> 'PostgreSQL 7.x/8.x',
-	'DLL_SQLITE'				=> 'SQLite',
-	'DLL_SQLITE3'				=> 'SQLite 3',
-	'DLL_XML'					=> 'XML podrška [ Jabber ]',
-	'DLL_ZLIB'					=> 'zlib kompresija [ gz, .tar.gz, .zip ]',
-	'DL_CONFIG'					=> 'Konfiguracija Preuzimanja',
-	'DL_CONFIG_EXPLAIN'			=> 'Možete preuzeti kompletan config.php na vaš PC. Onda ćete morati da ga pošaljete manuelno, zamenjujući postojeći config.php u vašem phpBB 3.0 root directorijumuy. Zapamtite da fajl pošaljete u ASCII formatu (pogledajte dokumentaciju vaše FTP aplikacije ako niste sigurni kako da ovo uradite). Kada ste poslali config.php kliknite na “Završeno” da bi vas odveli na sledeću stranicu.',
-	'DL_DOWNLOAD'				=> 'Preuzimanje',
-	'DONE'						=> 'Završeno',
-	'DOWNLOAD_UPDATE_METHOD_BUTTON'	=>  'Preuzimanje arhive sa izmenjenim fajlovima (preporučujemo)',
-	'DOWNLOAD_CONFLICTS'   =>  'Download konflikt ya ovaj fajl',
-  'DOWNLOAD_CONFLICTS_EXPLAIN'  =>  'Potražite &lt;&lt;&lt; da bi uočili konflikte',
-
-	'ENABLE_KEYS'				=> 'Ponovno omogućavanje tastature. Ovo može da malo potraje',
-
-	'FILES_OPTIONAL'			=> 'Opcioni fajlovi i direktorijumi',
-	'FILES_OPTIONAL_EXPLAIN'	=> '<strong>Opciono</strong> - Ovi fajlovi, direktorijumi ili dozvole nisu obavezni. Instalacione rutine će po pokušati da ih korišćenjem raznih tehika kompletiraju ako ne postoje ili u njih ne može biti upisivano. U svakom slučaju, prisustvo ovih fajlova, direktorijuma ili dozvola će ubrzati instalaciju.',
-	'FILES_REQUIRED'			=> 'Fajlovi i direktorijumi',
-	'FILES_REQUIRED_EXPLAIN'	=> '<strong>Obavezno</strong> - Da bi pravilno funkcionisao phpBB treba da ima mogućnost da pristupi ili upisuje u određene fajlove ili direktorijume. Ako vidite “Nije pronađeno” moraćete da napravite relevantan fajl ili direktorijum. Ako vidite “Neupisivo” moraćete da promenite dozvolefajla ili direktorijuma da bi omogućili phpBB-u da upisuje u njih.',
-	'FILLING_TABLE'				=> 'Popunjavam tabelu <strong>%s</strong>',
-	'FILLING_TABLES'			=> 'Popunjavam tabele',
-	'FINAL_STEP'				=> 'Tavršni korak',
-	'FORUM_ADDRESS'				=> 'Adresa foruma',
-	'FORUM_ADDRESS_EXPLAIN'		=> 'Ovo je http adresa vašeg bivšeg foruma',
-	'FORUM_PATH'				=> 'Putanja foruma',
-	'FORUM_PATH_EXPLAIN'		=> 'Ovo je <strong>relativna</strong> putanja na disku do vašeg bivšeg foruma od <strong>root-a vaše phpBB instalacije</strong>',
-	'FOUND'						=> 'Nađeno',
-	'FTP_CONFIG'				=> 'Prebaci konfiguraciju putem FTP-a',
-	'FTP_CONFIG_EXPLAIN'		=> 'phpBB je pronašao postojanje FTP modula na ovom serveru. Možete pokušati da instalirate vaš config.php putem njega ako želite. Moraćete da priložite informacije prikazane ispod. Zapamtite da su vaše korisničko ime i šifra obe sa vašeg servera! (pitajte vašeg provajdera za detalje ako niste sigurni)',
-	'FTP_PATH'					=> 'FTP Putanja',
-	'FTP_PATH_EXPLAIN'			=> 'Ovo je putanja od vašeg root directorijuma do phpBB-a, npr. htdocs/phpBB3/',
-	'FTP_UPLOAD'				=> 'Slanje',
-
-	'GPL'						=> 'Generalna Javna Licenca',
-	
-	'INITIAL_CONFIG'			=> 'Osnovna konfiguracija',
-	'INITIAL_CONFIG_EXPLAIN'	=> 'Sada kada je instalacija utvrdila da vaš server može pokrenuti phpBB moraćete da dostavite i neke informacije. Ako neznate kako da se konektujete na vašu bazu molimo vas da kontaktirate vašeg provajdera ili pogledajte phpBB forum za podršku. Kada unosite podatke molimo vas da ih pažljivo pregledate pre nego što nastavite dalje.',
-	'INSTALL_CONGRATS'			=> 'Čestitamo',
-	'INSTALL_CONGRATS_EXPLAIN'	=> 'Uspešno ste instalirali phpBB %1$s. Nastavite sa odabirom jedne od ponuđenih opcija:</p>
-	<h2>Konvertujte postojeći forum u phpBB3</h2>
-	<p>phpBB univerzalni konvertor podržava konverziju phpBB 2.0.x i drugih boarda u phpBB3. Ukoliko imate postojeći board koji želite da konvertujete, molimo da <a href="%2$s">nastavite ka konvertoru</a>.</p>
-	<h2>Idite na Vaš phpBB3!</h2>
-	<p>Klikom na dugme ispod odvešćemo Vas do forme za slanje statistike phpBB-u u vašem Administracionom Kontrolnom Panelu (AKP). Značilo bi nam ukoliko nam pomognete slanjem ovih informacija. Nakon toga, trebalo bi da odvojite malo vremena i pogledate opcije koje su Vam dostupne. Znajte da je pomoć dostupna online na <a href="https://www.phpbb.com/support/docs/en/3.1/ug/">Dokumentacija</a>, <a href="%3$s">README</a> i <a href="https://www.phpbb.com/community/viewforum.php?f=466">Forumi za podršku</a>.</p><p><strong>Molimo Vas obrišite, pomerite ili preimenujte install direktorijum pre nego krenete sa korišćenjem boarda. Sve dok ovaj direktorijum postoji, samo će Administracioni Kontrolni Panel (AKP) biti dostupan.</strong>',
-	'INSTALL_INTRO'				=> 'Dobrodošli na instalaciju',
-	'INSTALL_INTRO_BODY'		=> 'Sa ovom opcijom, moguće je instalirati phpBB na vš server.</p><p>Da bi nastavili, moraćete da imate sledeće informacije:</p>
-	<ul>
-	<li>Ime servera baze</li>
-	<li>Ime baze</li>
-	<li>Korisničko ime i šifra baze</li>
-	</ul>
-	<p>Još neki uvdni tekst može ići ovde…',
-	'INSTALL_INTRO_NEXT'		=> 'Za započnete instalaciju, kliknite na dugme ispod.',
-	'INSTALL_LOGIN'				=> 'Prijava',
-	'INSTALL_NEXT'				=> 'Sledeći korak',
-	'INSTALL_NEXT_FAIL'			=> 'Neki testovi nisu prošli i trebalo bi da ispravite te probleme pre nego što nastavite sa sledećim korakom. Ako to ne uradite, to može rezultovati nekompletnom instalacijom.',
-	'INSTALL_NEXT_PASS'			=> 'Svi osnovni testovi su prošli i možete nastaviti sa sledećim korakom instalacije. Ako ste menjali dozvole, module, itd. i želite da ponovo testirate možete i to uraditi.',
-	'INSTALL_PANEL'				=> 'Instalacioni panel',
-	'INSTALL_SEND_CONFIG'		=> 'Na žaost phpBB ne može da upiše konfiguracionu informaciju direktno u vaš config.php. Ovo je verovatno zato što fajl ili ne postoji ili se u njega ne može upisivati. Neke opcije će biti prikazane ispod omogućivši vam da završite instalaciju config.php.',
-	'INSTALL_START'				=> 'Počni instalaciju',
-	'INSTALL_TEST'				=> 'Testiraj ponovo',
-	'INST_ERR'					=> 'Greška pri instalaciji',
-	'INST_ERR_DB_CONNECT'		=> 'Ne mogu da se povežem na bazu, pogledajte poruku o grešci ispod',
-	'INST_ERR_DB_FORUM_PATH'	=> 'Fajl baze podataka se nalazi u direktorijumu vašeg foruma. Ovaj fajl bi trebalo da cuvate na lokaciji koja nije web dostupna',
-	'INST_ERR_DB_INVALID_PREFIX'	=> 'Prefiks koji ste uneli je neispravan. Mora da počinje sa slovom i mora da sadrži samo slova, brojeve i donju crtu.',
-	'INST_ERR_DB_NO_ERROR'		=> 'Nije data poruka o grešci',
-	'INST_ERR_DB_NO_MYSQLI'		=> 'Verzija MySQL-a instalirana na ovoj mašini je nekompatibilna sa “MySQL sa MySQLi Ekstenzijom” opcijom koju ste izabrali. Molimo vas da pokušate sa “MySQL” opcijom.',
-	'INST_ERR_DB_NO_SQLITE'		=> 'Verzija SQLite ekstenzije koju imate instaliranu je prestara, i mora biti nadograđena na najmanje verziju 2.8.2.',
-	'INST_ERR_DB_NO_ORACLE'		=> 'Verzija Oracle-a instalirana na ovoj mašini zahteva od vas da podesite <var>NLS_CHARACTERSET</var> parametar u <var>UTF8</var>. Ili nadogradite vašu instalaciju na 9.2+ ili promenite parametar.',
-	'INST_ERR_DB_NO_POSTGRES'	=> 'Baza koju ste izabrali nije kreirana u <var>UNICODE</var> ili <var>UTF8</var> enkoding. Pokušajte instalaciju sa bazom u <var>UNICODE</var> ili <var>UTF8</var> enkodingu',
-	'INST_ERR_DB_NO_NAME'		=> 'Niste odredili ime baze',
-	'INST_ERR_DB_NO_SQLITE3'	=> 'Verzija SQLite ekstenzije koju imate instaliranu je previše stara, mora biti ažurirana bar na verziju 3.6.15.',
+	// Errors
 	'INST_ERR_EMAIL_INVALID'	=> 'Email adresa koju ste uneli je neispravna',
-	'INST_ERR_EMAIL_MISMATCH'	=> 'Email adrese koje ste uneli se ne poklapaju.',
-	'INST_ERR_FATAL'			=> 'Fatalna instalaciona greška',
-	'INST_ERR_FATAL_DB'			=> 'Došlo je do fatalne i nepopravljive greške u bazi. Ovo se može desiti zato što izabrani korisnik nema odgovarajuća prava za <code>CREATE TABLES</code> ili <code>INSERT</code> data, itd. Bliže informacije mogu biti date ispod. Molimo vas da kontktirate vašeg hosting provajdera ili forume podrške phpBB-a.',
-	'INST_ERR_FTP_PATH'			=> 'Ne mogu da se prebacim u zadati direktorijum, molimo vas da proverite putanju.',
-	'INST_ERR_FTP_LOGIN'		=> 'Ne mogu da se prijavim na FTP server, proverite korisničko ime i šifru',
-	'INST_ERR_MISSING_DATA'		=> 'Morate popuniti sva polja u bloku',
-	'INST_ERR_NO_DB'			=> 'Ne mogu da učitam PHP modul za izabrani tip baze',
 	'INST_ERR_PASSWORD_MISMATCH'	=> 'Šifre koje ste uneli se ne poklapaju.',
 	'INST_ERR_PASSWORD_TOO_LONG'	=> 'Šifra koju ste uneli je predugačka. Maksimalna dužina je 30 karaktera.',
 	'INST_ERR_PASSWORD_TOO_SHORT'	=> 'Šifra koju ste uneli je prekratka. Minimalna dužina je 6 karaktera.',
-	'INST_ERR_PREFIX'			=> 'Tabele sa izabranim prefiksom već postoje, molimo vas da izaberete alternativni.',
-	'INST_ERR_PREFIX_INVALID'	=> 'Prefiks tabela koji ste izabrali je nepravilan za vašu bazu. Molimo vas da pokušate sa nekim drugim, uklanjajući nedozvoljene karaktere',
-	'INST_ERR_PREFIX_TOO_LONG'	=> 'Prefiks tabele koji ste izabrali je predugačak. Maksimalna dužina je %d karaktera.',
 	'INST_ERR_USER_TOO_LONG'	=> 'Korisničko ime koje ste uneli je predugačko. Maksimalna dužina je 20 karaktera.',
 	'INST_ERR_USER_TOO_SHORT'	=> 'Korisničko ime koje ste uneli je prekratko. Minimalna dužina je 3 karaktera.',
-	'INVALID_PRIMARY_KEY'		=> 'Neispravan primarni ključ : %s',
 
-	'LONG_SCRIPT_EXECUTION'		=> 'Znajte da ovo može da potraje... Molimo vas da ne stopirate skriptu.',
-	
-		// mbstring
-	'MBSTRING_CHECK'						=> '<samp>mbstring</samp> provera ekstenzije',
-	'MBSTRING_CHECK_EXPLAIN'				=> '<strong>Obavezno</strong> - <samp>mbstring</samp> je PHP ekstenzija koja omogućuje višebajtne string funkcije. Neke mogućnosti mbstring-a nisu kompatibilne sa phpBB-om i moraju biti isključene.',
-	'MBSTRING_FUNC_OVERLOAD'				=> 'Funkcija overloading',
-	'MBSTRING_FUNC_OVERLOAD_EXPLAIN'		=> '<var>mbstring.func_overload</var> mora biti postavljena ili na 0 ili na 4.',
-	'MBSTRING_ENCODING_TRANSLATION'			=> 'Transparentni enkoding karaktera',
-	'MBSTRING_ENCODING_TRANSLATION_EXPLAIN'	=> '<var>mbstring.encoding_translation</var> mora biti postavljen na 0.',
-	'MBSTRING_HTTP_INPUT'					=> 'HTTP ulazna konverzija karaktera',
-	'MBSTRING_HTTP_INPUT_EXPLAIN'			=> '<var>mbstring.http_input</var> mora biti postavljeno na <samp>pass</samp>.',
-	'MBSTRING_HTTP_OUTPUT'					=> 'HTTP izlazna konverzija karaktera',
-	'MBSTRING_HTTP_OUTPUT_EXPLAIN'			=> '<var>mbstring.http_output</var> mora biti postavljena na <samp>pass</samp>.',
-	
-	'MAKE_FOLDER_WRITABLE'		=> 'Proverite da li ovaj folder postoji i da li je moguće upisivanje u njega a onda pokušajte ponovo:<br />»<strong>%s</strong>',
-	'MAKE_FOLDERS_WRITABLE'		=> 'Proverite da li ovai folderi postoje i da li je moguće upisivanje u njih a onda pokušajte ponovo:<br />»<strong>%s</strong>',
-	'MERGING_FILES'			=> 'Sastavljam razlike',
-	'MERGING_FILES_EXPLAIN'		=> 'Trenutno sakupljam konačne izmene fajlova.<br /><br />Molimo Vas da sačekate dok phpBB ne završi sve operacije na izmenjenim fajlovima.',
-	'MYSQL_SCHEMA_UPDATE_REQUIRED' =>  'Vaša MySQL đema baze za phpbb je zastarela. phpBB je prepoznao šemu za MySQL 3.x/4.x, ali server radi pod verzijom MySQL %2$s.<br /><strong>Pre nego krenete sa nadogradnjom, morate da nadogradite šemu.</strong><br /><br />Pogledajte na <a href="http://www.phpbb.com/kb/article/doesnt-have-a-default-value-errors/">Knowledge Base članku o nadogradnji MySQL šema</a>. Ako imate problema, koristite <a href="http://www.phpbb.com/community/viewforum.php?f=46">naš forum za podršku</a>.',
+	//
+	// Board data
+	//
+	// Form labels
+	'BOARD_CONFIG'		=> 'Board konfiguracija',
+	'DEFAULT_LANGUAGE'	=> 'Podrazumevani jezik',
+	'BOARD_NAME'		=> 'Naziv boarda',
+	'BOARD_DESCRIPTION'	=> 'Kratak opis boarda',
 
-	'NAMING_CONFLICT'			=> 'Konflikt imena: %s i %s su aliasi<br /><br />%s',
-	'NEXT_STEP'					=> 'Idi na sledeći korak',
-	'NEW_USERNAME'				=> 'Novo korisničko ime',
-	'NOT_FOUND'					=> 'Ne mogu da pronađem',
-	'NOT_UNDERSTAND'			=> 'Ne mogu da razumem %s #%d, tabela %s ("%s")',
-	'NO_CONVERTORS'				=> 'Nema konvertora dostupnih za upotrebu',
-	'NO_CONVERT_SPECIFIED'		=> 'Nije izabran konvertor',
-	'NO_LOCATION'				=> 'Ne mogu da odredim lokaciju. Ako znate da je Imagemagick instaliran, možete odrediti njegovu lokaciju kasnije u vašem Administracionom Panelu',
-	'NO_TABLES_FOUND'			=> 'Nije pronađena ni jedna tabela.',
-	'NUMBER_OF_FILES_COLLECTED'		=> 'Trenutno postoji oko %1$d od %2$d razlika u prikupljenim fajlovima.<br />Molimo Vas da sačekate dok se prikupljanje fajlova ne završi.',
-// TODO: Write some explanatory introduction text
-	
-	'OVERVIEW_BODY'					=> 'Dobrodošli na phpBB3!<br /><br />phpBB® je najkorišćeniji bilten board otvorenog koda na svetu. phpBB3 je poslednja verzia u liniji započeta još 2000 godine. Kao i svoji prethodnici, phpBB3 ima puno mogućnosti, prijatan za korisnike i u potpunosti podržan os phpBB tima. phpBB3 generalno poboljšava ono što je učinilo phpBB2 popularnim, i dodaje često zatevane opcije i mogućnosti koje nisu bile prisutne u prethodnoj verziji. Nadamo se da će ispuniti Vaša očekivanja.<br /><br />Ovaj insatlacioni sistem će Vas voditi kroz instalaciju phpBB3, nadogradnju na poslednju veziju, kao i konvertovanje u phpBB3 drugog foruma (uključujući i phpBB2). Za više informacija možete pročitati <a href="../docs/INSTALL.html">instalacioni vodič</a>.<br /><br />Da pročitate phpBB3 licencu ili da naučite o načinima podrške molimo da izaberete odgovarajuću opciju iz menija sa strane. Za nastavak, izaberite odgovarajući jezičak gore.',
-	
-	'PCRE_UTF_SUPPORT'				=> 'PCRE UTF-8 Podrška',
-	'PCRE_UTF_SUPPORT_EXPLAIN'		=> 'phpBB <strong>neće</strong> raditi ako vaša PHP instalacija nije kompajlirana sa UTF-8 podrškom u PCRE ekstenziji',
-	'PHP_GETIMAGESIZE_SUPPORT'			=> 'PHP funkcija getimagesize() je dostupna',
-	'PHP_GETIMAGESIZE_SUPPORT_EXPLAIN'	=> '<strong>Obavezno</strong> - Da bi phpBB ispravno funkcionisao, getimagesize funkcija mora biti dostupna.',
-	'PHP_JSON_SUPPORT'				=> 'PHP JSON podrška',
-	'PHP_JSON_SUPPORT_EXPLAIN'		=> '<strong>Obavezno</strong> - Da bi phpBB radio ispravno, PHP JSON ekstenzija mora biti dostupna.',
-	'PHP_OPTIONAL_MODULE'			=> 'Opcioni Moduli',
-	'PHP_OPTIONAL_MODULE_EXPLAIN'	=> '<strong>Opcioni</strong> - Ovi moduli ili aplikacije su opcioni, ne trebaju vam da bi koristili phpBB 3.0. Međutim, ako ih imate oni će vam omogućiti veću funkcionalnost.',
-	'PHP_SUPPORTED_DB'				=> 'Podržane Baze',
-	'PHP_SUPPORTED_DB_EXPLAIN'		=> '<strong>Obavezni</strong> - Morate imati podršku za najmanje jednu bazu kompatibilnu sa PHP-om. Ako nema modula baza prikazanih kao dostupni trebalo bi da kontaktirate vašeg hosting provajdera.',
-	'PHP_REGISTER_GLOBALS'			=> 'PHP opcija <var>register_globals</var> je isključena',
-	'PHP_REGISTER_GLOBALS_EXPLAIN'	=> 'phpBB će i dalje raditi ako je ova opcija omogućena ali ako je moguće, preporučujemo da opcija register_globals bude onemogućena u vašoj PHP instalaciji iz bezbedonosnih razloga.',
-	'PHP_SAFE_MODE'					=> 'Safe Mod',
-	'PHP_SETTINGS'					=> 'PHP Verzija i Podešavanja',
-	'PHP_SETTINGS_EXPLAIN'			=> '<strong>Obavezno</strong> - Morate imati najmanje verziju 4.3.3 PHP-a da bi instalirali phpBB. Ako je <var>safe mod</var> prikazan ispod, vaša PHP instalacija radi u tom modu. Ovo će prouzrokovati ograničenja pri udaljenoj administraciji i sličnim mogućnostima.',
-	'PHP_URL_FOPEN_SUPPORT'			=> 'PHP podešavanje <var>allow_url_fopen</var> je omogućeno',
-	'PHP_URL_FOPEN_SUPPORT_EXPLAIN'	=> '<strong>Opciono</strong> - Ovo podešavanje je opciono, mada neke phpBB funkcije kao avatari van sajta - neće raditi ispravno bez ove opcije. ',
-	'PHP_VERSION_REQD'				=> 'PHP verzija >= 4.3.3',
-	'POST_ID'						=> 'Id posta',
-	'PREFIX_FOUND'					=> 'Skeniranje vaših tabela pokazalo je ispravnu instalaciju koristeći <strong>%s</strong> kao prefiks tabele.',
-	'PREPROCESS_STEP'				=> 'Izvršavanje pre-procesnih funkcija/upita',
-	'PRE_CONVERT_COMPLETE'			=> 'Svi pre-konverzioni koraci su uspešno izvršeni. Sada možete početi proces konverzije.',
-	'PROCESS_LAST'					=> 'Izvršavam poslednje operacije',
-
- 	'REFRESH_PAGE'				=> 'Osveži stranicu da bi nastavio konverziju',
-	'REFRESH_PAGE_EXPLAIN'		=> 'Ako je podešeno na Da, konverter će osvežiti stranicu da bi nastavio konverziju po završetku koraka. Ako je ovo vaša prva konverzija u svrhu testiranja i utvrđivanja bilo kakvih grešaka, predlažemo da izaberete Ne.',
-	'REQUIREMENTS_TITLE'		=> 'Kompatibilnost Instalacije',
-	'REQUIREMENTS_EXPLAIN'		=> 'Pre početka pune instalacije phpBB će izvršiti neke testove u vezi konfiguracije vašeg servera da bi osigurao da možete da instalirate i pokrenete phpBB. Pažljivo pogledajte rezultate i nemojte nastavljati dalje dok svi obavezni testovi ne prođu. Ako želite da omogućite neke od funkcija izlistanih kao opcioni testovi, trebalo bi da proverite da su i ti testovi prošli.',
-	'RETRY_WRITE'				=> 'Pokušaj ponovo upisivanje konfiguracije',
-	'RETRY_WRITE_EXPLAIN'		=> 'Ako želite možete promeniti dozvole na config.php da bi omogućili phpBB-u da upisuje u taj fajl. Ako želite to da uradite možete kliknuti na Pokušaj ponovo ispod da pokušate ponovo. Zapamtite da vratite dozvole za config.php posle phpBB instalacije.',
-
-	'SCRIPT_PATH'				=> 'Putanja skripti',
-	'SCRIPT_PATH_EXPLAIN'		=> 'Putanj gde je phpBB lociran relativno id naziva domena',
-	'SELECT_LANG'				=> 'Izaberite jezik',
-	'SELECT_FORUM_GA'			=> 'U phpBB 3.1 globalne objave su povezane sa forumima. Izaberite forum za vaša trenutna globalna obaveštenja (može biti izmenjeno kasnije):',
-	'SERVER_CONFIG'				=> 'Konfiguracija Servera',
-	'SEARCH_INDEX_UNCONVERTED'	=> 'Indeks pretrage nije konvertovan',
-	'SEARCH_INDEX_UNCONVERTED_EXPLAIN'	=> 'Vaš stari indeks pretrage nije konvertovan. Preraga će uvek dati prazan rezultat. Da bi kreirali novi indeks pretrage idite na Administracioni Kontrolni Panel, izaberite Održavanje i onda izaberite Indeks pretrage iz podmenija.',
-	'SOFTWARE'					=> 'Forum Softver',
-	'SPECIFY_OPTIONS'			=> 'Izbor Opcija Konvertovanja',
-	'STAGE_ADMINISTRATOR'		=> 'Detalji Administratora',
-	'STAGE_ADVANCED'			=> 'Napredna Podešavanja',
-	'STAGE_ADVANCED_EXPLAIN'	=> 'Podešavanja na ovoj stranici su potrebna samo ako znate da vam treba nešto različito od podrazumevanih podešavanja. Ako niste sigurni, jednostavno produžite na sledeću stranicu, a ove opcije možete kasnije menjati iz Administracionog Kontrolnog Panela.',
-	'STAGE_CONFIG_FILE'			=> 'Konfiguracioni Fajl',
-	'STAGE_CREATE_TABLE'		=> 'Kreiranje Tabela Baze',
-	'STAGE_CREATE_TABLE_EXPLAIN'	=> 'Tabele koje koristi phpBB 3.0 su kreirane i popunjene sa nekim inicijalnim podacima. Nastavite sa sledećim korakom da bi završili instalaciju phpBB-a.',
+	//
+	// Database data
+	//
 	'STAGE_DATABASE'			=> 'Podešavanje Baze',
-	'STAGE_FINAL'				=> 'Finalni Korak',
-	'STAGE_INTRO'				=> 'Uvod',
-	'STAGE_IN_PROGRESS'			=> 'Konverzija u toku',
-	'STAGE_REQUIREMENTS'		=> 'Zahtevi',
-	'STAGE_SETTINGS'			=> 'Podešavanja',
-	'STARTING_CONVERT'			=> 'Počinjem Proces Konverzacije',
-	'STEP_PERCENT_COMPLETED'	=> 'Korak <strong>%d</strong> od <strong>%d</strong>',
-	'SUB_INTRO'					=> 'Uvod',
-	'SUB_LICENSE'				=> 'Licenca',
-	'SUB_SUPPORT'				=> 'Podrška',
-	'SUCCESSFUL_CONNECT'		=> 'Uspešna Konekcija',
-// TODO: Write some text on obtaining support
-	'SUPPORT_BODY'				=> 'U toku beta faze minimalni nivo podrške možete naći na <a href="http://www.phpbb.com/phpBB/viewforum.php?f=46">the phpBB 3.0 Beta support forum</a>. Daćemo odgovoree na generalna pitanja o instalaciji, konfiguracionim problemima i podršku za utvrđivanje čestih problema koji se najčešće odnose na bagove. Nećemo dati podršku modifikacija, dodatnih proizvoljnih stilova/koda, dodataka ili dati podršku korisnicima koji koriste ovu beta verziju na javnim sajtovima.</p><p>Za dodatnu asistenciju, pogledajte naš <a href="http://www.phpbb.com/support/documentation/3.0/quickstart/">Vodič za brzi Start</a>.</p><p>Da bi osigurali da uvek imate poslednja obaveštenja i nadogradnje, <a href="http://www.phpbb.com/support/">prijavite se na našu mailing listu</a>',
-	'SYNC_FORUMS'				=> 'Startujem sinhronizaciju foruma',
-	'SYNC_POST_COUNT'			=> 'Sinhronizovanje brojača postova',
-	'SYNC_POST_COUNT_ID'		=> 'Sinhronizovanje brojača postova od <var>unosa</var> %1$s do %2$s.',
-	'SYNC_TOPICS'				=> 'Startujem sinhronizaciju tema',
-	'SYNC_TOPIC_ID'				=> 'Sinhronizacija tema od topic_id $1%s do $2%s',
 
-	'TABLES_MISSING'			=> 'Ne mogu da pronašem ove tabele<br />» <strong>%s</strong>.',
+	// Form labels
+	'DB_CONFIG'					=> 'Konfiguracija baze',
+	'DBMS'						=> 'Tip baze',
+	'DB_HOST'					=> 'Database server hostname ili DSN',
+	'DB_HOST_EXPLAIN'			=> 'DSN je skraćenica od Naziv Izvora Podataka i važi samo za ODBC instalacije.',
+	'DB_PORT'					=> 'Port baze',
+	'DB_PORT_EXPLAIN'			=> 'Ostavite prazno osim ako znate da server radi na nestandardnom portu.',
+	'DB_PASSWORD'				=> 'Šifra baze',
+	'DB_NAME'					=> 'Ime baze',
+	'DB_USERNAME'				=> 'Korisničko ime baze',
+	'DATABASE_VERSION'			=> 'Verzija baze',
 	'TABLE_PREFIX'				=> 'Prefixks za tabele u bazi',
-	'TABLE_PREFIX_SAME'			=> 'Prefiks tabele treba da bude onaj koji se koristi u softveru koji želite da konvertujete.<br />» Priloženi prefiks tabele je bio %s',
 	'TABLE_PREFIX_EXPLAIN'		=> 'Prefiks more počinjati sa slovom i može da sadrži samo slova, brojeve i donju crticu.',
-	'TESTS_PASSED'				=> 'Testovi uspešni',
-	'TESTS_FAILED'				=> 'Testovi neuspešni',
-	'TOGGLE_DISPLAY'			=> 'Prikaži/Sakrij listu fajlova',
-	
-	'TRY_DOWNLOAD_METHOD'		=> 'Možda želite da pokušate sa metodom preuyimanja izmenjenih fajlova.<br />Ovaj metod uvek radi i ujedno je preporučljiv metod za nadogradnju.',
-	'TRY_DOWNLOAD_METHOD_BUTTON'	=> 'Pokušajte sa ovom metodom',
 
-	'UNABLE_WRITE_LOCK'			=> 'Ne mogu da pišem u zaključani fajl',
-	'UNAVAILABLE'				=> 'Nedostupno',
-	'UNWRITABLE'				=> 'Neupisivo',
-	'UPDATE_TOPICS_POSTED'		=> 'Generisanje informacije o poslatim temama',
-	'UPDATE_TOPICS_POSTED_ERR'	=> 'Došlo je do greške prilikom generisanja informacije o poslatim temama. Možete ponovo pokušati ovaj korak u AKP posle završetka procesa konverzije.',
-	'VERSION'					=> 'Verzija',
-	'VERSION_NOT_UP_TO_DATE_TITLE'  =>	'Vaša phpBB instalacija je stara.',
-	'VERIFY_OPTIONS'				=> 'Proveravam opcije za konverziju',
+	// Database options
+	'DB_OPTION_MSSQL_ODBC'	=> 'MSSQL Server 2000+ via ODBC',
+	'DB_OPTION_MSSQLNATIVE'	=> 'MSSQL Server 2005+ [ Native ]',
+	'DB_OPTION_MYSQLI'		=> 'MySQL with MySQLi Extension',
+	'DB_OPTION_ORACLE'		=> 'Oracle',
+	'DB_OPTION_POSTGRES'	=> 'PostgreSQL',
+	'DB_OPTION_SQLITE3'		=> 'SQLite 3',
 
-	'WELCOME_INSTALL'			=> 'Dobrodošli na phpBB 3 Instalaciju',
-	'WRITABLE'					=> 'Moguće upisivanje',
-));
+	// Errors
+	'INST_ERR_DB'				=> 'Greška pri instalaciji baze',
+	'INST_ERR_NO_DB'			=> 'Ne mogu da učitam PHP modul za izabrani tip baze',
+	'INST_ERR_DB_INVALID_PREFIX'	=> 'Prefiks koji ste uneli je neispravan. Mora da počinje sa slovom i mora da sadrži samo slova, brojeve i donju crtu.',
+	'INST_ERR_PREFIX_TOO_LONG'	=> 'Prefiks tabele koji ste izabrali je predugačak. Maksimalna dužina je %d karaktera.',
+	'INST_ERR_DB_NO_NAME'		=> 'Niste odredili ime baze',
+	'INST_ERR_DB_FORUM_PATH'	=> 'Fajl baze podataka se nalazi u direktorijumu vašeg foruma. Ovaj fajl bi trebalo da cuvate na lokaciji koja nije web dostupna',
+	'INST_ERR_DB_CONNECT'		=> 'Ne mogu da se povežem na bazu, pogledajte poruku o grešci ispod',
+	'INST_ERR_DB_NO_WRITABLE'		=> 'Baza i folder u kome se nalazi moraju biti upisivi.',
+	'INST_ERR_DB_NO_ERROR'		=> 'Nije data poruka o grešci',
+	'INST_ERR_PREFIX'			=> 'Tabele sa izabranim prefiksom već postoje, molimo vas da izaberete alternativni.',
+	'INST_ERR_DB_NO_MYSQLI'		=> 'Verzija MySQL-a instalirana na ovoj mašini je nekompatibilna sa “MySQL sa MySQLi Ekstenzijom” opcijom koju ste izabrali. Molimo vas da pokušate sa “MySQL” opcijom.',
+	'INST_ERR_DB_NO_SQLITE3'	=> 'Verzija SQLite ekstenzije koju imate instaliranu je previše stara, mora biti ažurirana bar na verziju 3.6.15.',
+	'INST_ERR_DB_NO_ORACLE'		=> 'Verzija Oracle-a instalirana na ovoj mašini zahteva od vas da podesite <var>NLS_CHARACTERSET</var> parametar u <var>UTF8</var>. Ili nadogradite vašu instalaciju na 9.2+ ili promenite parametar.',
+	'INST_ERR_DB_NO_POSTGRES'	=> 'Baza koju ste izabrali nije kreirana u <var>UNICODE</var> ili <var>UTF8</var> enkoding. Pokušajte instalaciju sa bazom u <var>UNICODE</var> ili <var>UTF8</var> enkodingu',
+	'INST_SCHEMA_FILE_NOT_WRITABLE'	=> 'Fajl šeme nije upisiv',
 
-// Updater
-$lang = array_merge($lang, array(
-	'ALL_FILES_UP_TO_DATE'		=> 'Svi fajlovi su ažurni sa najnovijom verzijom phpBB-a. Možda sada želite da pokrenete alat za ažuriranje baze.',
-	'ARCHIVE_FILE'				=> 'Izvorni fajl u arhivi',
+	//
+	// Email data
+	//
+	'EMAIL_CONFIG'	=> 'E-mail konfiguracija',
 
-	'BACK'		=> 'Nazad',
-	'BINARY_FILE'		=> 'Binarni fajl',
-	'BOT'				=> 'Spajder/Robot',
-
-	'CHANGE_CLEAN_NAMES'			=> 'Metod koji se koristi da bi se utvrdilo da korisničko ime ne koristi više korisnika. Ima korisnika koji imaju isto ime kada se uporede sa novom metodom. Moraćete da obrišete ili preimenujete te korisnike da bi osigurali da se svako pojedinačno ime koristi za samo jednog korisnika pre nego što nastavite.',
-	'CHECK_FILES'					=> 'Proveri fajlove',
-	'CHECK_FILES_AGAIN'				=> 'Ponovo proveri fajlove',
-	'CHECK_FILES_EXPLAIN'			=> 'U sledećem koraku svi fajlovi će biti provereni u odnosu na ažurne fajlove - ovo može malo potrajati ako se ova provera radi prvi put.',
-	'CHECK_FILES_UP_TO_DATE'		=> 'Po vašoj bazi, vaša verzija je ažurna. Možda ćete želeti da nastavite sa proverom fajlova da bi bili sigurni da su svi fajlovi stvarno ažurni sa poslednjom verzijom phpBB-a.',
-	'CHECK_UPDATE_DATABASE'			=> 'Nastavi proces nadogradnje',
-	'COLLECTED_INFORMATION'			=> 'Informacija o sakupljenim fajlovima',
-	'COLLECTED_INFORMATION_EXPLAIN'	=> 'Lista ispod pokazuje informacije o fajlovima koji trebaju da se ažuriraju. Molimo vas da pročitate informaciju ispred svakog bloka statusa da bi videli šta znače i šta bi trebalo da uradite da bi izvršili uspešno ažuriranje.',
-	'COMPLETE_LOGIN_TO_BOARD'		=> 'Sada bi trebalo <a href="../ucp.php?mode=login">da se prijavite na vaš board</a> i proverite da li sve radi kako treba. Ne zaboravite da obrišete, preimenujete ili pomerite install direktorijum!',
-	'CONTINUE_UPDATE_NOW'			=> 'Nastavite proces nadogradnje sada',
-	'CURRENT_FILE'					=> 'Trenutni originalni fajl',
-	'CURRENT_VERSION'				=> 'Trenutna verzija',
-
-	'DATABASE_TYPE'						=> 'Tip baze',
-	'DATABASE_UPDATE_INFO_OLD'			=> 'Fajl za ažuriranje baze u instalacionom direktorijumu je zastareo. Molimo vas da se nadogradite na korektnu verziju fajla.',
-	'DATABASE_UPDATE_COMPLETE'			=> 'Nadogradnja baze je završena!',
-	'DATABASE_UPDATE_CONTINUE'			=> 'Nastavi nadogradnju baze',
-	'DATABASE_UPDATE_NOT_COMPLETED'		=> 'Nadogradnja baze još nije završena.',
-	'DATABASE_VERSION'					=> 'Verzija baze',
-	'DELETE_USER_REMOVE'				=> 'Obriši korisnika i ukloni postove',
-	'DELETE_USER_RETAIN'				=> 'Obriši korisnika ali zadrži postove',
-	'DESTINATION'						=> 'Odredišni fajl',
-	'DIFF_INLINE'						=> 'U jednom redu',
-	'DIFF_RAW'							=> 'Raw unified diff',
-	'DIFF_SEP_EXPLAIN'					=> 'Kraj trenutnog fajla / Početak novog ažuriranog fajla',
-	'DIFF_SIDE_BY_SIDE'					=> 'Jedan pored Drugog',
-	'DIFF_UNIFIED'						=> 'Unified diff',
-	'DO_NOT_UPDATE'						=> 'Nemoj da ažuriraš ovaj fajl',
-	'DONE'								=> 'Završeno',
-	'DOWNLOAD'							=> 'Preuzmi',
-	'DOWNLOAD_AS'						=> 'Preuzmi kao',
-	'DOWNLOAD_UPDATE_METHOD'			=> 'Preuzmi arhivu izmenjenih fajlova',
-	'DOWNLOAD_UPDATE_METHOD_EXPLAIN'	=> 'Jednom preuzetu, trebalo bi da da raspakujete arhivu. Pronaći ćete izmenjene fajlove koje trebate da pošaljete u vaš phpBB root direktorijum. Molimo vas da pošaljete fajlove na njihove odgovarajuće lokacije. Kada ste poslali sve fajlove, molimo vas da ponovo proverite fajlove klikom na dugme ispod.',
-
-	'ERROR'		=> 'Greška',
-	'EDIT_USERNAME'	=> 'Izmeni korisničko ime',
-	'EVERYTHING_UP_TO_DATE'		=> 'Eve komponente su ažurne sa poslednjom verzijom phpBB-a. Sada bi trebalo <a href="%1$s">da se prijavite</a> i proverite da li sve radi kako treba. Ne zaboravite da obrišete, preimenujete ili uklonite install direktorijum! Molimo Vas da nam pošaljete informacije o Vašem boardu i konfiguraciji iz <a href="%2$s">Pošalji statistiku</a> module u AKP-u.',
-
-	'FILE_ALREADY_UP_TO_DATE'		=> 'Fajl je ažuran',
-	'FILE_DIFF_NOT_ALLOWED'			=> 'Fajl nije moguće menjati',
-	'FILE_USED'						=> 'Informacija preuzeta iz',			// Single file
-	'FILES_CONFLICT'				=> 'Konfliktni fajlovi',
-	'FILES_CONFLICT_EXPLAIN'		=> 'Sledeći fajlovi su izmenjeni i ne predstavljaju originalne fajlove iz originalne verzije. phpBB je utvrdio da ti fajlovi prave konflikt ako se pokuša njihovo spajanje. Molimo vas da istražujete konflikte i pokušate da ih ručno rešite ili nastavite da ažuriranje izborom preferiranog metoda za spajanje. Ako manuelno rešavate konflikte proverite fajlove ponovo nakon što ih izmenite. Takođe ste u mogućnosti da birate između željenog metoda spajanja za svaki fajl. Prvi će rezultovati fajlom gde će konfliktne linije sa vašeg starog fajla biti izgubljenet, dok će drugi rezultovati gubljenjem konflikta u novijem fajlu.',
-	'FILES_DELETED'					=> 'Obrisani fajlovi',
-	'FILES_DELETED_EXPLAIN'			=> 'Sledeći fajlovi ne postoje u novoj verziji. Fajlovi moraju da budu obrisani iz Vaše instalacije.',
-	'FILES_MODIFIED'				=> 'Izmenjeni fajlovi',
-	'FILES_MODIFIED_EXPLAIN'		=> 'Sledeći fajlovi su izmenjeni i ne predstavljaju originalne fajlove iz originalne verzije. Ažurirani fajl će biti spojen između vaših modifikacija i novog fajla.',
-	'FILES_NEW'						=> 'Novi fajlovi',
-	'FILES_NEW_EXPLAIN'				=> 'Sledeći fajlovi trenutno ne postoje u vašoj instalaciji.',
-	'FILES_NEW_CONFLICT'			=> 'Novi konfliktni fajlovi',
-	'FILES_NEW_CONFLICT_EXPLAIN'	=> 'Sledeći fajlovi su novi sa poslednjom verzijom ali je utvrđrno da već postoji fajl sa istim imenom i istom pozicijom. Ovaj fajl će biti prepisan novim fajlom.',
-	'FILES_NOT_MODIFIED'			=> 'Neizmenjeni fajlovi',
-	'FILES_NOT_MODIFIED_EXPLAIN'	=> 'Sledeći fajlovi nisu izmenjeni i predstavljaju originalne phpBB fajlove verzije sa koje želite da se nadogradite.',
-	'FILES_UP_TO_DATE'				=> 'Već nadograđeni fajlovi',
-	'FILES_UP_TO_DATE_EXPLAIN'		=> 'Sledeći fajlovi su ažurni i nema potrebe da se ažuriraju.',
-	'FILES_VERSION'					=> 'Verzija fajlova',
-	'FTP_SETTINGS'					=> 'FTP Podešavanja',
-	'FTP_UPDATE_METHOD'				=> 'FTP Slanje',
-
-	'INCOMPATIBLE_UPDATE_FILES'		=> 'Fajlovi za nadogradnju nisu kompatibilni sa vašom instaliranom verzijom. Vaša instalirana verzija je  %1$s a fajl zje a nadogradnju phpBB-a %2$s na %3$s.',
-	'INCOMPLETE_UPDATE_FILES'		=> 'Fajlovi za nadogradnju su nekompletni',
-	'INLINE_UPDATE_SUCCESSFUL'		=> 'Nadogradnja baze je uspešna. Sada treba da nastavite proces nadogradnje.',
-
-	'KEEP_OLD_NAME'		=> 'Keep username',
-	
-	'LATEST_VERSION'		=> 'Poslednja verzija',
-	'LINE'					=> 'Linija',
-	'LINE_ADDED'			=> 'Dodato',
-	'LINE_MODIFIED'			=> 'Izmenjeno',
-	'LINE_REMOVED'			=> 'Uklonjeno',
-	'LINE_UNMODIFIED'		=> 'Nepromenjeno',
-	'LOGIN_UPDATE_EXPLAIN'	=> 'Da bi nadogradili vašu instalaciju morate se prvo prijaviti.',
-
-	'MAPPING_FILE_STRUCTURE'	=> 'Da bi olakšali ovde se nalaze lokacije fajlova koji predstavljaju mapu vaše phpBB instalacije.',
-	
-	'MERGE_MODIFICATIONS_OPTION'	=> 'Sastavi izmene',
-	
-	'MERGE_NO_MERGE_NEW_OPTION'	=> 'Ne sastavljaj - koristi novi fajl',
-	'MERGE_NO_MERGE_MOD_OPTION'	=> 'Ne sastavljaj - koristi trenutno instaliran fajl',
-	'MERGE_MOD_FILE_OPTION'		=> 'Koristi kod izmenjenog fajla pri konačnom spajanju',
-	'MERGE_NEW_FILE_OPTION'		=> 'Koristi kod novog fajla pri konačnom spajanju',
-	'MERGE_SELECT_ERROR'		=> 'Modovi za spajanje konfliktnih fajlova nisu izabrani.',
-
-	'NEW_FILE'						=> 'Novi ažurirani fajl',
-	'NO_AUTH_UPDATE'				=> 'Niste autorizovani za nadogradnju',
-	'NO_ERRORS'						=> 'Nema grešaka',
-	'NO_UPDATE_FILES'				=> 'Ne ažuriram sledeće fajlove',
-	'NO_UPDATE_FILES_EXPLAIN'		=> 'Sledeći fajlovi su novi ili izmenjeni ali direktorijum u kome oni normalno treba da postoje ne nalaze se u vašoj instalaciji. Ako ova lista sadrži fajlove do drugih irektorijuma osim language/ ili styles/ onda možda imate izmenjenu strukturu direktorijuma i nadogradnja može biti nekompletna.',
-	'NO_UPDATE_FILES_OUTDATED'		=> 'Nije pronađen ispravan update direktorijum, proverite da li ste posleli relevantne fajlove.<br /><br />Vaša instalacija <strong>nije</strong> ažurna. Nadogradnja je dostupna za vašu verziju phpBB-a %1$s, posetite <a href="http://www.phpbb.com/downloads.php" rel="external">http://www.phpbb.com/downloads.php</a> da bi pribavili paket za nadogradnju sa verzije %2$s na verziju %3$s.',
-	'NO_UPDATE_FILES_UP_TO_DATE'	=> 'Vaša verzija je ažurna. Nema potrebe da pokrećete alat za nadogradnju. Ako želite da proverite integritet vaših fajlova pobrinite se da prvo pošaljete ispravne fajlove za nadogradnju.',
-	'NO_UPDATE_INFO'				=> 'Informacija o nadograđenom fajlu nije nađena.',
-	'NO_UPDATES_REQUIRED'			=> 'Nema obavezne nadogradnje',
-	'NO_VISIBLE_CHANGES'			=> 'Nema vidljivih promena',
-	'NOTICE'						=> 'Obaveštenje',
-	'NUM_CONFLICTS'					=> 'Broj konflikta',
-
-	'OLD_UPDATE_FILES'		=> 'Fajlovi za nadogradnju su zastareli. Nađeni fajlovi su za nadogradnju sa phpBB-a %1$s na phpBB %2$s ali je poslednja verzija phpBB-a %3$s.',
-
+	// Package info
 	'PACKAGE_VERSION'					=> 'Instalirana verzija paketa',
-	'PACKAGE_UPDATES_TO'				=> 'Trenutni paket se nadograđuje na verziju',
-	'PERFORM_DATABASE_UPDATE'			=> 'Izvrši nadogradnju baze',
-	'PERFORM_DATABASE_UPDATE_EXPLAIN'	=> 'Ispod ćete nanaći link za nadogradnju baze. Ovaj skript se mora posebno pokrenuti jer nadogradnja baze može dovesti do neočekivanog ponašanja ako ste prijavljeni. Nadogradnja baue može da potraje, zato vas molimo da ne zaustavljate izvršenje skripta iako naizgled deluje da se proces blokirao. Nakon što kliknete na link i nadogradnja se završi možete zatvoriti prozor.',
-	'PREVIOUS_VERSION'					=> 'Prethodna verzija',
-	'PROGRESS'							=> 'Progres',
-
-	'RELEASE_ANNOUNCEMENT'		=> 'Obaveštenje o izdanju',
-	'RESULT'					=> 'Rezultat',
-	'RUN_DATABASE_SCRIPT'		=> 'Nadogradi moju bazu',
-
-	'SELECT_DIFF_MODE'			=> 'Izaberi mod različe',
-	'SELECT_DOWNLOAD_FORMAT'	=> 'Izaberite format preuzimanja arhive',
-	'SELECT_FTP_SETTINGS'		=> 'Izaberite podešavanja FTP-a',
-	'SHOW_DIFF_CONFLICT'		=> 'Prikaži razlike/konflikte',
-	'SHOW_DIFF_FINAL'			=> 'Pokazi rezultujući fajl',
-	'SHOW_DIFF_MODIFIED'		=> 'Prikaži spojene razlike',
-	'SHOW_DIFF_NEW'				=> 'Prikaži sadržaj fajla',
-	'SHOW_DIFF_NEW_CONFLICT'	=> 'Prikaži razliku',
-	'SHOW_DIFF_NOT_MODIFIED'	=> 'Prikaži razlike',
-	'SHOW_DIFF_DELETED'			=> 'Prikaži sadržaj fajla',
-	'SOME_QUERIES_FAILED'		=> 'Neki upiti su neuspešni, status i greške su prikazane ispod',
-	'SQL'						=> 'SQL',
-	'SQL_FAILURE_EXPLAIN'		=> 'Zbog ovog verovatno ne treba da brinetet, nadogradnja će se nastaviti. Ako se ovaj proces ne izvrši trebalo bi da pogledate u help-u na našem forumu podrške. Pogledajte <a href="../docs/README.html">README</a> za detalje kako da potražite savet.',
-	'STAGE_FILE_CHECK'			=> 'Proveri fajlove',
-	'STAGE_UPDATE_DB'			=> 'Nadogradi bazu',
-	'STAGE_UPDATE_FILES'		=> 'Nadogradi fajlove',
-	'STAGE_VERSION_CHECK'		=> 'Provera verzije',
-	'STATUS_CONFLICT'			=> 'Izmenjeni fajl proizvodi konflikte',
-	'STATUS_DELETED'			=> 'Obrisan fajl',
-	'STATUS_MODIFIED'			=> 'Izmenjeni fajl',
-	'STATUS_NEW'				=> 'Novi fajl',
-	'STATUS_NEW_CONFLICT'		=> 'Konflikt novog fajla',
-	'STATUS_NOT_MODIFIED'		=> 'Neizmenjen fajl',
-	'STATUS_UP_TO_DATE'			=> 'Već ažuriran fajl',
-	'UPDATE_COMPLETED'				=> 'Nadogradnja zavrešena',
-	'UPDATE_DATABASE'				=> 'Nadogradi bazu',
-	'UPDATE_DATABASE_EXPLAIN'		=> 'U sledećem koraku baza će biti nadograđena.',
-	'UPDATE_DATABASE_SCHEMA'		=> 'Nadograđujem šemu baze',
-	'UPDATE_FILES'					=> 'Nadogradi fajlove',
-	'UPDATE_FILES_NOTICE'			=> 'Proverite da li ste nadogradili i fajlove vašeg boarda, ovaj fajl samo nadograđuje vašu bazu.',
 	'UPDATE_INCOMPLETE'				=> 'Vaša instalacija phpBB-a nije ispravno nadograđena.',
 	'UPDATE_INCOMPLETE_MORE'		=> 'Pogledajte informacije ispod da bi ispravili ovu grešku.',
 	'UPDATE_INCOMPLETE_EXPLAIN'		=> '<h1>Nekompletna nadogradnja</h1>
 
-		<p>Izgleda da vaša poslednja nadogradnja phpBB instalacije nije završena. Idite na <a href="%1$s" title="%1$s">database_update skriptu</a> i pokrenite je. Ukoliko je nema, molimo <a href="https://www.phpbb.com/downloads/" title="phpBB downloads">preuzmite odgovarajuću verziju</a>, upload-ujte "install" folder u glavni phpBB folder (tamo gde je i config.php fajl) i <a href="%1$s" title="%1$s">pokrenite skriptu za nodogradnju baze</a>.</p>',
+	<p>Primetili smo da je poslednja nadogradnja ili instalacija phpBB-a nedovršena. Posetite <a href="%1$s" title="%1$s">nadogradnju baze</a>, i proverite da je opcija <em>Nadogradi samo bazu</em> izabrana i kliknite na <strong>Potvrdi</strong>. Ne zaboravite da obrišete "install" folder nakon što ažurirate bazu.</p>',
 
-	'UPDATE_INSTALLATION'			=> 'Nadogradi phpBB Instalaciju',
-	'UPDATE_INSTALLATION_EXPLAIN'	=> 'Sa ovom opcijom, moguće je da nadogradite vašu phpBB instalaciju na poslednju verziju.<br />Tokom procesa svi vaši fajlovi će biti provereni za njihov integritet. U mogućnosti ste da pregledate sve razlike i fajlove pre nadogradnje.<br /><br />Nadogradnja samog fajla može se izvršiti na dva različita načina.</p><h2>Minimalna Nadogradnja</h2><p>Sa ovom nadogradnjom možete samo preuzeti vaš lični set izmenjenih fajlova da bi bili sigurni da ne izgubite modifikacije koje ste mođda uradili. Nakon preuzimanja ovog paketa potrebno je da ručno pošaljete fajlove na njihovu ispravnu poziciju u phpBB root direktorijumu. Kada to uradite, možete ponovo proveriti status fajla da bi provereili da li ste pomerili fajlove u njihove tačne lokacije. Ako je sve ispravno ažurirano bićete prosleđeni na ažuriranje baze.</p><h2>Automatska nadogradnja sa FTP-om</h2><p>Ovaj metod je sličan prvom ali bez potrebe da preuzimate promenjene fajlove i šaljete ih na vaš server. Ovo će biti urađeno umesto vas. Da bi koristili ovaj metod potrebno je da znate detalje o vašem FTP nalogu jer će vam oni biti zatraženi. Kada završite proceduru bićete redirektovani na ažuriranje fajlova gde možete proveriti da li je sve ažurirano korektno. Ako jeste, bićete prosleđeni na ažuriranje baze.',
-	'UPDATE_INSTRUCTIONS'			=> '
-
-	
-		<h1>Obaveštenje o izdanju</h1>
-
-		<p>Molimo Vas da pričitate obaveštenje o izdanju za poslednju verziju pre nego što krenete na proces nadogradnje, jer sadrži korisne informacije. Takođe sadrži i potpune linkove za preuzimanje kao i log sa izmenama.</p>
-		<br />
-
-		
-		<h1>Kako da nadogradite vašu instalaciju sa Paketom za Automatsko Ažuriranje</h1>
-
-		<p>Preporučeni način nadogradnje Vaše instalacije prkazan ovde važi samo za paket za automatsko ažuriranje. Takođe ste u mogućnosti da ažurirate Vašu instalaciju koristeći metode navedene u INSTALL.html dokumentu. Koraci za nadogradnju phpBB-a su:</p>
-		<ul style="margin-left: 20px; font-size: 1.1em;">
-			<li>Idite na <a href="http://www.phpbb.com/downloads.php" title="http://www.phpbb.com/downloads.php">phpBB.com starnicu za preuzimanje</a> i preuzmite "Automatic Update Package" arhivu.<br /><br /></li>
-			<li>Raspaktujete arhivu<br /><br /></li>
-			<li>Pošaljete kompletan nekompresovani "install" i "vendor" foldere u Vaš phpBB root direktorijum (gde je i vaš config.php fajl).<br /><br /></li>
-		</ul>
-
-		
-		<p>Kada to uradite, Vaš board će biti nedostupan za obične korisnike zbog toga što je install direktorijum koji ste poslali sada prisutan.<br /><br />
-		<strong><a href="%1$s" title="%1$s">Sada započnite proces nadogradnje tako što ćete usmeriti browser na instalacioni direktorijum</a>.</strong><br />
-		<br />
-
-		Tada ćemo Vas provesti kroz proces nadogradnje. Bićete obavešteni kada je ažuriranje završeno.
-		</p>
-
-	',
-	
-	'UPDATE_FILE_SUCCESS'			=> 'Uspešno slanje fajla.',
-	'UPDATE_METHOD'					=> 'Metod nadogradnje',
-	'UPDATE_METHOD_EXPLAIN'			=> 'Sada možete izabrati želljeni metod nadogradnje. Korišćenjem FTP Uploa-a dobićete formu gde trebate da unesete detalje vašeg FTP naloga. Sa ovim metodom fajlovi će biti automatski pomereni na nove lokacije i bekapi starih fajlova će biti kreirani tako što će im se dodati nastavak .bak na kraju naziva fajla. Ako izaberete da preuzmete izmenjene fajlove možete ih raspakovati i poslati na njihovo mesto kasnije.',
-	'UPDATE_REQUIRES_FILE'			=> 'Proces nadogradnje zahteva da sledeći fajl bude prisutan: %s',
-	'UPDATE_SUCCESS'				=> 'Nadogradnja je uspešna',
-	'UPDATE_SUCCESS_EXPLAIN'		=> 'Uspešno su nadograđeni svi fajlovi. Sledeći korak proverava sve fajlove ponovo da bi bili sigurni da su fajlovi ispravno nadogradjeni.',
-	'UPDATE_VERSION_OPTIMIZE'		=> 'Nadograšujem verziju i optimizujem tabele',
-	'UPDATING_DATA'					=> 'Ažuriram podatke',
-	'UPDATING_TO_LATEST_STABLE'		=> 'Nadograđujem bazu na poslednju stabilnu verziju',
-	'UPDATED_VERSION'				=> 'Nadograđena verzija',
-	'UPLOAD_METHOD'					=> 'Metod nadogradnje',
-
-	'UPDATE_DB_SUCCESS'				=> 'Nadogradnja baze je uspešna.',
-	'USER_ACTIVE'					=> 'Activan korisnik',
-	'USER_INACTIVE'					=> 'Neaktivan korisnik',
-	
-	'VERSION_CHECK'				=> 'Provera verzije',
-	'VERSION_CHECK_EXPLAIN'		=> 'Proverava da li je trenutna verzija phpBB-a ažurna.',
-	'VERSION_NOT_UP_TO_DATE'	=> 'Vaša verzija phpBB-a nije ažurna. Molimo vas da nastavite sa procesom nadogradnje.',
-	'VERSION_NOT_UP_TO_DATE_ACP'=> 'Vaša verzija phpBB-a nije ažurna.<br />Ispod ćete naći link ka obaveštenju o izdanju za poslednju verziju kao i instrukcije kako da izvršite ovu nadogradnju.',
-	'VERSION_UP_TO_DATE'		=> 'Vaša instalacija je ažurna, nema dostupnih nadogradnji za vašu verziju phpBB-a. Možda svakako želite da izvršite proveru fajlova.',
-	'VERSION_UP_TO_DATE_ACP'	=> 'Vaša instalacija je ažurna, nema dostupnih nadogradnji za vašu verziju phpBB-a. Nema potrebe da nadogradite vašu instalaciju.',
-	'VIEWING_FILE_CONTENTS'		=> 'Pregled sadržaja fajla',
-	'VIEWING_FILE_DIFF'			=> 'Pregled razlika u fajlovima',
-
-	'WRONG_INFO_FILE_FORMAT'	=> 'Pogrešan format informacionog fajla',
+	//
+	// Server data
+	//
+	// Form labels
+	'UPGRADE_INSTRUCTIONS'			=> 'Nova verzija <strong>%1$s</strong> je dostupna. Pročitajte <a href="%2$s" title="%2$s"><strong>obaveštenje o izdanju</strong></a> da bi videli šta je novo i kako da se nadogradite.',
+	'SERVER_CONFIG'				=> 'Konfiguracija Servera',
+	'SCRIPT_PATH'				=> 'Putanja skripti',
+	'SCRIPT_PATH_EXPLAIN'		=> 'Putanj gde je phpBB lociran relativno id naziva domena',
 ));
-	
-	// Default database schema entries...
+
+// Default database schema entries...
 $lang = array_merge($lang, array(
 	'CONFIG_BOARD_EMAIL_SIG'		=> 'Hvala, Uprava',
 	'CONFIG_SITE_DESC'				=> 'Kratak tekst za opis vašeg foruma',
 	'CONFIG_SITENAME'				=> 'vašdomen.com',
 
-	'DEFAULT_INSTALL_POST'			=> 'Ovo je primer posta u vašoj phpBB3 instalaciji. Možete obrisati ovaj post, ovu temu ili čak ceo forum ako želite jer izgleda da sve radi!',
-
-	
+	'DEFAULT_INSTALL_POST'			=> '<t>Ovo je primer posta u vašoj phpBB3 instalaciji. Izgleda da je sve u redu. Ovaj post možete obrisati i nastaviti da podešavate board. Tokom instalacija prvoj kategoriji i prvom postu su dodeljene odgovarajuće dozvole za predefinisane korisničeke grupe, administratore, botove, globalne moderatore, goste, registrovane korisnike i registrovane COPPA korisnike. Ukoliko odlučite da obrišete prvu kategoriju i prvi forum, ne zaboravite da dodelite dozvole za sve korisničke grupe za sve nove kategorije i forume koje kreirate. Preporučujemo da preimenujete prvu kategoriju i prvi forum i kopirate njihove dozvole kada budete kreirali nove kategorije i forume. Zabavite se!</t>',
 
 	'FORUMS_FIRST_CATEGORY'			=> 'Moja prva kategorija',
-	'FORUMS_TEST_FORUM_DESC'		=> 'Ovo je samo test forum.',
-	'FORUMS_TEST_FORUM_TITLE'		=> 'Test Forum 1',
+	'FORUMS_TEST_FORUM_DESC'		=> 'Opis vašeg prvog foruma.',
+	'FORUMS_TEST_FORUM_TITLE'		=> 'Vaš prvi forum',
 
 	'RANKS_SITE_ADMIN_TITLE'		=> 'Admin sajta',
 	'REPORT_WAREZ'					=> 'Post sadrži linkove ka ilegalnom ili piratskom softveru.',
@@ -629,4 +277,324 @@ $lang = array_merge($lang, array(
 	'SMILIES_WINK'					=> 'Wink',
 
 	'TOPICS_TOPIC_TITLE'			=> 'Dobrodošli na phpBB3',
+));
+
+// Common navigation items' translation
+$lang = array_merge($lang, array(
+	'MENU_OVERVIEW'		=> 'Pregled',
+	'MENU_INTRO'		=> 'Uvod',
+	'MENU_LICENSE'		=> 'Licenca',
+	'MENU_SUPPORT'		=> 'Podrška',
+));
+
+// Task names
+$lang = array_merge($lang, array(
+	// Install filesystem
+	'TASK_CREATE_CONFIG_FILE'	=> 'Pravljenje konfiguracionog fajla',
+
+	// Install database
+	'TASK_ADD_CONFIG_SETTINGS'			=> 'Dodavanje konfiguracionih podešavanja',
+	'TASK_ADD_DEFAULT_DATA'				=> 'Dodavanje podešavanja u bazu',
+	'TASK_CREATE_DATABASE_SCHEMA_FILE'	=> 'Pravljenje fajla šeme za bazu',
+	'TASK_SETUP_DATABASE'				=> 'Podešavanja baze',
+	'TASK_CREATE_TABLES'				=> 'Pravljenje tabela',
+
+	// Install data
+	'TASK_ADD_BOTS'				=> 'Registracija botova',
+	'TASK_ADD_LANGUAGES'		=> 'Instalacija dostupnih jezika',
+	'TASK_ADD_MODULES'			=> 'Instalacija modula',
+	'TASK_CREATE_SEARCH_INDEX'	=> 'Pravljenje indeksa pretrage',
+
+	// Install finish tasks
+	'TASK_INSTALL_EXTENSIONS'	=> 'Instalacija ekstenzija',
+	'TASK_NOTIFY_USER'			=> 'Slanje email-a obaveštenja',
+	'TASK_POPULATE_MIGRATIONS'	=> 'Ispunjavanje migracija',
+
+	// Installer general progress messages
+	'INSTALLER_FINISHED'	=> 'Instalacija je uspešno završena',
+));
+
+// Installer's general messages
+$lang = array_merge($lang, array(
+	'MODULE_NOT_FOUND'				=> 'Modul nije pronašen',
+	'MODULE_NOT_FOUND_DESCRIPTION'	=> 'Modul nije nađen jer je servis, %s, nedefinisan.',
+
+	'TASK_NOT_FOUND'				=> 'Zadatak nije našen',
+	'TASK_NOT_FOUND_DESCRIPTION'	=> 'Zadatan nije nađen jer je servis, %s, nedefinisan.',
+
+	'SKIP_MODULE'	=> 'Preskoči “%s” modul',
+	'SKIP_TASK'		=> 'Preskoči “%s” zadatak',
+
+	'TASK_SERVICE_INSTALLER_MISSING'	=> 'Svi servisi zadataka za instaler bi trebalo da počinju sa “installer”',
+	'TASK_CLASS_NOT_FOUND'				=> 'Definicije servisa zadataka za instaler su neispravne. Dato ime servisa “%1$s”, očekivano namespace klase je “%2$s”. Za više informacija pogledajte dokumentaciju za task_interface.',
+
+	'INSTALLER_CONFIG_NOT_WRITABLE'	=> 'Konfiguracioni fajl instalacije nije upisiv.',
+));
+
+// CLI messages
+$lang = array_merge($lang, array(
+	'CLI_INSTALL_BOARD'				=> 'Instaliraj phpBB',
+	'CLI_UPDATE_BOARD'				=> 'Nadogradi phpBB',
+	'CLI_INSTALL_SHOW_CONFIG'		=> 'Prikaži konfiguraciju koja će biti korišćena',
+	'CLI_INSTALL_VALIDATE_CONFIG'	=> 'Proveri konfiguracioni fajl',
+	'CLI_CONFIG_FILE'				=> 'Konfiguracioni fajl koji se korist',
+	'MISSING_FILE'					=> 'Ne mogu da pristupim fajlu %1$s',
+	'MISSING_DATA'					=> 'Konfiguracionom fajlu nedostaju podaci ili sadrži neispravna podešavanja.',
+	'INVALID_YAML_FILE'				=> 'Ne mogu da obradim YAML fajl %1$s',
+	'CONFIGURATION_VALID'			=> 'Konfiguracioni fajl je ispravan',
+));
+
+// Common updater messages
+$lang = array_merge($lang, array(
+	'UPDATE_INSTALLATION'			=> 'Nadogradi phpBB Instalaciju',
+	'UPDATE_INSTALLATION_EXPLAIN'	=> 'Sa ovom opcijom, moguće je da nadogradite vašu phpBB instalaciju na poslednju verziju.<br />Tokom procesa svi vaši fajlovi će biti provereni za njihov integritet. U mogućnosti ste da pregledate sve razlike i fajlove pre nadogradnje.<br /><br />Nadogradnja samog fajla može se izvršiti na dva različita načina.</p><h2>Manuelna Nadogradnja</h2><p>Sa ovom nadogradnjom možete samo preuzeti vaš lični set izmenjenih fajlova da bi bili sigurni da ne izgubite modifikacije koje ste možda uradili. Nakon preuzimanja ovog paketa potrebno je da ručno pošaljete fajlove na njihovu ispravnu poziciju u phpBB root direktorijumu. Kada to uradite, možete ponovo proveriti status fajla da bi provereili da li ste pomerili fajlove u njihove tačne lokacije. Ako je sve ispravno ažurirano bićete prosleđeni na ažuriranje baze.</p><h2>Napredna nadogradnja sa FTP-om</h2><p>Ovaj metod je sličan prvom ali bez potrebe da preuzimate promenjene fajlove i šaljete ih na vaš server. Ovo će biti urađeno umesto vas. Da bi koristili ovaj metod potrebno je da znate detalje o vašem FTP nalogu jer će vam oni biti zatraženi. Kada završite proceduru bićete redirektovani na ažuriranje fajlova gde možete proveriti da li je sve ažurirano korektno.',
+	'UPDATE_INSTRUCTIONS'			=> '
+	
+	<h1>Obaveštenje o izdanju</h1>
+	
+	<p>Molimo Vas da pričitate obaveštenje o izdanju za poslednju verziju pre nego što krenete na proces nadogradnje, jer sadrži korisne informacije. Takođe sadrži i potpune linkove za preuzimanje kao i log sa izmenama.</p>
+
+	<br />
+
+	<h1>Kako da nadogradite vašu instalaciju sa Full Package</h1>
+
+	<p>The recommended way of updating your installation is using the full package. If core phpBB files have been modified in your installation you may wish to use the advanced update package in order to not lose these changes. You are also able to update your installation using the other methods listed within the INSTALL.html document. The steps for updating phpBB3 using the full package are:</p>
+
+		<ol style="margin-left: 20px; font-size: 1.1em;">
+			<li><strong class="error">Backup all board files and the database.</strong></li>
+			<li>Go to the <a href="https://www.phpbb.com/downloads/" title="https://www.phpbb.com/downloads/">phpBB.com downloads page</a> and download the latest "Full Package" archive.</li>
+			<li>Unpack the archive.</li>
+			<li>Remove (delete) the <code class="inline">config.php</code> file, and the <code class="inline">/images</code>, <code class="inline">/store</code> and <code class="inline">/files</code> folders <em>from the package</em> (not your site).</li>
+			<li>Go to the ACP, Board settings, and make sure prosilver is set as the default style. If not, set it to prosilver.</li>
+			<li>Delete the <code class="inline">/vendor</code> and <code class="inline">/cache</code> folders from the board’s root folder on the host.</li>
+			<li>Via FTP or SSH upload the remaining files and folders (that is, the remaining CONTENTS of the phpBB3 folder) to the root folder of your board installation on the server, overwriting the existing files. (Note: take care not to delete any extensions in your <code class="inline">/ext</code> folder when uploading the new phpBB3 contents.)</li>
+			<li><strong><a href="%1$s" title="%1$s">Now start the update process by pointing your browser to the install folder</a>.</strong></li>
+			<li>Follow the steps to update the database and let that run to completion.</li>
+			<li>Via FTP or SSH delete the <code class="inline">/install</code> folder from the root of your board installation.<br><br></li>
+		</ol>
+
+		<p>You now have a new up to date board containing all your users and posts. Follow up tasks:</p>
+		<ul style="margin-left: 20px; font-size: 1.1em;">
+			<li>Update your language pack</li>
+			<li>Update your style<br><br></li>
+		</ul>
+
+		<h1>How to update your installation with the Advanced Update Package</h1>
+
+		<p>The advanced update package is only recommended for expert users in case core phpBB files have been modified in your installation. You are also able to update your installation using the methods listed within the INSTALL.html document. The steps for updating phpBB3 using the advanced update package are:</p>
+
+		<ol style="margin-left: 20px; font-size: 1.1em;">
+			<li>Go to the <a href="https://www.phpbb.com/downloads/" title="https://www.phpbb.com/downloads/">phpBB.com downloads page</a> and download the "Advanced Update Package" archive.</li>
+			<li>Unpack the archive.</li>
+			<li>Upload the complete uncompressed "install" and "vendor" folders to your phpBB root directory (where your config.php file is).<br><br></li>
+		</ol>
+
+		<p>Once uploaded your board will be offline for normal users due to the install directory you uploaded now being present.<br /><br />
+		<strong><a href="%1$s" title="%1$s">Now start the update process by pointing your browser to the install folder</a>.</strong><br />
+		<br />
+		You will then be guided through the update process. You will be notified once the update is complete.
+		</p>
+	',
+));
+
+// Updater forms
+$lang = array_merge($lang, array(
+	// Updater types
+	'UPDATE_TYPE'			=> 'Type of update to run',
+
+	'UPDATE_TYPE_ALL'		=> 'Update filesystem and database',
+	'UPDATE_TYPE_DB_ONLY'	=> 'Update database only',
+
+	// File updater methods
+	'UPDATE_FILE_METHOD_TITLE'		=> 'File updater methods',
+
+	'UPDATE_FILE_METHOD'			=> 'File updater method',
+	'UPDATE_FILE_METHOD_DOWNLOAD'	=> 'Download modified files in an archive',
+	'UPDATE_FILE_METHOD_FTP'		=> 'Update files via FTP (Automatic)',
+	'UPDATE_FILE_METHOD_FILESYSTEM'	=> 'Update files via direct file access (Automatic)',
+
+	// File updater archives
+	'SELECT_DOWNLOAD_FORMAT'	=> 'Izaberite format preuzimanja arhive',
+
+	// FTP settings
+	'FTP_SETTINGS'			=> 'FTP podešavanja',
+));
+
+// Requirements messages
+$lang = array_merge($lang, array(
+	'UPDATE_FILES_NOT_FOUND'	=> 'No valid update directory was found, please make sure you uploaded the relevant files.',
+
+	'NO_UPDATE_FILES_UP_TO_DATE'	=> 'Your version is up to date. There is no need to run the update tool. If you want to make an integrity check on your files make sure you uploaded the correct update files.',
+	'OLD_UPDATE_FILES'				=> 'Update files are out of date. The update files found are for updating from phpBB %1$s to phpBB %2$s but the latest version of phpBB is %3$s.',
+	'INCOMPATIBLE_UPDATE_FILES'		=> 'The update files found are incompatible with your installed version. Your installed version is %1$s and the update file is for updating phpBB %2$s to %3$s.',
+));
+
+// Update files
+$lang = array_merge($lang, array(
+	'STAGE_UPDATE_FILES'		=> 'Update files',
+
+	// Check files
+	'UPDATE_CHECK_FILES'	=> 'Check files to update',
+
+	// Update file differ
+	'FILE_DIFFER_ERROR_FILE_CANNOT_BE_READ'	=> 'The file differ failed to open %s.',
+
+	'UPDATE_FILE_DIFF'		=> 'Diffing changed files',
+	'ALL_FILES_DIFFED'		=> 'All modified files has been diffed.',
+
+	// File status
+	'UPDATE_CONTINUE_FILE_UPDATE'	=> 'Update files',
+
+	'DOWNLOAD'							=> 'Download',
+	'DOWNLOAD_CONFLICTS'				=> 'Download merge conflicts archive',
+	'DOWNLOAD_CONFLICTS_EXPLAIN'		=> 'Search for &lt;&lt;&lt; to spot conflicts',
+	'DOWNLOAD_UPDATE_METHOD'			=> 'Download modified files archive',
+	'DOWNLOAD_UPDATE_METHOD_EXPLAIN'	=> 'Once downloaded you should unpack the archive. You will find the modified files you need to upload to your phpBB root directory within it. Please upload the files to their respective locations then. After you have uploaded all files, you may continue with the update process.',
+
+	'FILE_ALREADY_UP_TO_DATE'		=> 'File is already up to date.',
+	'FILE_DIFF_NOT_ALLOWED'			=> 'File not allowed to be diffed.',
+	'FILE_USED'						=> 'Information used from',			// Single file
+	'FILES_CONFLICT'				=> 'Conflict files',
+	'FILES_CONFLICT_EXPLAIN'		=> 'The following files are modified and do not represent the original files from the old version. phpBB determined that these files create conflicts if they are tried to be merged. Please investigate the conflicts and try to manually resolve them or continue the update choosing the preferred merging method. If you resolve the conflicts manually check the files again after you modified them. You are also able to choose between the preferred merge method for every file. The first one will result in a file where the conflicting lines from your old file will be lost, the other one will result in losing the changes from the newer file.',
+	'FILES_DELETED'					=> 'Deleted files',
+	'FILES_DELETED_EXPLAIN'			=> 'The following files do not exist in the new version. These files have to be deleted from your installation.',
+	'FILES_MODIFIED'				=> 'Modified files',
+	'FILES_MODIFIED_EXPLAIN'		=> 'The following files are modified and do not represent the original files from the old version. The updated file will be a merge between your modifications and the new file.',
+	'FILES_NEW'						=> 'New files',
+	'FILES_NEW_EXPLAIN'				=> 'The following files currently do not exist within your installation. These files will be added to your installation.',
+	'FILES_NEW_CONFLICT'			=> 'New conflicting files',
+	'FILES_NEW_CONFLICT_EXPLAIN'	=> 'The following files are new within the latest version but it has been determined that there is already a file with the same name within the same position. This file will be overwritten by the new file.',
+	'FILES_NOT_MODIFIED'			=> 'Not modified files',
+	'FILES_NOT_MODIFIED_EXPLAIN'	=> 'The following files are not modified and represent the original phpBB files from the version you want to update from.',
+	'FILES_UP_TO_DATE'				=> 'Already updated files',
+	'FILES_UP_TO_DATE_EXPLAIN'		=> 'The following files are already up to date and do not need to be updated.',
+	'FILES_VERSION'					=> 'Files Version',
+	'TOGGLE_DISPLAY'				=> 'View/Hide file list',
+
+	// File updater
+	'UPDATE_UPDATING_FILES'	=> 'Updating files',
+
+	'UPDATE_FILE_UPDATER_HAS_FAILED'	=> 'File updater “%1$s“ has failed. The installer will try to fallback to “%2$s“.',
+	'UPDATE_FILE_UPDATERS_HAVE_FAILED'	=> 'The file updater failed. No further fallback methods are available.',
+
+	'UPDATE_CONTINUE_UPDATE_PROCESS'	=> 'Continue update process',
+	'UPDATE_RECHECK_UPDATE_FILES'		=> 'Check files again',
+));
+
+// Update database
+$lang = array_merge($lang, array(
+	'STAGE_UPDATE_DATABASE'		=> 'Update database',
+
+	'INLINE_UPDATE_SUCCESSFUL'		=> 'The database update was successful.',
+
+	'TASK_UPDATE_EXTENSIONS'	=> 'Updating extensions',
+));
+
+// Converter
+$lang = array_merge($lang, array(
+	// Common converter messages
+	'CONVERT_NOT_EXIST'			=> 'The specified convertor does not exist.',
+	'DEV_NO_TEST_FILE'			=> 'No value has been specified for the test_file variable in the convertor. If you are a user of this convertor, you should not be seeing this error, please report this message to the convertor author. If you are a convertor author, you must specify the name of a file which exists in the source board to allow the path to it to be verified.',
+	'COULD_NOT_FIND_PATH'		=> 'Could not find path to your former board. Please check your settings and try again.<br />» %s was specified as the source path.',
+	'CONFIG_PHPBB_EMPTY'		=> 'The phpBB3 config variable for “%s” is empty.',
+
+	'MAKE_FOLDER_WRITABLE'		=> 'Please make sure that this folder exists and is writable by the webserver then try again:<br />»<strong>%s</strong>.',
+	'MAKE_FOLDERS_WRITABLE'		=> 'Please make sure that these folders exist and are writable by the webserver then try again:<br />»<strong>%s</strong>.',
+
+	'INSTALL_TEST'				=> 'Test again',
+
+	'NO_TABLES_FOUND'			=> 'No tables found.',
+	'TABLES_MISSING'			=> 'Could not find these tables<br />» <strong>%s</strong>.',
+	'CHECK_TABLE_PREFIX'		=> 'Please check your table prefix and try again.',
+
+	// Conversion in progress
+	'CONTINUE_CONVERT'			=> 'Continue conversion',
+	'CONTINUE_CONVERT_BODY'		=> 'A previous conversion attempt has been determined. You are now able to choose between starting a new conversion or continuing the conversion.',
+	'CONVERT_NEW_CONVERSION'	=> 'New conversion',
+	'CONTINUE_OLD_CONVERSION'	=> 'Continue previously started conversion',
+
+	// Start conversion
+	'SUB_INTRO'					=> 'Introduction',
+	'CONVERT_INTRO'				=> 'Welcome to the phpBB Unified Convertor Framework',
+	'CONVERT_INTRO_BODY'		=> 'From here, you are able to import data from other (installed) board systems. The list below shows all the conversion modules currently available. If there is no convertor shown in this list for the board software you wish to convert from, please check our website where further conversion modules may be available for download.',
+	'AVAILABLE_CONVERTORS'		=> 'Available convertors',
+	'NO_CONVERTORS'				=> 'No convertors are available for use.',
+	'CONVERT_OPTIONS'			=> 'Options',
+	'SOFTWARE'					=> 'Board software',
+	'VERSION'					=> 'Version',
+	'CONVERT'					=> 'Convert',
+
+	// Settings
+	'STAGE_SETTINGS'			=> 'Settings',
+	'TABLE_PREFIX_SAME'			=> 'The table prefix needs to be the one used by the software you are converting from.<br />» Specified table prefix was %s.',
+	'DEFAULT_PREFIX_IS'			=> 'The convertor was not able to find tables with the specified prefix. Please make sure you have entered the correct details for the board you are converting from. The default table prefix for %1$s is <strong>%2$s</strong>.',
+	'SPECIFY_OPTIONS'			=> 'Specify conversion options',
+	'FORUM_PATH'				=> 'Board path',
+	'FORUM_PATH_EXPLAIN'		=> 'This is the <strong>relative</strong> path on disk to your former board from the <strong>root of this phpBB3 installation</strong>.',
+	'REFRESH_PAGE'				=> 'Refresh page to continue conversion',
+	'REFRESH_PAGE_EXPLAIN'		=> 'If set to yes, the convertor will refresh the page to continue the conversion after having finished a step. If this is your first conversion for testing purposes and to determine any errors in advance, we suggest to set this to No.',
+
+	// Conversion
+	'STAGE_IN_PROGRESS'			=> 'Conversion in progress',
+
+	'AUTHOR_NOTES'				=> 'Author notes<br />» %s',
+	'STARTING_CONVERT'			=> 'Starting conversion process',
+	'CONFIG_CONVERT'			=> 'Converting the configuration',
+	'DONE'						=> 'Done',
+	'PREPROCESS_STEP'			=> 'Executing pre-processing functions/queries',
+	'FILLING_TABLE'				=> 'Filling table <strong>%s</strong>',
+	'FILLING_TABLES'			=> 'Filling tables',
+	'DB_ERR_INSERT'				=> 'Error while processing <code>INSERT</code> query.',
+	'DB_ERR_LAST'				=> 'Error while processing <var>query_last</var>.',
+	'DB_ERR_QUERY_FIRST'		=> 'Error while executing <var>query_first</var>.',
+	'DB_ERR_QUERY_FIRST_TABLE'	=> 'Error while executing <var>query_first</var>, %s (“%s”).',
+	'DB_ERR_SELECT'				=> 'Error while running <code>SELECT</code> query.',
+	'STEP_PERCENT_COMPLETED'	=> 'Step <strong>%d</strong> of <strong>%d</strong>',
+	'FINAL_STEP'				=> 'Process final step',
+	'SYNC_FORUMS'				=> 'Starting to synchronise forums',
+	'SYNC_POST_COUNT'			=> 'Synchronising post_counts',
+	'SYNC_POST_COUNT_ID'		=> 'Synchronising post_counts from <var>entry</var> %1$s to %2$s.',
+	'SYNC_TOPICS'				=> 'Starting to synchronise topics',
+	'SYNC_TOPIC_ID'				=> 'Synchronising topics from <var>topic_id</var> %1$s to %2$s.',
+	'PROCESS_LAST'					=> 'Processing last statements',
+	'UPDATE_TOPICS_POSTED'		=> 'Generating topics posted information',
+	'UPDATE_TOPICS_POSTED_ERR'	=> 'An error occurred while generating topics posted information. You can retry this step in the ACP after the conversion process is completed.',
+	'CONTINUE_LAST'				=> 'Continue last statements',
+	'CLEAN_VERIFY'				=> 'Cleaning up and verifying the final structure',
+	'NOT_UNDERSTAND'			=> 'Could not understand %s #%d, table %s (“%s”)',
+	'NAMING_CONFLICT'			=> 'Naming conflict: %s and %s are both aliases<br /><br />%s',
+
+	// Finish conversion
+	'CONVERT_COMPLETE'			=> 'Conversion completed',
+	'CONVERT_COMPLETE_EXPLAIN'	=> 'You have now successfully converted your board to phpBB 3.3. You can now login and <a href="../">access your board</a>. Please ensure that the settings were transferred correctly before enabling your board by deleting the install directory. Remember that help on using phpBB is available online via the <a href="https://www.phpbb.com/support/docs/en/3.3/ug/">Documentation</a> and the <a href="https://www.phpbb.com/community/viewforum.php?f=661">support forums</a>.',
+
+	'CONV_ERROR_ATTACH_FTP_DIR'			=> 'FTP slanje prikačenih fajlova je uključeno na starom boardu. Molimo vas da prekopirate sve prikačene fajlove u određeni direktorijum, isključite ftp slanje i proverite da je izabran ispravan direktorijum za slanje. Ako ste ovo uradili, restartujte konvertor.',
+	'CONV_ERROR_CONFIG_EMPTY'			=> 'Nema konfiguracione informacije za konverziju.',
+	'CONV_ERROR_FORUM_ACCESS'			=> 'Ne mogu da dobijem informaciju o pristupu forumu.',
+	'CONV_ERROR_GET_CATEGORIES'			=> 'Ne mogu da dobijem kategorije.',
+	'CONV_ERROR_GET_CONFIG'				=> 'Ne mogu da dobijem configuraciju vašeg foruma.',
+	'CONV_ERROR_COULD_NOT_READ'			=> 'Ne mogu da pristupim/pročitam "%s".',
+	'CONV_ERROR_GROUP_ACCESS'			=> 'Ne mogu da dobijem informacije o autorizaciji grupe.',
+	'CONV_ERROR_INCONSISTENT_GROUPS'	=> 'Nekonsistencija u tabeli sa grupama detektovana u add_bots() - moraćete da dodate sve specijalne grupeo ako to uradite manuelno.',
+	'CONV_ERROR_INSERT_BOT'				=> 'Ne mogu da dodam bot-a u tabelu korisnika.',
+	'CONV_ERROR_INSERT_BOTGROUP'		=> 'Ne mogu da dodam bota u bots tabelu.',
+	'CONV_ERROR_INSERT_USER_GROUP'		=> 'Ne mogu da ubacim korisnika u user_group tabelu.',
+	'CONV_ERROR_MESSAGE_PARSER'			=> 'Greška u prosleđivaču poruka',
+	'CONV_ERROR_NO_AVATAR_PATH'			=> 'Za developere: morate odrediti $convertor[\'avatar_path\'] da bi koristili %s.',
+	'CONV_ERROR_NO_FORUM_PATH'			=> 'Relativna putanja do foruma nie određena.',
+	'CONV_ERROR_NO_GALLERY_PATH'		=> 'Za developere: morate odrediti $convertor[\'avatar_gallery_path\'] da bi koristili %s.',
+	'CONV_ERROR_NO_GROUP'				=> 'Grupa "%1$s" ne može biti pronađena u %2$s.',
+	'CONV_ERROR_NO_RANKS_PATH'			=> 'Za developere: morate odrediti $convertor[\'ranks_path\'] da bi koristili %s.',
+	'CONV_ERROR_NO_SMILIES_PATH'		=> 'Za developere: morate odrediti $convertor[\'smilies_path\'] da bi koristili %s.',
+	'CONV_ERROR_NO_UPLOAD_DIR'			=> 'Za developere: morate odrediti $convertor[\'upload_dir\'] da bi koristili %s.',
+	'CONV_ERROR_PERM_SETTING'			=> 'Ne mogu da ubacim/ažuriram podešavanja dozvola.',
+	'CONV_ERROR_PM_COUNT'				=> 'Ne mogu da izaberem folder pm count.',
+	'CONV_ERROR_REPLACE_CATEGORY'		=> 'Ne mogu da ubacim nov forum menjajući staru kategoriju.',
+	'CONV_ERROR_REPLACE_FORUM'			=> 'Ne mogu da ubacim nov forum menjajući stari forum.',
+	'CONV_ERROR_USER_ACCESS'			=> 'Ne mogu da dobijem informaciju o autorijaciji korisnika.',
+	'CONV_ERROR_WRONG_GROUP'			=> 'Pogrešna grupa "%1$s" definisana u %2$s.',
+	'CONV_OPTIONS_BODY'					=> 'Ova stranica sakuplja podatke neophodne za pristup izvoru boarda. Unesite detalje o bazi vašeg bivšeg boarda; konverter neće izmeniti ništa u bazi. Izvorni board bi trebalo onemogućiti da bi se omogućila nesmetana konverzija.',
+	'CONV_SAVED_MESSAGES'				=> 'Sačuvane poruke',
+
+	'PRE_CONVERT_COMPLETE'			=> 'All pre-conversion steps have successfully been completed. You may now begin the actual conversion process. Please note that you may have to manually do and adjust several things. After conversion, especially check the permissions assigned, rebuild your search index which is not converted and also make sure files got copied correctly, for example avatars and smilies.',
 ));

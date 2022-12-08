@@ -41,16 +41,15 @@ $lang = array_merge($lang, array(
 	'ACP_LANGUAGE_PACKS_EXPLAIN'	=> 'Ovde možete da instalirate/uklonite jezičke pakete',
 
 	'DELETE_LANGUAGE_CONFIRM'		=> 'Da li ste sigurni da želite da obrišete “%s”?',
-	
-	
+		
 	'INSTALLED_LANGUAGE_PACKS'	=> 'Instalirani jezički paketi',
 	
 	'LANGUAGE_DETAILS_UPDATED'			=> 'Detlji jezika su uspešno ažurirani.',
 	'LANGUAGE_PACK_ALREADY_INSTALLED'	=> 'Ovaj jezički paket je već instaliran.',
-	'LANGUAGE_PACK_CPF_UPDATE'			=> 'Proizvoljna polja za profil su kopirana iz podrazmevanog jezika. Molimo vas da ih promenite ukoliko je potrebno.',
 	'LANGUAGE_PACK_DELETED'				=> '<strong>%s</strong> jezički paket je uspešno uklonjen. Svi korisnici koji su koristilo ovaj jezik su resetovani i postavljen im je podrazumevani jezik board-a.',
 	'LANGUAGE_PACK_DETAILS'				=> 'Detalji jezičkog paketa',
 	'LANGUAGE_PACK_INSTALLED'			=> '<strong>%s</strong> jezički paket je uspešno instaliran.',
+	'LANGUAGE_PACK_CPF_UPDATE'			=> 'Proizvoljna polja za profil su kopirana iz podrazmevanog jezika. Molimo vas da ih promenite ukoliko je potrebno.',
 	'LANGUAGE_PACK_ISO'					=> 'ISO',
 	'LANGUAGE_PACK_LOCALNAME'			=> 'Lokalni naziv',
 	'LANGUAGE_PACK_NAME'				=> 'Naziv',
@@ -69,11 +68,9 @@ $lang = array_merge($lang, array(
 	'NO_LANG_ID'					=> 'Niste izabrali jezički paket.',
 	'NO_REMOVE_DEFAULT_LANG'		=> 'Ne možete ukloniti podrazumevani jezički paket.<br />Ako želite da uklonite ovaj jezički paket, prvo promenite podrazumevani jezik board-a.',
 	'NO_UNINSTALLED_LANGUAGE_PACKS'	=> 'Nema uklonjenih jezičkih paketa',
-
 	
 	'THOSE_MISSING_LANG_FILES'			=> 'Sledeći jezički fajlovi nedostaju u %s jezičkom direktorijumu',
 	'THOSE_MISSING_LANG_VARIABLES'		=> 'Sledeće promenljive jezičkih fajlova nedostaju u <strong>%s</strong> jezičkom paketom',
-
 
 	'UNINSTALLED_LANGUAGE_PACKS'	=> 'uklonjeni jezički fajlovi',
 

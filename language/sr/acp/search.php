@@ -1,13 +1,8 @@
 <?php
 /**
 *
-
 * This file is part of the phpBB Forum Software package.
 *
-
-
-
-
 * @copyright (c) phpBB Limited <https://www.phpbb.com>
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
@@ -23,6 +18,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
@@ -53,26 +49,18 @@ $lang = array_merge($lang, array(
 	'CONTINUE_INDEXING_EXPLAIN'				=> 'Proces indeksiranja je počeo. Da bi pristupili stranici za pretragu morate da završite ovaj proces.',
 	'CREATE_INDEX'							=> 'Napravi indeks',
 
+	'DEFAULT_SEARCH_RETURN_CHARS'			=> 'Podrazumevani broj karaktera',
+	'DEFAULT_SEARCH_RETURN_CHARS_EXPLAIN'	=> 'Podrazumevani broj karaktera koje će biti prikazani prilikom pretrage. Vrednost 0 će prikazati ceo post.',
 	'DELETE_INDEX'							=> 'Obriši indeks',
 	'DELETING_INDEX_IN_PROGRESS'			=> 'Brisanje indeksa u toku',
 	'DELETING_INDEX_IN_PROGRESS_EXPLAIN'	=> 'Bekend pretrage trenutno briše indeks. Ovo može potrajati nekoliko minuta.',
 
 	'FULLTEXT_MYSQL_INCOMPATIBLE_DATABASE'	=> 'MySQL fulltext backend može da se koristi samo sa MySQL4 i novijim.',
 	'FULLTEXT_MYSQL_NOT_SUPPORTED'			=> 'MySQL fulltext indeksiranje može da se koristi samo sa MyISAM ili InnoDB tabelama. MySQL 5.6.4 ili noviji je obavezan za fulltext indeksiranje na InnoDB tabelama.',
-	
-	
-	
-	
 	'FULLTEXT_MYSQL_TOTAL_POSTS'			=> 'Ukupni broj indeksiranih postova',
-	
-	
-	
-	
-	
-	
-	
 	'FULLTEXT_MYSQL_MIN_SEARCH_CHARS_EXPLAIN'	=> 'Reči od najmanje ovoliko karaktera će biti indeksirane za pretragu. Vi ili Vaš host možete promeniti ovo podešavanje samo ukoliko izmenite mysql konfiguraciju.',
 	'FULLTEXT_MYSQL_MAX_SEARCH_CHARS_EXPLAIN'	=> 'Reči od najmanje ovoliko karaktera će biti indeksirane za pretragu. Vi ili Vaš host možete promeniti ovo podešavanje samo ukoliko izmenite mysql konfiguraciju.',
+	
 	'FULLTEXT_POSTGRES_INCOMPATIBLE_DATABASE'	=> 'PostgreSQL fulltext backend može da se koristi samo sa PostgreSQL.',
 	'FULLTEXT_POSTGRES_TOTAL_POSTS'			=> 'Ukupan broj indeksiranih postova',
 	'FULLTEXT_POSTGRES_VERSION_CHECK'		=> 'PostgreSQL veryija',
@@ -130,7 +118,10 @@ $lang = array_merge($lang, array(
 		2	=> 'Trenutni stepen indeksiranja je otprilike %1$.1f posta u sekundi.<br />Indeksiranje u toku…',
 	),
 	'SEARCH_INDEX_DELETE_REDIRECT'			=> array(
-		2	=> 'Svi postovi do posta id %2$d su uklonjeni iz indeksa pretrage.<br />Brisanje u toku…',
+		2	=> 'Svi postovi do posta sa id %2$d su uklonjeni is indeksa pretrage, od čega %1$d postova su bili u ovom koraku.<br />',
+	),
+	'SEARCH_INDEX_DELETE_REDIRECT_RATE'		=> array(
+		2	=> 'Trenutni prosek brisanja je približno %1$.1f postova u sekundi.<br />Brisanje u toku…',
 	),
 	'SEARCH_INDEX_CREATED'					=> 'Uspešno su indeksirani svi postovi u bazi boarda.',
 	'SEARCH_INDEX_REMOVED'					=> 'Uspešno ste izbrisali indeks pretrage za ovaj bekend.',
